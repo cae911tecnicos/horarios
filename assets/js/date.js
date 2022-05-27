@@ -1,6 +1,8 @@
+export const iniciCiclo = new Date(2022, 0, 3);
+
 let numPositivo = [],
   numNegativo = [],
-  numSemana = [];  
+  numSemana = [];
 
 //Para saber el dia de la semana
 export const numeroDeSemana = (fecha) => {
@@ -72,4 +74,3 @@ export const diasSemana = (fecha) => {
 
   return semana;
 };
-//Fin  Funciones ================================================================

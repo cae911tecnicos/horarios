@@ -1,3 +1,5 @@
+//Estos  ciclos estan pensado para que una persona trabaje minimamente 3 veces por semana.
+// Cada ciclo dura un numero N de semanas, donde N es igual al numero de personal disponible.
 export const ciclo2 = [
   [1, 2, 1, 2, 1, 2, 2],
   [1, 2, 1, 2, 1, 2, 2],
