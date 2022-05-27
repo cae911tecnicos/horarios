@@ -22,6 +22,22 @@ export const secuenciaDias = (arrSemana, num) => {
     etiquetaSemana.append(diaSemana);
   }
 
+  const etiquetaManiana = document.querySelector(`#maniana${num}`);
+
+  for (let i = 0; i < 7; i++) {
+    const diaSemana = document.createElement("td");
+    diaSemana.innerText = arrSemana[i];
+    etiquetaManiana.append(diaSemana);
+  }
+
+  const etiquetaTarde = document.querySelector(`#tarde${num}`);
+
+  for (let i = 0; i < 7; i++) {
+    const diaSemana = document.createElement("td");
+    diaSemana.innerText = arrSemana[i];
+    etiquetaTarde.append(diaSemana);
+  }
+
   // inicio prueba--------------------
   /*   let prueba = ciclos(ciclo3, 3);
   let pruebaContador = 58;
