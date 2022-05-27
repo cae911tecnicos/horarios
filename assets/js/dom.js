@@ -34,7 +34,7 @@ export const secuenciaDias = (arrSemana, num) => {
 
   for (let i = 0; i < 7; i++) {
     const diaSemana = document.createElement("td");
-    diaSemana.innerText = arrSemana[i];
+    diaSemana.innerText = "hola";
     etiquetaTarde.append(diaSemana);
   }
 
