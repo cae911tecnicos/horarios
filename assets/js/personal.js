@@ -1,6 +1,32 @@
 import { hoy, formatFecha } from "./date.js";
 const fechaActual = formatFecha(hoy);
 
+// Funcion Lista del personal de la Division Area Tecnica:
+const listaPersonal = (personal) => {
+  let arr = [];
+  for (let i = 0; i < personal.length; i++) {
+    arr.push(personal[i].nombre);
+  }
+  return arr;
+};
+// Funcion para conocer la situacion de revista del personal
+const personalRevista = (personal) => {
+  let articulo = [];
+  let enServicio = [];
+  for (let i = 0; i < personal.length; i++) {
+    //arr.push(personal[i].nombre)
+    if (
+      personal[i].inicioSituacion <= fechaActual &&
+      personal[i].finSituacion >= fechaActual
+    ) {
+      articulo.push(personal[i]);
+    } else {
+      enServicio.push(personal[i]);
+    }
+  }
+  return [articulo, enServicio];
+};
+
 // inicio - PERSONAL DIVISION AREA TECNICA
 let personalTecnico = [
   {
@@ -8,7 +34,6 @@ let personalTecnico = [
     situacion: "Licencia",
     inicioSituacion: "14-03-2022",
     finSituacion: "2-5-2022",
-    
   },
   {
     nombre: "Gerometta M.",
@@ -30,31 +55,5 @@ let personalTecnico = [
   },
 ];
 
-/* console.log(personalTecnico[1].nombre);
-console.log(personalTecnico.length); */
-
-
-//Lista del personal de la Division Area Tecnica:
-const listaPersonal = (personal) => {
-  let arr = []
-  for(let i = 0; i < personal.length;i++){
-    arr.push(personal[i].nombre)
-  }
-  return arr
-}
+console.table(personalRevista(personalTecnico)[1]);
 // fin - DIVISION PERSONAL AREA TECNICA
-
-// Funcion para conocer la situacion de revista de cada personal
-const PersonalConArticulo = (personal) => {
-  let situacion = []
-  for(let i = 0; i < personal.length;i++){
-    //arr.push(personal[i].nombre)
-    if(personal[i].inicioSituacion <= fechaActual && personal[i].finSituacion >= fechaActual ){
-      situacion.push(personal[i])
-    }
-  }
-  return situacion
-}
-
-console.table(listaPersonal(personalTecnico))
-console.table(PersonalConArticulo(personalTecnico))
