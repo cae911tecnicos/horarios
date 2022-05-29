@@ -1,5 +1,8 @@
+// Fecha inicio de los ciclos
 export const iniciCiclo = new Date(2022, 0, 3);
+export const hoy = new Date();
 
+// Variables
 let numPositivo = [],
   numNegativo = [],
   numSemana = [];
@@ -24,7 +27,6 @@ export const numeroDeSemana = (fecha) => {
       DIAS_QUE_TIENE_UNA_SEMANA
   );
 };
-
 //Funcion para sumar dias de la semana
 export function sumarDias(fecha, dias) {
   fecha.setDate(fecha.getDate() + dias);
