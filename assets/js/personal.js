@@ -1,5 +1,4 @@
-import { hoy, formatFecha } from "./date.js";
-const fechaActual = formatFecha(hoy);
+import { fechaActual } from "./date.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
 const listaPersonal = (personal) => {
@@ -27,7 +26,7 @@ const personalRevista = (personal) => {
   return [articulo, enServicio];
 };
 
-// inicio - PERSONAL DIVISION AREA TECNICA
+// PERSONAL DIVISION AREA TECNICA
 let personalTecnico = [
   {
     nombre: "Saucedo F.",
@@ -55,5 +54,8 @@ let personalTecnico = [
   },
 ];
 
-console.table(personalRevista(personalTecnico)[1]);
-// fin - DIVISION PERSONAL AREA TECNICA
+let personalConArticulo = personalRevista(personalTecnico)[0];
+let personalEnServicio = personalRevista(personalTecnico)[1];
+
+console.table(personalEnServicio);
+console.table(personalConArticulo);

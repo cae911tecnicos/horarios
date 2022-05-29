@@ -76,3 +76,5 @@ export const diasSemana = (fecha) => {
 
   return semana;
 };
+
+export const fechaActual = formatFecha(hoy);
