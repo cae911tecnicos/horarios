@@ -45,6 +45,7 @@ export const rotacion = (arr, personal) => {
     b = b < personal ? b + 1 : b === personal ? 1 : 0;
 
     arr = `${a}${b}`;
+    arr = Number(arr)
 
     return arr;
   } else {
@@ -53,7 +54,6 @@ export const rotacion = (arr, personal) => {
     return arr;
   }
 };
-
 // Funcion para completar y generar los ciclos
 const ciclos = (ciclo, personal) => {
   for (let a = 0; a < 2; a++) {
