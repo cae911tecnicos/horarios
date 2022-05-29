@@ -57,5 +57,7 @@ let personalTecnico = [
 let personalConArticulo = personalRevista(personalTecnico)[0];
 let personalEnServicio = personalRevista(personalTecnico)[1];
 
+
+
 console.table(personalEnServicio);
 console.table(personalConArticulo);
