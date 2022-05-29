@@ -22,7 +22,14 @@ export const ciclo6 = [
   [56, 2, 1, 4, 13, 4, 4],
 ];
 
-// Funcion para completar los ciclos
+
+//---------------------------------
+export const cicloDelDia = (numero) => {
+  let parametros = `ciclo${numero},${numero}`
+  return rotacion(parametros);
+};
+
+//Funcion para generar la rotacion en las diferentes semanas
 export const rotacion = (arr, personal) => {
   arr = String(arr);
   if (arr.length === 2) {
@@ -47,11 +54,22 @@ export const rotacion = (arr, personal) => {
   }
 };
 
-//---------------------------------
-export const cicloDelDia = (numero) => {
-  let parametros = `ciclo${numero},${numero}`
-  return rotacion(parametros);
+// Funcion para completar los ciclos
+const ciclos = (ciclo, personal) => {
+  for (let a = 0; a < 2; a++) {
+    for (let i = 0; i < 7 * (personal - 1); i++) {
+/*       let prueba = ciclo[a][i];
+      let rotacion =
+        ciclo[a].slice()[i] < personal
+          ? ciclo[a].slice()[i] + 1
+          : (ciclo[a].slice()[i] = 1); */
+          let aRotar = ciclo[a][i]
+
+      ciclo[a].push(rotacion(aRotar, personal));
+    }
+  }
+
+  return ciclo;
 };
 
-//console.warn(cicloDelDia(numeroCiclo))
-console.warn(rotacion(ciclo6,6))
+console.log(ciclos(ciclo6, 6));
