@@ -1,4 +1,9 @@
-import { sumarDias, diasSemana, iniciCicloFormateado, girarFechaFormateada } from "./date.js";
+import {
+  sumarDias,
+  diasSemana,
+  iniciCicloFormateado,
+  diferenciaFecha,
+} from "./date.js";
 import { numeroCiclo } from "./personal.js";
 
 const semana0 = new Date(),
@@ -47,7 +52,7 @@ export const secuenciaDias = (arrSemana, num) => {
   const cicloDelDia = (numero) => {return `ciclo[${numero}], [${numero}]`};
   }
 
-  let cuentaDias = 58;
+  let cuentaDias = iniciCicloFormateado, arrSemana0[i]; // ejemplo: 58
   let arr = cicloDelDia;
 
   while (arr[1].length < cuentaDias) {
@@ -60,43 +65,7 @@ export const secuenciaDias = (arrSemana, num) => {
   // fin prueba--------------------
 };
 
-
-//---------------------------------
-const cicloDelDia = (numero) => {
-  return `ciclo[${numero}], [${numero}]`;
-};
-
-console.log(cicloDelDia(numeroCiclo));
 console.log(iniciCicloFormateado);
 console.log(arrSemana0[2]);
 
-//03-01-2022
-//25-05-2022
-
-
-//Funcion para saber la cantidad de dias que pasaron desde el comienzo del ciclo
-function diferenciaFecha(date1, date2) {
-  
-  const date1utc = Date.UTC(
-    date1.getFullYear(),
-    date1.getMonth(),
-    date1.getDate()
-  );
-  const date2utc = Date.UTC(
-    date2.getFullYear(),
-    date2.getMonth(),
-    date2.getDate()
-  );
-  const day = 1000 * 60 * 60 * 24;
-  return (date2utc - date1utc) / day;
-}
-
-let dia0 = girarFechaFormateada(iniciCicloFormateado)
-let dia1 = girarFechaFormateada(arrSemana0[2])
-console.log(dia0,dia1)
-
-const date1 = new Date(dia0),
-  date2 = new Date(dia1),
-  time_diferenciaFecha = diferenciaFecha(date1, date2);
-
-console.warn(time_diferenciaFecha);
+console.warn(diferenciaFecha(iniciCicloFormateado, arrSemana0[2]));

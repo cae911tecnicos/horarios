@@ -7,7 +7,7 @@ let numPositivo = [],
   numNegativo = [],
   numSemana = [];
 
-//Para saber el dia de la semana
+//Funcion para saber el dia de la semana
 export const numeroDeSemana = (fecha) => {
   const DIA_EN_MILISEGUNDOS = 1000 * 60 * 60 * 24,
     DIAS_QUE_TIENE_UNA_SEMANA = 7,
@@ -32,7 +32,7 @@ export function sumarDias(fecha, dias) {
   fecha.setDate(fecha.getDate() + dias);
   return fecha;
 }
-//Para Formatear fecha (envia un date y convierte en string ej.: 08-07-2022)
+//Funcion para Formatear fecha (envia un date y convierte en string ej.: 08-07-2022)
 export const fechaFormateada = (fecha) => {
   const anio = fecha.getFullYear(),
     numDia = String(fecha.getDate()).padStart(2, "0"),
@@ -44,7 +44,7 @@ export const fechaFormateada = (fecha) => {
 export const girarFechaFormateada = (fecha) => {
   return `${fecha.slice(6, 10)}-${fecha.slice(3, 5)}-${fecha.slice(0, 2)}`;
 };
-//Para saber saber los dias de la semana
+//Funcion para saber saber los dias de la semana
 export const diasSemana = (fecha) => {
   const actual = fechaFormateada(fecha);
   (numPositivo = []), (numNegativo = []), (numSemana = numeroDeSemana(fecha));
@@ -80,6 +80,24 @@ export const diasSemana = (fecha) => {
 
   return semana;
 };
+//Funcion para saber la cantidad de dias que pasaron desde el comienzo del ciclo
+export function diferenciaFecha(date1, date2) {
+  const fecha1 = new Date(girarFechaFormateada(date1)),
+    fecha2 = new Date(girarFechaFormateada(date2));
 
+  const date1utc = Date.UTC(
+    fecha1.getFullYear(),
+    fecha1.getMonth(),
+    fecha1.getDate()
+  );
+  const date2utc = Date.UTC(
+    fecha2.getFullYear(),
+    fecha2.getMonth(),
+    fecha2.getDate()
+  );
+  const day = 1000 * 60 * 60 * 24;
+  return (date2utc - date1utc) / day;
+}
 export const fechaActual = fechaFormateada(hoy);
+
 export const iniciCicloFormateado = fechaFormateada(iniciCiclo);

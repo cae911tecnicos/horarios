@@ -45,3 +45,8 @@ export const rotacion = (arr, personal) => {
     return arr;
   }
 };
+
+//---------------------------------
+export const cicloDelDia = (numero) => {
+  return `ciclo[${numero}], [${numero}]`;
+};
