@@ -54,15 +54,11 @@ export const rotacion = (arr, personal) => {
   }
 };
 
-// Funcion para completar los ciclos
+// Funcion para completar y generar los ciclos
 const ciclos = (ciclo, personal) => {
   for (let a = 0; a < 2; a++) {
     for (let i = 0; i < 7 * (personal - 1); i++) {
-/*       let prueba = ciclo[a][i];
-      let rotacion =
-        ciclo[a].slice()[i] < personal
-          ? ciclo[a].slice()[i] + 1
-          : (ciclo[a].slice()[i] = 1); */
+
           let aRotar = ciclo[a][i]
 
       ciclo[a].push(rotacion(aRotar, personal));
@@ -72,4 +68,4 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-console.log(ciclos(ciclo6, 6));
+console.table(ciclos(ciclo6, 6));
