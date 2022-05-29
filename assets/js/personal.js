@@ -1,7 +1,7 @@
 import { fechaActual } from "./date.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
-const listaPersonal = (personal) => {
+export const listaPersonal = (personal) => {
   let arr = [];
   for (let i = 0; i < personal.length; i++) {
     arr.push(personal[i].nombre);
@@ -9,7 +9,7 @@ const listaPersonal = (personal) => {
   return arr;
 };
 // Funcion para conocer la situacion de revista del personal
-const personalRevista = (personal) => {
+export const personalRevista = (personal) => {
   let articulo = [];
   let enServicio = [];
   for (let i = 0; i < personal.length; i++) {
@@ -54,10 +54,10 @@ let personalTecnico = [
   },
 ];
 
-let personalConArticulo = personalRevista(personalTecnico)[0];
-let personalEnServicio = personalRevista(personalTecnico)[1];
+export let personalConArticulo = personalRevista(personalTecnico)[0];
+export let personalEnServicio = personalRevista(personalTecnico)[1];
+export let numeroCiclo = personalEnServicio.length;
 
-
-
-console.table(personalEnServicio);
-console.table(personalConArticulo);
+//console.table(personalEnServicio);
+//console.table(personalConArticulo);
+//console.log(numeroCiclo);

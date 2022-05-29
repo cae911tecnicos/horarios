@@ -33,16 +33,20 @@ export function sumarDias(fecha, dias) {
   return fecha;
 }
 //Para Formatear fecha (envia un date y convierte en string ej.: 08-07-2022)
-export const formatFecha = (fecha) => {
+export const fechaFormateada = (fecha) => {
   const anio = fecha.getFullYear(),
     numDia = String(fecha.getDate()).padStart(2, "0"),
     numMes = String(fecha.getMonth() + 1).padStart(2, "0"),
     actual = `${numDia}-${numMes}-${anio}`;
   return actual;
 };
+//Funcion para girar la fecha formateada ej: de dd-mm-yyyy a yyy-mm-dd
+export const girarFechaFormateada = (fecha) => {
+  return `${fecha.slice(6, 10)}-${fecha.slice(3, 5)}-${fecha.slice(0, 2)}`;
+};
 //Para saber saber los dias de la semana
 export const diasSemana = (fecha) => {
-  const actual = formatFecha(fecha);
+  const actual = fechaFormateada(fecha);
   (numPositivo = []), (numNegativo = []), (numSemana = numeroDeSemana(fecha));
 
   for (let i = 0; i < 7; i++) {
@@ -50,7 +54,7 @@ export const diasSemana = (fecha) => {
       positivoNumDiaSemana = numeroDeSemana(fecha);
 
     if (numSemana === positivoNumDiaSemana) {
-      numPositivo[i] = formatFecha(positivo);
+      numPositivo[i] = fechaFormateada(positivo);
     }
   }
 
@@ -59,7 +63,7 @@ export const diasSemana = (fecha) => {
       negativoNumDiaSemana = numeroDeSemana(fecha);
 
     if (numSemana === negativoNumDiaSemana) {
-      numNegativo[i] = formatFecha(negativo);
+      numNegativo[i] = fechaFormateada(negativo);
     }
   }
 
@@ -77,4 +81,5 @@ export const diasSemana = (fecha) => {
   return semana;
 };
 
-export const fechaActual = formatFecha(hoy);
+export const fechaActual = fechaFormateada(hoy);
+export const iniciCicloFormateado = fechaFormateada(iniciCiclo);
