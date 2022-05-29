@@ -1,3 +1,4 @@
+import { numeroCiclo } from "./personal.js";
 //Estos  ciclos estan pensado para que una persona trabaje minimamente 3 veces por semana.
 // Cada ciclo dura un numero N de semanas, donde N es igual al numero de personal disponible.
 export const ciclo2 = [
@@ -48,5 +49,9 @@ export const rotacion = (arr, personal) => {
 
 //---------------------------------
 export const cicloDelDia = (numero) => {
-  return `ciclo[${numero}], [${numero}]`;
+  let parametros = `ciclo${numero},${numero}`
+  return rotacion(parametros);
 };
+
+//console.warn(cicloDelDia(numeroCiclo))
+console.warn(rotacion(ciclo6,6))

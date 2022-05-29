@@ -4,7 +4,7 @@ import {
   iniciCicloFormateado,
   diferenciaFecha,
 } from "./date.js";
-import { numeroCiclo } from "./personal.js";
+
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -65,7 +65,4 @@ export const secuenciaDias = (arrSemana, num) => {
   // fin prueba--------------------
 };
 
-console.log(iniciCicloFormateado);
-console.log(arrSemana0[2]);
-
-console.warn(diferenciaFecha(iniciCicloFormateado, arrSemana0[2]));
+console.log(diferenciaFecha(iniciCicloFormateado, arrSemana0[2]));
