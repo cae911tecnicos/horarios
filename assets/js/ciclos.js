@@ -24,10 +24,7 @@ export const ciclo6 = [
 
 
 //---------------------------------
-export const cicloDelDia = (numero) => {
-  let parametros = `ciclo${numero},${numero}`
-  return rotacion(parametros);
-};
+
 
 //Funcion para generar la rotacion en las diferentes semanas
 export const rotacion = (arr, personal) => {
@@ -68,4 +65,18 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-console.table(ciclos(ciclo6, 6));
+export const cicloDelDia = (numero) => {
+  let ciclo = 
+  numero == 6 ? ciclos(ciclo6,6):
+  numero == 5 ? ciclos(ciclo5,5): 
+  numero == 4 ? ciclos(ciclo4,4): 
+  numero == 3 ? ciclos(ciclo3,3):
+  numero == 2 ? ciclos(ciclo3,2): 'No existe ese ciclo';
+  return ciclo
+};
+
+
+console.warn(cicloDelDia(6));
+
+
+console.log(ciclos(ciclo6,6))
