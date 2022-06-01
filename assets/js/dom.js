@@ -3,6 +3,7 @@ import {
   diasSemana,
   iniciCicloFormateado,
   diferenciaFecha,
+  hoy,
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
@@ -25,8 +26,9 @@ export const arrSemana3 = diasSemana(sumarDias(semana3, 21));
 export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
 // Funcion para reemplazar Numero de ciclo por la lista del personal
-const numeroXpersonal = (numero) => {
-  let cantidadPersonal = listaOrdenPersonal(personalTecnico);
+const numeroXpersonal = (numero, fecha) => {
+  let personal = personalRevista(personalTecnico, fecha)[1];
+  let cantidadPersonal = listaOrdenPersonal(personal, fecha);
 
   let str = String(numero),
     strA,
@@ -87,7 +89,7 @@ export const secuenciaDias = (arrSemana, num) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let campoManiana = determinaCicloDelDia(fechaDelDia)[0];
-    campoManiana = numeroXpersonal(campoManiana);
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia);
     const diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
@@ -97,11 +99,14 @@ export const secuenciaDias = (arrSemana, num) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let campoTarde = determinaCicloDelDia(fechaDelDia)[1];
-    campoTarde = numeroXpersonal(campoTarde);
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia);
     const diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
   }
 };
 
-console.log(numeroXpersonal(12));
+//console.log(numeroXpersonal(12));
+console.warn("determina la cantidad de personal que hay en el dia");
+let y = personalRevista(personalTecnico, "30-05-2022")[1];
+console.table(y);
