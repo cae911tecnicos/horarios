@@ -6,7 +6,11 @@ import {
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-import { personalRevista, personalTecnico, listaOrdenPersonal } from "./personal.js";
+import {
+  personalRevista,
+  personalTecnico,
+  listaOrdenPersonal,
+} from "./personal.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -22,24 +26,28 @@ export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero) => {
-  let cantidadPersonal = listaOrdenPersonal(personalTecnico)
-  numero = numero -1
-  numero = cantidadPersonal[numero].nombre
-  return numero
+  let cantidadPersonal = listaOrdenPersonal(personalTecnico);
 
-
-  /* let str = String(numero),
-    a,
-    b;
+  let str = String(numero),
+    strA,
+    strB,
+    numA,
+    numB;
   if (str.length == 2) {
-    a = str[0];
-    b = str[1];
-  } else a = str[0];
-    a = Number(a)
-    b = Number(b)
-
-
-  return a; */
+    strA = str[0]; // 1
+    strB = str[1]; // 2
+    numA = Number(strA);
+    numB = Number(strB);
+    numA = numA - 1;
+    numA = cantidadPersonal[numA].apellido;
+    numB = numB - 1;
+    numB = cantidadPersonal[numB].apellido;
+    numero = `${numA}\n${numB}`;
+  } else {
+    numero = numero - 1;
+    numero = cantidadPersonal[numero].apellido;
+  }
+  return numero;
 };
 
 // Funcion Crear secuencias de Dias
@@ -78,8 +86,10 @@ export const secuenciaDias = (arrSemana, num) => {
   const etiquetaManiana = document.querySelector(`#maniana${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
+    let campoManiana = determinaCicloDelDia(fechaDelDia)[0];
+    campoManiana = numeroXpersonal(campoManiana);
     const diaSemana = document.createElement("td");
-    diaSemana.innerText = determinaCicloDelDia(fechaDelDia)[0];
+    diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
   }
   // Determina el turno de la tarde
@@ -87,10 +97,11 @@ export const secuenciaDias = (arrSemana, num) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let campoTarde = determinaCicloDelDia(fechaDelDia)[1];
+    campoTarde = numeroXpersonal(campoTarde);
     const diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
   }
 };
 
-console.log(numeroXpersonal(1));
+console.log(numeroXpersonal(12));
