@@ -1,4 +1,4 @@
-import { numeroCiclo } from "./personal.js";
+//import { numeroCiclo } from "./personal.js";
 //Estos  ciclos estan pensado para que una persona trabaje minimamente 3 veces por semana.
 // Cada ciclo dura un numero N de semanas, donde N es igual al numero de personal disponible.
 export const ciclo2 = [
@@ -22,9 +22,7 @@ export const ciclo6 = [
   [56, 2, 1, 4, 13, 4, 4],
 ];
 
-
 //---------------------------------
-
 
 //Funcion para generar la rotacion en las diferentes semanas
 export const rotacion = (arr, personal) => {
@@ -42,7 +40,7 @@ export const rotacion = (arr, personal) => {
     b = b < personal ? b + 1 : b === personal ? 1 : 0;
 
     arr = `${a}${b}`;
-    arr = Number(arr)
+    arr = Number(arr);
 
     return arr;
   } else {
@@ -55,8 +53,7 @@ export const rotacion = (arr, personal) => {
 const ciclos = (ciclo, personal) => {
   for (let a = 0; a < 2; a++) {
     for (let i = 0; i < 7 * (personal - 1); i++) {
-
-          let aRotar = ciclo[a][i]
+      let aRotar = ciclo[a][i];
 
       ciclo[a].push(rotacion(aRotar, personal));
     }
@@ -66,12 +63,17 @@ const ciclos = (ciclo, personal) => {
 };
 
 export const cicloDelDia = (numero) => {
-  let ciclo = 
-  numero == 6 ? ciclos(ciclo6,6):
-  numero == 5 ? ciclos(ciclo5,5): 
-  numero == 4 ? ciclos(ciclo4,4): 
-  numero == 3 ? ciclos(ciclo3,3):
-  numero == 2 ? ciclos(ciclo3,2): 'No existe ese ciclo';
-  return ciclo
+  let ciclo =
+    numero == 6
+      ? ciclos(ciclo6, 6)
+      : numero == 5
+      ? ciclos(ciclo5, 5)
+      : numero == 4
+      ? ciclos(ciclo4, 4)
+      : numero == 3
+      ? ciclos(ciclo3, 3)
+      : numero == 2
+      ? ciclos(ciclo3, 2)
+      : "No existe ese ciclo";
+  return ciclo;
 };
-

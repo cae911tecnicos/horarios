@@ -6,7 +6,7 @@ import {
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-import { personalRevista,personalTecnico } from "./personal.js";
+import { personalRevista, personalTecnico } from "./personal.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -26,8 +26,9 @@ export const secuenciaDias = (arrSemana, num) => {
   // Funcion que determina que ciclo que tiene el dia
   const determinaCicloDelDia = (fecha) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-    let personalEnServicio = personalRevista(personalTecnico,fecha)[1];
-    //console.log(personalEnServicio.length,fecha )
+    let personalEnServicio = personalRevista(personalTecnico, fecha)[1];
+    console.warn(personalEnServicio.length, fecha);
+
     let arr = cicloDelDia(personalEnServicio.length);
 
     while (arr[0].length < cuentaDias) {
@@ -60,7 +61,7 @@ export const secuenciaDias = (arrSemana, num) => {
     etiquetaManiana.append(diaSemana);
   }
   // Determina el turno de la tarde
-  
+
   const etiquetaTarde = document.querySelector(`#tarde${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];

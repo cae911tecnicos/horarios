@@ -103,14 +103,14 @@ export const fechaActual = fechaFormateada(hoy);
 export const iniciCicloFormateado = fechaFormateada(iniciCiclo);
 
 export const stringToDate = (fecha) => {
-  let anio = fecha.substring(6,10),
-  mes = fecha.substring(3,5),
-  dia = fecha.substring(0,2),
-  partes = `${anio}-${mes}-${dia}`
+  let anio = fecha.substring(6, 10),
+    mes = fecha.substring(3, 5),
+    dia = fecha.substring(0, 2),
+    partes = `${anio}-${mes}-${dia}`;
 
-  partes = partes.split('-'); //'2014-04-03'
+  partes = partes.split("-"); //'2014-04-03'
   // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
   // January - 0, February - 1, etc.
-  let mydate = new Date(partes[0], partes[1] - 1, partes[2]);
-  return mydate.toDateString();
-}
+  let date = new Date(partes[0], partes[1] - 1, partes[2]);
+  return date;
+};
