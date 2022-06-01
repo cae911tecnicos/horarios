@@ -27,7 +27,7 @@ export const secuenciaDias = (arrSemana, num) => {
   const determinaCicloDelDia = (fecha) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
     let personalEnServicio = personalRevista(personalTecnico, fecha)[1];
-    console.warn(personalEnServicio.length, fecha);
+    //console.warn(personalEnServicio.length, fecha);
 
     let arr = cicloDelDia(personalEnServicio.length);
 
