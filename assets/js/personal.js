@@ -1,4 +1,4 @@
-import { fechaActual } from "./date.js";
+import { fechaActual, fechaFormateada } from "./date.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
 export const listaPersonal = (personal) => {
@@ -9,14 +9,14 @@ export const listaPersonal = (personal) => {
   return arr;
 };
 // Funcion para conocer la situacion de revista del personal
-export const personalRevista = (personal) => {
+export const personalRevista = (personal, fecha) => {
   let articulo = [];
   let enServicio = [];
   for (let i = 0; i < personal.length; i++) {
     //arr.push(personal[i].nombre)
     if (
-      personal[i].inicioSituacion <= fechaActual &&
-      personal[i].finSituacion >= fechaActual
+      personal[i].inicioSituacion <= fecha &&
+      personal[i].finSituacion >= fecha
     ) {
       articulo.push(personal[i]);
     } else {
@@ -27,7 +27,7 @@ export const personalRevista = (personal) => {
 };
 
 // PERSONAL DIVISION AREA TECNICA
-let personalTecnico = [
+export let personalTecnico = [
   {
     nombre: "Saucedo F.",
     situacion: "Licencia",
@@ -54,12 +54,18 @@ let personalTecnico = [
   },
 ];
 
-export let personalConArticulo = personalRevista(personalTecnico)[0];
-export let personalEnServicio = personalRevista(personalTecnico)[1];
+let fechaAleatorio = fechaFormateada(new Date(2022, 6, 5)) // 05-06-2022
+console.log(fechaAleatorio)
+let s = personalTecnico[1].inicioSituacion
+console.warn(s)
+
+export let personalConArticulo = personalRevista(personalTecnico,fechaActual)[0];
+export let personalEnServicio = personalRevista(personalTecnico,fechaAleatorio)[1];
 export let numeroCiclo = personalEnServicio.length;
 
-//console.table(personalEnServicio);
+//console.warn(personalEnServicio.length, fechaActual);
 //console.table(personalConArticulo);
-//console.log(numeroCiclo);
+// 
+// console.warn(personalEnServicio.length)
 
-console.warn(personalEnServicio.length)
+
