@@ -61,3 +61,5 @@ export let numeroCiclo = personalEnServicio.length;
 //console.table(personalEnServicio);
 //console.table(personalConArticulo);
 //console.log(numeroCiclo);
+
+console.warn(personalEnServicio.length)

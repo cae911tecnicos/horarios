@@ -75,8 +75,3 @@ export const cicloDelDia = (numero) => {
   return ciclo
 };
 
-
-console.warn(cicloDelDia(6));
-
-
-console.log(ciclos(ciclo6,6))
