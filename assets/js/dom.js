@@ -61,7 +61,6 @@ export const secuenciaDias = (arrSemana, num) => {
     etiquetaManiana.append(diaSemana);
   }
   // Determina el turno de la tarde
-
   const etiquetaTarde = document.querySelector(`#tarde${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];

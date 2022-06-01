@@ -22,8 +22,6 @@ export const personalRevista = (personal, fecha) => {
       enServicio.push(personal[i]);
     }
   }
-  //console.warn(`fecha ${date}`);
-  //console.log(`inicio de licencia ${stringToDate(personal[3].inicioSituacion)}, fin de liencia ${stringToDate(personal[3].finSituacion)}`);
 
   return [articulo, enServicio];
 };
@@ -55,10 +53,3 @@ export let personalTecnico = [
     finSituacion: "01-05-2022",
   },
 ];
-
-//export let personalConArticulo = personalRevista(personalTecnico,fechaActual)[0];
-//export let personalEnServicio = personalRevista(personalTecnico,fechaActual)[1];
-//export let numeroCiclo = personalEnServicio.length;
-
-//let x = personalRevista(personalTecnico, "23-04-2022")[0];
-//console.table(x);

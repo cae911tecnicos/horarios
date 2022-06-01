@@ -1,4 +1,3 @@
-//import { numeroCiclo } from "./personal.js";
 //Estos  ciclos estan pensado para que una persona trabaje minimamente 3 veces por semana.
 // Cada ciclo dura un numero N de semanas, donde N es igual al numero de personal disponible.
 export const ciclo2 = [
@@ -21,8 +20,6 @@ export const ciclo6 = [
   [12, 34, 56, 32, 56, 4, 4],
   [56, 2, 1, 4, 13, 4, 4],
 ];
-
-//---------------------------------
 
 //Funcion para generar la rotacion en las diferentes semanas
 export const rotacion = (arr, personal) => {
