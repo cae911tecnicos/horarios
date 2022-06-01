@@ -30,8 +30,8 @@ export const personalRevista = (personal, fecha) => {
 export const listaOrdenPersonal = (personal) => {
   personal.sort(
     (a, b) =>
-      new Date(stringToDate(a.finSituacion)).getTime() -
-      new Date(stringToDate(b.finSituacion)).getTime()
+      new Date(stringToDate(b.finSituacion)).getTime() -
+      new Date(stringToDate(a.finSituacion)).getTime()
   );
   return personal;
 };
@@ -39,25 +39,29 @@ export const listaOrdenPersonal = (personal) => {
 // PERSONAL DIVISION AREA TECNICA
 export let personalTecnico = [
   {
-    nombre: "Saucedo F.",
+    nombre: "Fernando",
+    apellido: "Saucedo",
     situacion: "Licencia",
     inicioSituacion: "14-03-2022",
     finSituacion: "02-04-2022",
   },
   {
-    nombre: "Knuttzen G.",
+    nombre: "Gabriel",
+    apellido: "Knuttzen",
     situacion: "Licencia",
     inicioSituacion: "03-05-2022",
     finSituacion: "30-05-2022",
   },
   {
-    nombre: "Garigliano M.",
+    nombre: "Milton",
+    apellido: "Gerometta",
     situacion: "Licencia",
     inicioSituacion: "18-02-2022",
     finSituacion: "05-04-2022",
   },
   {
-    nombre: "Gerometta M.",
+    nombre: "Mauricio",
+    apellido: "Garigliano",
     situacion: "Licencia",
     inicioSituacion: "22-04-2022",
     finSituacion: "01-05-2022",
@@ -66,5 +70,3 @@ export let personalTecnico = [
 
 console.table(listaOrdenPersonal(personalTecnico));
 
-//let a  = personalTecnico[1].finSituacion
-//console.log(stringToDate(a))
