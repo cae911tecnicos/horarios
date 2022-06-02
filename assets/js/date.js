@@ -109,8 +109,6 @@ export const stringToDate = (fecha) => {
     partes = `${anio}-${mes}-${dia}`;
 
   partes = partes.split("-"); //'2014-04-03'
-  // Please pay attention to the month (parts[1]); JavaScript counts months from 0:
-  // January - 0, February - 1, etc.
   let date = new Date(partes[0], partes[1] - 1, partes[2]);
   return date;
 };
