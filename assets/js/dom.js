@@ -82,6 +82,7 @@ export const secuenciaDias = (arrSemana, num) => {
     const diaSemana = document.createElement("td");
     diaSemana.innerText = arrSemana[i];
     etiquetaSemana.append(diaSemana);
+    diaSemana.className = "fecha";
   }
 
   // Determina el turno de la mañana
