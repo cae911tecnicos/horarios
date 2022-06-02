@@ -69,7 +69,7 @@ export let personalTecnico = [
     inicioSituacion: "14-03-2022",
     finSituacion: "02-04-2022",
     // prueba
-/*     inicioSituacion: "02-08-2022",
+/*     inicioSituacion: "02-06-2022",
     finSituacion: "20-08-2022", */
   },
   {
