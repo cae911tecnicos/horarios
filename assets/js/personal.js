@@ -26,9 +26,32 @@ export const personalRevista = (personal, fecha) => {
   return [articulo, enServicio];
 };
 
+export const prueba = (personal, fecha) => {
+  let arr = [];
+  for (let i = 0; i < personal.length; i++) {
+    let fin = stringToDate(personal[i].finSituacion);
+    let date = stringToDate(fecha);
+    if (date.getTime() < fin.getTime() ) {
+      arr.push(personal[i]);
+    } 
+  }
+
+  return arr;
+};
+
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia
 export const listaOrdenPersonal = (personal, fecha) => {
-  personal.sort(
+
+  let arr = [];
+  for (let i = 0; i < personal.length; i++) {
+    let fin = stringToDate(personal[i].finSituacion);
+    let date = stringToDate(fecha);
+    if (date.getTime() >= fin.getTime() ) {
+      arr.push(personal[i]);
+    } 
+  }
+  
+  arr.sort(
     (a, b) =>
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
@@ -72,5 +95,6 @@ export let personalTecnico = [
   },
 ];
 
-console.table(listaOrdenPersonal(personalTecnico,"23-04-2022"));
-
+console.table(listaOrdenPersonal(personalTecnico,"31-04-2022"));
+console.log("31-04-2022")
+console.table(prueba(personalTecnico,"31-04-2022"));
