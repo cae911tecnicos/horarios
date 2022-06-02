@@ -105,8 +105,3 @@ export const secuenciaDias = (arrSemana, num) => {
     etiquetaTarde.append(diaSemana);
   }
 };
-
-//console.log(numeroXpersonal(12));
-console.warn("determina la cantidad de personal que hay en el dia");
-let y = personalRevista(personalTecnico, "30-05-2022")[1];
-console.table(y);
