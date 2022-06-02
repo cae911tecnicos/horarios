@@ -94,6 +94,7 @@ export const secuenciaDias = (arrSemana, num) => {
     const diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
+    diaSemana.className = "maniana";
   }
   // Determina el turno de la tarde
   const etiquetaTarde = document.querySelector(`#tarde${num}`);
@@ -104,5 +105,6 @@ export const secuenciaDias = (arrSemana, num) => {
     const diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
+    diaSemana.className = "tarde";
   }
 };

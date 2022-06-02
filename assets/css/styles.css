@@ -1,4 +1,31 @@
 .fecha {
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.maniana,
+.tarde {
+    text-align: center;
+    background-color: rgb(225, 231, 241) !important;
+    color: rgb(0, 0, 0);
+}
+
+thead,
+tbody {
+    text-align: center;
+}
+
+table {
+    border-color: rgb(255, 255, 255) !important;
+}
+
+thead>tr {
+    background-color: white !important;
+}
+
+tbody>tr {
+    background-color: rgb(200, 222, 238) !important;
+    color: rgb(0, 0, 0);
 }
