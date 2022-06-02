@@ -27,7 +27,7 @@ export const personalRevista = (personal, fecha) => {
 };
 
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia
-export const listaOrdenPersonal = (personal) => {
+export const listaOrdenPersonal = (personal, fecha) => {
   personal.sort(
     (a, b) =>
       new Date(stringToDate(b.finSituacion)).getTime() -
@@ -72,5 +72,5 @@ export let personalTecnico = [
   },
 ];
 
-console.table(listaOrdenPersonal(personalTecnico));
+console.table(listaOrdenPersonal(personalTecnico,"23-04-2022"));
 
