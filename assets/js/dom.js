@@ -9,7 +9,7 @@ import {
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-import { feriados } from "./feriados.js";
+import { feriados,ordenPersonalFeriado } from "./feriados.js";
 import {
   personalRevista,
   personalTecnico,
@@ -115,6 +115,10 @@ export const secuenciaDias = (arrSemana, num) => {
         stringToDate(fechaFeriado).getTime()
       ) {
         diaSemana.className = "feriado";
+
+        // ↓ Para saber a quien le toca ese feriado
+        campoManiana = ordenPersonalFeriado[0];
+        diaSemana.innerText = campoManiana;
         
         // ↓ Para agregar la leyenda debajo del la tabla
         const etiquetaTabla = document.querySelector("#table"+[num]);
@@ -143,6 +147,13 @@ export const secuenciaDias = (arrSemana, num) => {
         stringToDate(fechaFeriado).getTime()
       ) {
         diaSemana.className = "feriado";
+
+        // ↓ Para saber a quien le toca ese feriado
+        campoTarde = ordenPersonalFeriado[0];
+        ordenPersonalFeriado.push(ordenPersonalFeriado[0])
+        ordenPersonalFeriado.shift()
+        diaSemana.innerText = campoTarde;
+        
       }
     }
   }
