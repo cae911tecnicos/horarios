@@ -12,57 +12,47 @@
 </head>
 
 <body>
-  <header class="p-3 bg-dark text-white">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Eighth navbar example">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-table"
-            viewBox="0 0 16 16">
-            <path
-              d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
-          </svg>
-          <a href="#" class="nav-link px-2 text-white">911 Centro Norte</a>
-        </a>
+      <a class="navbar-brand" href="#">911 - Centro Norte</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07"
+        aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample07">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./division-area-tecnica.html">División Area Ténica</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./seccion-informes-judiciales.html">Sección Informes Judiciales</a>
+          </li>
+          <!--           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-bs-toggle="dropdown"
+              aria-expanded="false">Dropdown</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown07">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li> -->
+        </ul>
       </div>
     </div>
-  </header>
-  <div>
+  </nav>
+
+  </div>
+
+  <main>
     <div class="container py-3">
-
-      <div class="container py-3">
-        <h1>Division Area Tecnica</h1>
-      </div>
-
-      <hr>
-      <div class="row col mb-3">
-        <h2>Resumen:</h2>
-        <div class=" col-sm-12 col-md-4 my-3">
-          <div class="resumen-cuadro m-2 p-3">
-            <h5>Personal en servicio:</h5>
-            <div class="resumen-numero">0</div>
-          </div>
-        </div>
-        <div class=" col-sm-12 col-md-4 my-3">
-          <div class="resumen-cuadro m-2 p-3">
-            <h5>Personal con articulo:</h5>
-            <div class="resumen-numero">0</div>
-          </div>
-        </div>
-        <div class=" col-sm-12 col-md-4 my-3">
-          <div class="resumen-cuadro m-2 p-3">
-            <h5>Proximas licencias:</h5>
-            <div class="resumen-numero">0</div>
-          </div>
-        </div>
-        <br>
-        <hr>
-      </div>
-    </div>
-    <main>
+      <h1>Horarios de trabajo:</h1>
       <div class="container py-3">
         <div class="row col mb-3">
           <div class="col-12 my-3">
-            <h2>Horario semana actual:</h2>
+            <h2>Division Area Tecnica:</h2>
             <div id=table0 class="table-responsive">
               <table class="table table-bordered">
                 <thead>
@@ -93,9 +83,10 @@
           </div>
           <br>
           <hr>
-          <br>
-          <h3>Horario proximas semanas:</h3>
+        </div>
+        <div class="row col mb-3">
           <div class="col-12 my-3">
+            <h2>Sección Informes Judiciales:</h2>
             <div id=table1 class="table-responsive">
               <table class="table table-bordered">
                 <thead>
@@ -124,101 +115,14 @@
               </table>
             </div>
           </div>
-          <div class="col-12 my-3">
-            <div id=table2 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana2">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana2">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde2">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="col-12 my-3">
-            <div id=table3 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana3">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana3">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde3">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="col-12 my-3">
-            <div id=table4 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana4">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana4">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde4">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
         </div>
       </div>
-    </main>
-    <footer class="pt-3 pb-2 bg-dark text-muted align-items-end">
-      <p class="text-center">...</p>
-    </footer>
-    <script src="assets/js/bootstrap/bootstrap.min.js"></script>
-    <script type="module" src="assets/js/main.js"></script>
+  </main>
+  <footer class="pt-3 pb-2 bg-dark text-muted align-items-end">
+    <p class="text-center">...</p>
+  </footer>
+  <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
 </body>
 
 </html>
