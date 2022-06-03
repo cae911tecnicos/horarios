@@ -12,6 +12,10 @@
     color: rgb(0, 0, 0);
 }
 
+.hoy{
+    background-color: rgb(251, 241, 95) !important;
+}
+
 thead,
 tbody {
     text-align: center;

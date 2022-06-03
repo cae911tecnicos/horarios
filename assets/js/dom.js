@@ -3,6 +3,8 @@ import {
   diasSemana,
   iniciCicloFormateado,
   diferenciaFecha,
+  fechaActual,
+  stringToDate,
   hoy,
 } from "./date.js";
 
@@ -83,6 +85,13 @@ export const secuenciaDias = (arrSemana, num) => {
     diaSemana.innerText = arrSemana[i];
     etiquetaSemana.append(diaSemana);
     diaSemana.className = "fecha";
+    // ↓ Para colorear el dia actual
+    if (
+      stringToDate(arrSemana[i]).getTime() ==
+      stringToDate(fechaActual).getTime()
+    ) {
+      diaSemana.className = "hoy";
+    }
   }
 
   // Determina el turno de la mañana
