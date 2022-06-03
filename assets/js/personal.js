@@ -95,6 +95,6 @@ export let personalTecnico = [
   },
 ];
 
-console.table(listaOrdenPersonal(personalTecnico,fechaActual));
+//console.table(listaOrdenPersonal(personalTecnico,fechaActual));
 //console.log("31-04-2022")
 //console.table(prueba(personalTecnico,"31-04-2022"));
