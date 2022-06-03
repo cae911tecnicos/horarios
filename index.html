@@ -1,201 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/styles.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <title>Horarios Seccion Informes Judiciales</title>
-  </head>
 
-  <body>
-    <header class="p-3 bg-dark text-white">
-      <div class="container">
-        <div
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-        >
-          <a
-            href="/"
-            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="currentColor"
-              class="bi bi-table"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"
-              />
-            </svg>
-            <a href="#" class="nav-link px-2 text-white">Horarios</a>
-          </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <title>Horarios Division Area Tecnica</title>
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" />
+</head>
+
+<body>
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-table"
+            viewBox="0 0 16 16">
+            <path
+              d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z" />
+          </svg>
+          <a href="#" class="nav-link px-2 text-white">911 Centro Norte</a>
+        </a>
+      </div>
+    </div>
+  </header>
+  <div>
+    <div class="container py-3">
+      <div class="container ">
+        <h1>Division Area Tecnica</h1>
+      </div>
+      <br>
+      <hr>
+      <div class="row col mb-3">
+        <h2>Resumen:</h2>
+        <div class="col-4 col-12-md my-3">
+          <h4>Personal en servicio:</h4>
+        </div>
+        <div class="col-4 col-12-md my-3">
+          <h4>Personal con articulo:</h4>
+        </div>
+        <div class="col-4 col-12-md my-3">
+          <h4>Proximas licencias:</h4>
         </div>
       </div>
-    </header>
-    <main>
-      <div class="container py-3">
-        <div class="row col mb-3">
-          <div class="col-12 my-3">
-            <h3>Semana actual:</h3>
-            <div id=table0 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana0">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana0">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde0">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+      <br>
+      <hr>
+    </div>
+  </div>
+  <main>
+    <div class="container py-3">
+      <div class="row col mb-3">
+        <div class="col-12 my-3">
+          <h2>Horario semana actual:</h2>
+          <div id=table0 class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Turno</th>
+                  <th scope="col">Lunes</th>
+                  <th scope="col">Martes</th>
+                  <th scope="col">Miercoles</th>
+                  <th scope="col">Jueves</th>
+                  <th scope="col">Viernes</th>
+                  <th scope="col">Sabado</th>
+                  <th scope="col">Domingo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="semana0">
+                  <th scope="row">Fecha</th>
+                </tr>
+                <tr id="maniana0">
+                  <th scope="row">Mañana</th>
+                </tr>
+                <tr id="tarde0">
+                  <th scope="row">Tarde</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <br>
-          <hr>
-          <br>
-          <h3>Proximas semanas:</h3>
-          <div class="col-12 my-3">
-            <div id=table1 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana1">
-                    <th  scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana1">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde1">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <h3>Horario proximas semanas:</h3>
+        <div class="col-12 my-3">
+          <div id=table1 class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Turno</th>
+                  <th scope="col">Lunes</th>
+                  <th scope="col">Martes</th>
+                  <th scope="col">Miercoles</th>
+                  <th scope="col">Jueves</th>
+                  <th scope="col">Viernes</th>
+                  <th scope="col">Sabado</th>
+                  <th scope="col">Domingo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="semana1">
+                  <th scope="row">Fecha</th>
+                </tr>
+                <tr id="maniana1">
+                  <th scope="row">Mañana</th>
+                </tr>
+                <tr id="tarde1">
+                  <th scope="row">Tarde</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="col-12 my-3">
-            <div id=table2 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana2">
-                    <th  scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana2">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde2">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        </div>
+        <div class="col-12 my-3">
+          <div id=table2 class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Turno</th>
+                  <th scope="col">Lunes</th>
+                  <th scope="col">Martes</th>
+                  <th scope="col">Miercoles</th>
+                  <th scope="col">Jueves</th>
+                  <th scope="col">Viernes</th>
+                  <th scope="col">Sabado</th>
+                  <th scope="col">Domingo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="semana2">
+                  <th scope="row">Fecha</th>
+                </tr>
+                <tr id="maniana2">
+                  <th scope="row">Mañana</th>
+                </tr>
+                <tr id="tarde2">
+                  <th scope="row">Tarde</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="col-12 my-3">
-            <div id=table3 class="table-responsive">
-              <table  class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana3">
-                    <th  scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana3">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde3">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        </div>
+        <div class="col-12 my-3">
+          <div id=table3 class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Turno</th>
+                  <th scope="col">Lunes</th>
+                  <th scope="col">Martes</th>
+                  <th scope="col">Miercoles</th>
+                  <th scope="col">Jueves</th>
+                  <th scope="col">Viernes</th>
+                  <th scope="col">Sabado</th>
+                  <th scope="col">Domingo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="semana3">
+                  <th scope="row">Fecha</th>
+                </tr>
+                <tr id="maniana3">
+                  <th scope="row">Mañana</th>
+                </tr>
+                <tr id="tarde3">
+                  <th scope="row">Tarde</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <div class="col-12 my-3">
-            <div id=table4  class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semana4">
-                    <th  scope="row">Fecha</th>
-                  </tr>
-                  <tr id="maniana4">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tarde4">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+        </div>
+        <div class="col-12 my-3">
+          <div id=table4 class="table-responsive">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">Turno</th>
+                  <th scope="col">Lunes</th>
+                  <th scope="col">Martes</th>
+                  <th scope="col">Miercoles</th>
+                  <th scope="col">Jueves</th>
+                  <th scope="col">Viernes</th>
+                  <th scope="col">Sabado</th>
+                  <th scope="col">Domingo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="semana4">
+                  <th scope="row">Fecha</th>
+                </tr>
+                <tr id="maniana4">
+                  <th scope="row">Mañana</th>
+                </tr>
+                <tr id="tarde4">
+                  <th scope="row">Tarde</th>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
-    </main>
-    <footer class="pt-3 pb-2 bg-dark text-muted align-items-end">
-      <p class="text-center">...</p>
-    </footer>
-    <script  src="assets/js/bootstrap/bootstrap.min.js"></script>
-    <script type="module"  src="assets/js/main.js"></script>
-  </body>
+    </div>
+  </main>
+  <footer class="pt-3 pb-2 bg-dark text-muted align-items-end">
+    <p class="text-center">...</p>
+  </footer>
+  <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+
 </html>
