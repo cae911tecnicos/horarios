@@ -93,13 +93,6 @@ export const secuenciaDias = (arrSemana, num) => {
     ) {
       diaSemana.className = "hoy";
     }
-    // ↓ Para colorear el FERIADO
-    for(let a =0; a < feriados.length; a++){
-      let fechaFeriado = feriados[a].dia
-      if(stringToDate(arrSemana[i]).getTime() == stringToDate(fechaFeriado).getTime()){
-        diaSemana.className = "feriado";
-      }
-    }
   }
 
   // Determina el turno de la mañana
@@ -112,6 +105,16 @@ export const secuenciaDias = (arrSemana, num) => {
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
     diaSemana.className = "maniana";
+    // ↓ Para colorear el FERIADO
+    for (let a = 0; a < feriados.length; a++) {
+      let fechaFeriado = feriados[a].dia;
+      if (
+        stringToDate(arrSemana[i]).getTime() ==
+        stringToDate(fechaFeriado).getTime()
+      ) {
+        diaSemana.className = "feriado";
+      }
+    }
   }
   // Determina el turno de la tarde
   const etiquetaTarde = document.querySelector(`#tarde${num}`);
@@ -123,5 +126,15 @@ export const secuenciaDias = (arrSemana, num) => {
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
     diaSemana.className = "tarde";
+    // ↓ Para colorear el FERIADO
+    for (let a = 0; a < feriados.length; a++) {
+      let fechaFeriado = feriados[a].dia;
+      if (
+        stringToDate(arrSemana[i]).getTime() ==
+        stringToDate(fechaFeriado).getTime()
+      ) {
+        diaSemana.className = "feriado";
+      }
+    }
   }
 };
