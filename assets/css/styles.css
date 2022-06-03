@@ -22,6 +22,11 @@
     
 }
 
+.leyenda{
+    font-size: 12px;
+    display: block;
+}
+
 thead,
 tbody {
     text-align: center;

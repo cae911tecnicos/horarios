@@ -57,6 +57,7 @@ const numeroXpersonal = (numero, fecha) => {
 
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num) => {
+  
   const etiquetaSemana = document.querySelector(`#semana${num}`);
   // Funcion que determina que ciclo que tiene el dia
   const determinaCicloDelDia = (fecha) => {
@@ -92,9 +93,10 @@ export const secuenciaDias = (arrSemana, num) => {
       stringToDate(fechaActual).getTime()
     ) {
       diaSemana.className = "hoy";
+      let fechaDelDia = arrSemana[i];
+      
     }
   }
-
   // Determina el turno de la mañana
   const etiquetaManiana = document.querySelector(`#maniana${num}`);
   for (let i = 0; i < 7; i++) {
@@ -113,8 +115,15 @@ export const secuenciaDias = (arrSemana, num) => {
         stringToDate(fechaFeriado).getTime()
       ) {
         diaSemana.className = "feriado";
+        
+        // ↓ Para agregar la leyenda debajo del la tabla
+        const etiquetaTabla = document.querySelector("#table"+[num]);
+        const leyendaFeriado = document.createElement("div");
+        etiquetaTabla.append(leyendaFeriado);
+        leyendaFeriado.className = "leyenda";
+        leyendaFeriado.innerText = feriados[a].acontecimiento;        
       }
-    }
+    } 
   }
   // Determina el turno de la tarde
   const etiquetaTarde = document.querySelector(`#tarde${num}`);
