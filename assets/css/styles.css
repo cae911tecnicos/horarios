@@ -1,3 +1,17 @@
+/* Resumen*/
+.resumen-cuadro {
+    padding: 5px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.resumen-numero{
+    font-size: 36px;
+    font-weight: bold;
+}
+
+/* Horarios */
+
 .fecha, .hoy {
     font-size: 12px;
     text-align: center;
@@ -54,3 +68,4 @@ tbody>tr {
     background-color: #7483b4 !important;
     color:  white !important;
 }
+
