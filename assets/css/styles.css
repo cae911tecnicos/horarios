@@ -1,3 +1,7 @@
+.container-index{
+    min-height: calc(100vh - 120px);
+}
+
 /* Resumen*/
 .resumen-cuadro {
     padding: 5px;
