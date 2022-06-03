@@ -1,4 +1,4 @@
-.fecha {
+.fecha, .hoy {
     font-size: 12px;
     text-align: center;
     font-weight: bold;
@@ -14,6 +14,7 @@
 
 .hoy{
     background-color: rgb(251, 241, 95) !important;
+    
 }
 
 thead,
