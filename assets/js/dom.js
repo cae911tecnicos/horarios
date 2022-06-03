@@ -9,6 +9,7 @@ import {
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
+import { feriados } from "./feriados.js";
 import {
   personalRevista,
   personalTecnico,
@@ -91,6 +92,13 @@ export const secuenciaDias = (arrSemana, num) => {
       stringToDate(fechaActual).getTime()
     ) {
       diaSemana.className = "hoy";
+    }
+    // ↓ Para colorear el FERIADO
+    for(let a =0; a < feriados.length; a++){
+      let fechaFeriado = feriados[a].dia
+      if(stringToDate(arrSemana[i]).getTime() == stringToDate(fechaFeriado).getTime()){
+        diaSemana.className = "feriado";
+      }
     }
   }
 

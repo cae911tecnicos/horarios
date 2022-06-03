@@ -17,6 +17,11 @@
     
 }
 
+.feriado{
+    background-color: rgb(242, 46, 11) !important;
+    
+}
+
 thead,
 tbody {
     text-align: center;
