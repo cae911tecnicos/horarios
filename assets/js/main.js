@@ -21,7 +21,7 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-//secuenciaDias(arrSemana0, 0);
+secuenciaDias(arrSemana0, 0);
 secuenciaDias(arrSemana1, 1);
 secuenciaDias(arrSemana2, 2);
 secuenciaDias(arrSemana3, 3);
