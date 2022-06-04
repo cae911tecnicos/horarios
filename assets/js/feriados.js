@@ -1,4 +1,5 @@
-export const ordenPersonalFeriado = ["Saucedo", "Knuttzen", "Garigliano", "Gerometta"];
+export const ordenPersonalTecnicoFeriado = ["Saucedo", "Knuttzen", "Garigliano", "Gerometta"];
+export const ordenPersonalInformesFeriado = ["Olivera", "Morello", "Sosa", "Diaz", "Riuli", "Alcoba"];
 
 export const feriados = [
   {
