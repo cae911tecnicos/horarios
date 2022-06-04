@@ -70,29 +70,27 @@ const numeroXpersonal = (numero, fecha, personal) => {
 
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
-
   let maniana;
   let tarde;
   let semana;
+  let diaSemana;
   if (personal == personalTecnico) {
-    semana = "semanaTecnicos"
+    semana = "semanaTecnicos";
     maniana = "manianaTecnicos";
     tarde = "tardeTecnicos";
-    
+    diaSemana = "diaSemanaTecnicos";
   } else if (personal == personalInformesJudiciales) {
-    semana = "semanaInformes"
+    semana = "semanaInformes";
     maniana = "manianaInformes";
     tarde = "tardeInformes";
-    
+    diaSemana = "diaSemanaInformes";
   }
-  console.log(tarde)
 
   let etiquetaSemana = document.querySelector(`#${semana}${num}`);
   // Funcion que determina que ciclo que tiene el dia
   const determinaCicloDelDia = (fecha) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
     let personalEnServicio = personalRevista(personal, fecha)[1];
-    //console.warn(personalEnServicio.length, fecha);
 
     let arr = cicloDelDia(personalEnServicio.length);
 
@@ -112,7 +110,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
 
   // Determina fecha del dia
   for (let i = 0; i < 7; i++) {
-    const diaSemana = document.createElement("td");
+    diaSemana = document.createElement("td");
     diaSemana.innerText = arrSemana[i];
     etiquetaSemana.append(diaSemana);
     diaSemana.className = "fecha";
@@ -131,7 +129,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let campoManiana = determinaCicloDelDia(fechaDelDia)[0];
     campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personal);
-    const diaSemana = document.createElement("td");
+    diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
     diaSemana.className = "maniana";
@@ -163,7 +161,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let campoTarde = determinaCicloDelDia(fechaDelDia)[1];
     campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personal);
-    const diaSemana = document.createElement("td");
+    diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
     diaSemana.className = "tarde";
