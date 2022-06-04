@@ -9,10 +9,11 @@ import {
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-import { feriados,ordenPersonalTecnicoFeriado } from "./feriados.js";
+import { feriados, ordenPersonalTecnicoFeriado } from "./feriados.js";
 import {
   personalRevista,
   personalTecnico,
+  personalInformesJudiciales,
   listaOrdenPersonal,
 } from "./personal.js";
 
@@ -22,15 +23,27 @@ const semana0 = new Date(),
   semana3 = new Date(),
   semana4 = new Date();
 
+const semana00 = new Date(),
+  semana01 = new Date(),
+  semana02 = new Date(),
+  semana03 = new Date(),
+  semana04 = new Date();
+
 export const arrSemana0 = diasSemana(semana0);
 export const arrSemana1 = diasSemana(sumarDias(semana1, 7));
 export const arrSemana2 = diasSemana(sumarDias(semana2, 14));
 export const arrSemana3 = diasSemana(sumarDias(semana3, 21));
 export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
+export const arrSemana00 = diasSemana(semana00);
+export const arrSemana01 = diasSemana(sumarDias(semana01, 7));
+export const arrSemana02 = diasSemana(sumarDias(semana02, 14));
+export const arrSemana03 = diasSemana(sumarDias(semana03, 21));
+export const arrSemana04 = diasSemana(sumarDias(semana04, 28));
+
 // Funcion para reemplazar Numero de ciclo por la lista del personal
-const numeroXpersonal = (numero, fecha) => {
-  let personal = personalRevista(personalTecnico, fecha)[1];
+const numeroXpersonal = (numero, fecha, personal) => {
+  let personalApellido = personalRevista(personal, fecha)[1];
   let cantidadPersonal = listaOrdenPersonal(personal, fecha);
 
   let str = String(numero),
@@ -56,13 +69,29 @@ const numeroXpersonal = (numero, fecha) => {
 };
 
 // Funcion Crear secuencias de Dias
-export const secuenciaDias = (arrSemana, num) => {
-  
-  const etiquetaSemana = document.querySelector(`#semana${num}`);
+export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
+
+  let maniana;
+  let tarde;
+  let semana;
+  if (personal == personalTecnico) {
+    semana = "semanaTecnicos"
+    maniana = "manianaTecnicos";
+    tarde = "tardeTecnicos";
+    
+  } else if (personal == personalInformesJudiciales) {
+    semana = "semanaInformes"
+    maniana = "manianaInformes";
+    tarde = "tardeInformes";
+    
+  }
+  console.log(tarde)
+
+  let etiquetaSemana = document.querySelector(`#${semana}${num}`);
   // Funcion que determina que ciclo que tiene el dia
   const determinaCicloDelDia = (fecha) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-    let personalEnServicio = personalRevista(personalTecnico, fecha)[1];
+    let personalEnServicio = personalRevista(personal, fecha)[1];
     //console.warn(personalEnServicio.length, fecha);
 
     let arr = cicloDelDia(personalEnServicio.length);
@@ -94,15 +123,14 @@ export const secuenciaDias = (arrSemana, num) => {
     ) {
       diaSemana.className = "hoy";
       let fechaDelDia = arrSemana[i];
-      
     }
   }
   // Determina el turno de la mañana
-  const etiquetaManiana = document.querySelector(`#maniana${num}`);
+  let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let campoManiana = determinaCicloDelDia(fechaDelDia)[0];
-    campoManiana = numeroXpersonal(campoManiana, fechaDelDia);
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personal);
     const diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
@@ -117,24 +145,24 @@ export const secuenciaDias = (arrSemana, num) => {
         diaSemana.className = "feriado";
 
         // ↓ Para saber a quien le toca ese feriado
-        campoManiana = ordenPersonalTecnicoFeriado[0];
+        campoManiana = ordenFeriado[0];
         diaSemana.innerText = campoManiana;
-        
+
         // ↓ Para agregar la leyenda debajo del la tabla
-        const etiquetaTabla = document.querySelector("#table"+[num]);
+        const etiquetaTabla = document.querySelector("#table" + [num]);
         const leyendaFeriado = document.createElement("div");
         etiquetaTabla.append(leyendaFeriado);
         leyendaFeriado.className = "leyenda";
-        leyendaFeriado.innerText = feriados[a].acontecimiento;        
+        leyendaFeriado.innerText = feriados[a].acontecimiento;
       }
-    } 
+    }
   }
   // Determina el turno de la tarde
-  const etiquetaTarde = document.querySelector(`#tarde${num}`);
+  const etiquetaTarde = document.querySelector(`#${tarde}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let campoTarde = determinaCicloDelDia(fechaDelDia)[1];
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia);
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personal);
     const diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
@@ -149,11 +177,10 @@ export const secuenciaDias = (arrSemana, num) => {
         diaSemana.className = "feriado";
 
         // ↓ Para saber a quien le toca ese feriado
-        campoTarde = ordenPersonalTecnicoFeriado[0];
-        ordenPersonalTecnicoFeriado.push(ordenPersonalTecnicoFeriado[0])
-        ordenPersonalTecnicoFeriado.shift()
+        campoTarde = ordenFeriado[0];
+        ordenFeriado.push(ordenFeriado[0]);
+        ordenFeriado.shift();
         diaSemana.innerText = campoTarde;
-        
       }
     }
   }
