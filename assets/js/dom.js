@@ -124,6 +124,12 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
     diaSemana.className = "maniana";
+    // ↓ Para colorear el Fin de Semana
+    if(i==5 || i == 6 ){
+      diaSemana.className = "finde-maniana";
+    }
+
+
     // ↓ Para colorear el FERIADO
     for (let a = 0; a < feriados.length; a++) {
       let fechaFeriado = feriados[a].dia;
@@ -156,6 +162,10 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
     diaSemana.className = "tarde";
+        // ↓ Para colorear el Fin de Semana
+        if(i==5 || i == 6 ){
+          diaSemana.className = "finde-tarde";
+        }
     // ↓ Para colorear el FERIADO
     for (let a = 0; a < feriados.length; a++) {
       let fechaFeriado = feriados[a].dia;
