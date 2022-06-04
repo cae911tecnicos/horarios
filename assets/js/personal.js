@@ -31,9 +31,9 @@ export const prueba = (personal, fecha) => {
   for (let i = 0; i < personal.length; i++) {
     let fin = stringToDate(personal[i].finSituacion);
     let date = stringToDate(fecha);
-    if (date.getTime() < fin.getTime() ) {
+    if (date.getTime() < fin.getTime()) {
       arr.push(personal[i]);
-    } 
+    }
   }
 
   return arr;
@@ -41,8 +41,7 @@ export const prueba = (personal, fecha) => {
 
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia
 export const listaOrdenPersonal = (personal, fecha) => {
-
-/*   let arr = [];
+  /*   let arr = [];
   for (let i = 0; i < personal.length; i++) {
     let fin = stringToDate(personal[i].finSituacion);
     let date = stringToDate(fecha);
@@ -50,7 +49,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
       arr.push(personal[i]);
     } 
   } */
-  
+
   personal.sort(
     (a, b) =>
       new Date(stringToDate(b.finSituacion)).getTime() -
@@ -69,7 +68,7 @@ export let personalTecnico = [
     inicioSituacion: "14-03-2022",
     finSituacion: "02-04-2022",
     // prueba
-/*     inicioSituacion: "02-06-2022",
+    /*     inicioSituacion: "02-06-2022",
     finSituacion: "20-08-2022", */
   },
   {
@@ -95,6 +94,52 @@ export let personalTecnico = [
   },
 ];
 
-//console.table(listaOrdenPersonal(personalTecnico,fechaActual));
-//console.log("31-04-2022")
-//console.table(prueba(personalTecnico,"31-04-2022"));
+// PERSONAL SECCION INFORMES JUDICIALES
+export let personalInformesJudiciales = [
+  {
+    nombre: "Silvina",
+    apellido: "Morello",
+    situacion: "Licencia",
+    // original
+    inicioSituacion: "03-03-2022",
+    finSituacion: "04-04-2022",
+    // prueba
+    /*     inicioSituacion: "02-06-2022",
+    finSituacion: "20-08-2022", */
+  },
+  {
+    nombre: "Andrea",
+    apellido: "Riuli",
+    situacion: "Licencia",
+    inicioSituacion: "18-02-2022",
+    finSituacion: "05-04-2022",
+  },
+  {
+    nombre: "Mariana",
+    apellido: "Sosa",
+    situacion: "Licencia",
+    inicioSituacion: "05-04-2022",
+    finSituacion: "06-04-2022",
+  },
+  {
+    nombre: "Martin",
+    apellido: "Olivera",
+    situacion: "Licencia",
+    inicioSituacion: "22-04-2022",
+    finSituacion: "01-05-2022",
+  },
+  {
+    nombre: "Rocio",
+    apellido: "Diaz",
+    situacion: "Licencia",
+    inicioSituacion: "14-03-2022",
+    finSituacion: "02-05-2022",
+  },
+  {
+    nombre: "Carina",
+    apellido: "Alcoba",
+    situacion: "Licencia",
+    inicioSituacion: "18-03-2022",
+    finSituacion: "03-05-2022",
+  },
+];
