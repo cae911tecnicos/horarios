@@ -23,12 +23,6 @@ const semana0 = new Date(),
   semana3 = new Date(),
   semana4 = new Date();
 
-const semana00 = new Date(),
-  semana01 = new Date(),
-  semana02 = new Date(),
-  semana03 = new Date(),
-  semana04 = new Date();
-
 export const arrSemana0 = diasSemana(semana0);
 export const arrSemana1 = diasSemana(sumarDias(semana1, 7));
 export const arrSemana2 = diasSemana(sumarDias(semana2, 14));
