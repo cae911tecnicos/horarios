@@ -89,9 +89,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     etiquetaSemana = "etiquetaSemanaInformes";
   }
 
-  console.log(etiquetaSemana)
   etiquetaSemana = document.querySelector(`#${semana}${num}`);
-  console.log(etiquetaSemana)
   // Funcion que determina que ciclo que tiene el dia
   const determinaCicloDelDia = (fecha) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
@@ -117,7 +115,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   for (let i = 0; i < 7; i++) {
     diaSemana = document.createElement("td");
     diaSemana.innerText = arrSemana[i];
-    console.log(etiquetaSemana)
     etiquetaSemana.append(diaSemana);
     diaSemana.className = "fecha";
     // ↓ Para colorear el dia actual
