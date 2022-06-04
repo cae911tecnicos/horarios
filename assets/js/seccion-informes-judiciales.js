@@ -1,4 +1,4 @@
-import { ciclo2, ciclo3, ciclo4, ciclo5, ciclo6, rotacion } from "./ciclos.js";
+import { ciclo2, ciclo3, ciclo4, ciclo5, ciclo6, rotacion } from "./lib/ciclos.js";
 import {
   secuenciaDias,
   arrSemana0,
@@ -6,12 +6,12 @@ import {
   arrSemana2,
   arrSemana3,
   arrSemana4,
-} from "./dom.js";
-import { personalTecnico, personalInformesJudiciales } from "./personal.js";
+} from "./lib/dom.js";
+import { personalTecnico, personalInformesJudiciales } from "./lib/personal.js";
 import {
   ordenPersonalTecnicoFeriado,
   ordenPersonalInformesFeriado,
-} from "./feriados.js";
+} from "./lib/feriados.js";
 
 const ciclos = (ciclo, personal) => {
   for (let a = 0; a < 2; a++) {
