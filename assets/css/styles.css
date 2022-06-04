@@ -7,11 +7,13 @@
     padding: 5px;
     background-color: #f5f5f5;
     border-radius: 5px;
+    vertical-align: middle;
 }
 
 .resumen-numero{
     font-size: 36px;
     font-weight: bold;
+    vertical-align: middle;
 }
 
 /* Horarios */
@@ -30,46 +32,55 @@
     text-align: center;
     background-color: #f5f5f5 !important;
     color: rgb(0, 0, 0);
+    vertical-align: middle;
 }
 
 .tarde {
     text-align: center;
     background-color: #e7e7e7 !important;
     color: rgb(0, 0, 0);
+    vertical-align: middle;
 }
 
 .hoy{
     background-color: rgb(159, 210, 146) !important;
     color: black !important;
+    vertical-align: middle;
     
 }
 
 .feriado{
     background-color: rgb(255, 192, 110) !important;
     color: black;
+    vertical-align: middle;
     
 }
 
 .leyenda{
     font-size: 14px;
     display: block;
+    vertical-align: middle;
 }
 
 thead,
 tbody {
     text-align: center;
+    vertical-align: middle;
 }
 
 table {
     border-color: rgb(255, 255, 255) !important;
+    vertical-align: middle;
 }
 
 thead>tr {
     background-color: white !important;
+    vertical-align: middle;
 }
 
 tbody>tr {
     background-color: #7483b4 !important;
     color:  white !important;
+    vertical-align: middle;
 }
 
