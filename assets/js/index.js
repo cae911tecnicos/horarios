@@ -1,4 +1,4 @@
-import { ciclo2, ciclo3, ciclo4, ciclo5, ciclo6, rotacion } from "./ciclos.js";
+import { rotacion } from "./ciclos.js";
 import {
   secuenciaDias,
   arrSemana0,
@@ -25,40 +25,6 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-secuenciaDias(
-  arrSemana0,
-  0,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado
-);
-secuenciaDias(arrSemana0, 0, personalTecnico, ordenPersonalTecnicoFeriado);
-secuenciaDias(
-  arrSemana1,
-  1,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado
-);
-secuenciaDias(
-  arrSemana2,
-  2,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado
-);
-secuenciaDias(
-  arrSemana3,
-  3,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado
-);
-secuenciaDias(
-  arrSemana4,
-  4,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado
-);
+secuenciaDias(arrSemana0, 0, personalInformesJudiciales, ordenPersonalInformesFeriado);
 
 secuenciaDias(arrSemana0, 0, personalTecnico, ordenPersonalTecnicoFeriado);
-secuenciaDias(arrSemana1, 1, personalTecnico, ordenPersonalTecnicoFeriado);
-secuenciaDias(arrSemana2, 2, personalTecnico, ordenPersonalTecnicoFeriado);
-secuenciaDias(arrSemana3, 3, personalTecnico, ordenPersonalTecnicoFeriado);
-secuenciaDias(arrSemana4, 4, personalTecnico, ordenPersonalTecnicoFeriado);
