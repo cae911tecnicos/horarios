@@ -6,11 +6,6 @@ import {
   arrSemana2,
   arrSemana3,
   arrSemana4,
-  arrSemana00,
-  arrSemana01,
-  arrSemana02,
-  arrSemana03,
-  arrSemana04,
 } from "./dom.js";
 import { personalTecnico, personalInformesJudiciales } from "./personal.js";
 import {
@@ -33,31 +28,31 @@ const ciclos = (ciclo, personal) => {
 
 
 secuenciaDias(
-  arrSemana00,
+  arrSemana0,
   0,
   personalInformesJudiciales,
   ordenPersonalInformesFeriado
 );
 secuenciaDias(
-  arrSemana01,
+  arrSemana1,
   1,
   personalInformesJudiciales,
   ordenPersonalInformesFeriado
 );
 secuenciaDias(
-  arrSemana02,
+  arrSemana2,
   2,
   personalInformesJudiciales,
   ordenPersonalInformesFeriado
 );
 secuenciaDias(
-  arrSemana03,
+  arrSemana3,
   3,
   personalInformesJudiciales,
   ordenPersonalInformesFeriado
 );
 secuenciaDias(
-  arrSemana04,
+  arrSemana4,
   4,
   personalInformesJudiciales,
   ordenPersonalInformesFeriado

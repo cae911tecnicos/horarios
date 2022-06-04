@@ -35,12 +35,6 @@ export const arrSemana2 = diasSemana(sumarDias(semana2, 14));
 export const arrSemana3 = diasSemana(sumarDias(semana3, 21));
 export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
-export const arrSemana00 = diasSemana(semana00);
-export const arrSemana01 = diasSemana(sumarDias(semana01, 7));
-export const arrSemana02 = diasSemana(sumarDias(semana02, 14));
-export const arrSemana03 = diasSemana(sumarDias(semana03, 21));
-export const arrSemana04 = diasSemana(sumarDias(semana04, 28));
-
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
   let personalApellido = personalRevista(personal, fecha)[1];

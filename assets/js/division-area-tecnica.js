@@ -6,11 +6,6 @@ import {
   arrSemana2,
   arrSemana3,
   arrSemana4,
-  arrSemana00,
-  arrSemana01,
-  arrSemana02,
-  arrSemana03,
-  arrSemana04,
 } from "./dom.js";
 import { personalTecnico, personalInformesJudiciales } from "./personal.js";
 import {
