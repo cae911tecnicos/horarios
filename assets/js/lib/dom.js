@@ -1,3 +1,5 @@
+import { personalTecnico, } from "../personal/personal-division-area-tecnica.js"
+import { personalInformesJudiciales, } from "../personal/personal-seccion-informes-judiciales.js"
 import {
   sumarDias,
   diasSemana,
@@ -9,11 +11,9 @@ import {
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-import { feriados, ordenPersonalTecnicoFeriado } from "./feriados.js";
+import { feriados, } from "./feriados.js";
 import {
   personalRevista,
-  personalTecnico,
-  personalInformesJudiciales,
   listaOrdenPersonal,
 } from "./personal.js";
 

@@ -1,3 +1,6 @@
+//import { personalTecnico } from "../personal/personal-division-area-tecnica.js"
+//import { personalInformesJudiciales } from "../personal/personal-division-area-tecnica.js"
+
 // Fecha inicio de los ciclos
 export const iniciCiclo = new Date(2022, 0, 3);
 export const hoy = new Date();

@@ -1,3 +1,6 @@
+import { personalTecnico, } from "./personal/personal-division-area-tecnica.js"
+import { personalInformesJudiciales, } from "./personal/personal-seccion-informes-judiciales.js"
+
 import { ciclo2, ciclo3, ciclo4, ciclo5, ciclo6, rotacion } from "./lib/ciclos.js";
 import {
   secuenciaDias,
@@ -7,7 +10,6 @@ import {
   arrSemana3,
   arrSemana4,
 } from "./lib/dom.js";
-import { personalTecnico, personalInformesJudiciales } from "./lib/personal.js";
 import {
   ordenPersonalTecnicoFeriado,
   ordenPersonalInformesFeriado,
