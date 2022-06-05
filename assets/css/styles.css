@@ -52,8 +52,7 @@
 .feriado{
     background-color: rgb(255, 192, 110) !important;
     color: black;
-    vertical-align: middle;
-    
+    vertical-align: middle;    
 }
 
 .finde-maniana, .finde-tarde{
@@ -66,6 +65,11 @@
 .leyenda{
     font-size: 14px;
     display: block;
+}
+
+.acoordi{
+    background-color: #f5f5f5 !important;
+    color: black !important;
 }
 
 thead,

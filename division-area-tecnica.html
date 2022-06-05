@@ -50,31 +50,48 @@
         <h1>Division Area Tecnica</h1>
       </div>
 
-      <hr>
-      <div class="row col mb-3">
-        <h2>Resumen:</h2>
-        <div class=" col-sm-12 col-md-4 my-3">
-          <div class="resumen-cuadro m-2 p-3">
-            <h5>Total de Personal:</h5>
-            <div class="resumen-numero">0</div>
+      <!-- --- -->
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button acoordi" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+              aria-expanded="true" aria-controls="collapseOne">
+              Resumen de personal:
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <div class="row col mb-3">
+
+                <div class=" col-sm-12 col-md-4 my-3">
+                  <div class="resumen-cuadro m-2 p-3">
+                    <h5>Total de Personal:</h5>
+                    <div class="resumen-numero">0</div>
+                  </div>
+                </div>
+                <div class=" col-sm-12 col-md-4 my-3">
+                  <div class="resumen-cuadro m-2 p-3">
+                    <h5>Personal en servicio:</h5>
+                    <div class="resumen-numero">0</div>
+                  </div>
+                </div>
+                <div class=" col-sm-12 col-md-4 my-3">
+                  <div class="resumen-cuadro m-2 p-3">
+                    <h5>Personal con articulo:</h5>
+                    <div class="resumen-numero">0</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
-        <div class=" col-sm-12 col-md-4 my-3">
-          <div class="resumen-cuadro m-2 p-3">
-            <h5>Personal en servicio:</h5>
-            <div class="resumen-numero">0</div>
-          </div>
-        </div>
-        <div class=" col-sm-12 col-md-4 my-3">
-          <div class="resumen-cuadro m-2 p-3">
-            <h5>Personal con articulo:</h5>
-            <div class="resumen-numero">0</div>
-          </div>
-        </div>
-        <br>
-        <hr>
       </div>
+
     </div>
+    <!-- ------------ -->
+
     <main>
       <div class="container py-3">
         <div class="row col mb-3">
@@ -108,9 +125,7 @@
               </table>
             </div>
           </div>
-          <br>
-          <hr>
-          <br>
+
           <h3>Horario proximas semanas:</h3>
           <div class="col-12 my-3">
             <div id=table1 class="table-responsive">
