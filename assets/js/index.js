@@ -27,6 +27,10 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
+console.log(ordenPersonalInformesFeriado)
 secuenciaDias(arrSemana0, 0, personalInformesJudiciales, ordenPersonalInformesFeriado);
 
 secuenciaDias(arrSemana0, 0, personalTecnico, ordenPersonalTecnicoFeriado);
+
+
+console.log(ordenPersonalInformesFeriado)

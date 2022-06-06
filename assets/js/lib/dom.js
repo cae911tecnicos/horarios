@@ -1,5 +1,5 @@
-import { personalTecnico, } from "../personal/personal-division-area-tecnica.js"
-import { personalInformesJudiciales, } from "../personal/personal-seccion-informes-judiciales.js"
+import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
+import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
 import {
   sumarDias,
   diasSemana,
@@ -7,15 +7,11 @@ import {
   diferenciaFecha,
   fechaActual,
   stringToDate,
-  hoy,
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-import { feriados, } from "./feriados.js";
-import {
-  personalRevista,
-  listaOrdenPersonal,
-} from "./personal.js";
+import { feriados } from "./feriados.js";
+import { personalRevista, listaOrdenPersonal } from "./personal.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -30,9 +26,9 @@ export const arrSemana3 = diasSemana(sumarDias(semana3, 21));
 export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
 // Funcion para generar el resumen
-export const totalPersonal = (personal) =>{
-  return personal.length
-}
+export const totalPersonal = (personal) => {
+  return personal.length;
+};
 
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
@@ -63,11 +59,7 @@ const numeroXpersonal = (numero, fecha, personal) => {
 
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
-  let maniana;
-  let tarde;
-  let semana;
-  let diaSemana;
-  let etiquetaSemana;
+  let maniana, tarde, semana, diaSemana, etiquetaSemana;
   if (personal == personalTecnico) {
     semana = "semanaTecnicos";
     maniana = "manianaTecnicos";
@@ -130,10 +122,9 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     etiquetaManiana.append(diaSemana);
     diaSemana.className = "maniana";
     // ↓ Para colorear el Fin de Semana
-    if(i==5 || i == 6 ){
+    if (i == 5 || i == 6) {
       diaSemana.className = "finde-maniana";
     }
-
 
     // ↓ Para colorear el FERIADO
     for (let a = 0; a < feriados.length; a++) {
@@ -167,10 +158,10 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
     diaSemana.className = "tarde";
-        // ↓ Para colorear el Fin de Semana
-        if(i==5 || i == 6 ){
-          diaSemana.className = "finde-tarde";
-        }
+    // ↓ Para colorear el Fin de Semana
+    if (i == 5 || i == 6) {
+      diaSemana.className = "finde-tarde";
+    }
     // ↓ Para colorear el FERIADO
     for (let a = 0; a < feriados.length; a++) {
       let fechaFeriado = feriados[a].dia;
@@ -189,3 +180,5 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 };
+
+
