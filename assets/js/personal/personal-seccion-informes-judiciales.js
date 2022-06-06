@@ -4,12 +4,8 @@ export let personalInformesJudiciales = [
     nombre: "Carina",
     apellido: "Alcoba",
     situacion: "Licencia",
-    // original
     inicioSituacion: "03-03-2022",
     finSituacion: "04-04-2022",
-    // prueba
-    /*     inicioSituacion: "02-06-2022",
-      finSituacion: "20-08-2022", */
   },
   {
     nombre: "Rocio",

@@ -72,4 +72,4 @@ export const listaOrdenPersonal = (personal, fecha) => {
   return personal;
 };
 
-console.table(listaOrdenPersonal(personalTecnico));
+
