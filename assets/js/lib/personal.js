@@ -105,4 +105,3 @@ export const listaOrdenPersonal = (personal, fecha) => {
   return personal;
 };
 
-console.table(listaOrdenPersonal(personalTecnico, "30-05-2022")[0]);

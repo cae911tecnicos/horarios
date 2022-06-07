@@ -29,11 +29,6 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-console.log(ordenPersonalInformesFeriado)
-
-
 secuenciaDias(arrSemana0, 0, personalTecnico, ordenPersonalTecnicoFeriado);
 secuenciaDias(arrSemana0, 0, personalAyudantia, ordenPersonalAyudantiaFeriado);
 secuenciaDias(arrSemana0, 0, personalInformesJudiciales, ordenPersonalInformesFeriado);
-
-console.log(ordenPersonalInformesFeriado)
