@@ -27,9 +27,9 @@ export const arrSemana3 = diasSemana(sumarDias(semana3, 21));
 export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
 // Funcion para generar el resumen
-export const totalPersonal = (personal) => {
+/*export const totalPersonal = (personal) => {
   return personal.length;
-};
+};*/
 
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
