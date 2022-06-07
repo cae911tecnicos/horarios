@@ -32,7 +32,7 @@ export const totalPersonal = (personal) => {
 
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
-  let personalApellido = personalRevista(personal, fecha)[1];
+  //let personalApellido = personalRevista(personal, fecha)[1];
   let cantidadPersonal = listaOrdenPersonal(personal, fecha);
 
   let str = String(numero),

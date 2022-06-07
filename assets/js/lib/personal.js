@@ -50,26 +50,59 @@ export const personalConArticulo = (personal, fecha) => {
 
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
 export const listaOrdenPersonal = (personal, fecha) => {
+  let orden = [];
+  let proximasLicencias = [];
+  let soloApellido = [];
+  let enServicio = [];
+  let date = fecha 
+  let articulo = []
+
+  //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
   personal.sort(
     (a, b) =>
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
   );
 
-  //
-  /*   for (let i = 0; i < personal.length; i++) {
+  // Elimina el personal que todavía no inicio su articulo segun parametro de fecha
+  for (let i = 0; i < personal.length; i++) {
     let inicio = stringToDate(personal[i].inicioSituacion),
       fin = stringToDate(personal[i].finSituacion),
       date = stringToDate(fecha);
 
-    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
-      articulo.push(personal[i]);
+    if (date.getTime() >= inicio.getTime()) {
+      orden.push(personal[i]);
     } else {
-      enServicio.push(personal[i]);
+      proximasLicencias.push(personal[i]);
     }
-  } */
+  }
 
-  return personal;
+  // Elimina quien este de licencia
+  for (let i = 0; i < orden.length; i++) {
+    let inicio = stringToDate(orden[i].inicioSituacion),
+      fin = stringToDate(orden[i].finSituacion),
+      date = stringToDate(fecha);
+
+    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
+      articulo.push(orden[i]);
+    } else {
+      enServicio.push(orden[i]);
+    }
+  }
+
+  //Elimina los duplicados
+  const sinDuplicados = enServicio.filter((element) => {
+    // Crea un array con solo los apelidos
+    const isDuplicate = soloApellido.includes(element.apellido);
+
+    if (!isDuplicate) {
+      soloApellido.push(element.apellido);
+      return true;
+    }
+    return false;
+  });
+
+  return [sinDuplicados,enServicio, proximasLicencias];
 };
 
-
+console.table(listaOrdenPersonal(personalTecnico, "30-05-2022")[0]);
