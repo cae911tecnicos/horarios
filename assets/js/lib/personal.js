@@ -101,8 +101,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
     return false;
   });
-
-  return [sinDuplicados,enServicio, proximasLicencias];
+  // [sinDuplicados,enServicio, proximasLicencias]
+  return personal;
 };
 
 console.table(listaOrdenPersonal(personalTecnico, "30-05-2022")[0]);

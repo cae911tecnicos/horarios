@@ -1,5 +1,6 @@
 import { personalTecnico, } from "./personal/personal-division-area-tecnica.js"
 import { personalInformesJudiciales, } from "./personal/personal-seccion-informes-judiciales.js"
+import { personalAyudantia } from "./personal/personal-ayudantia.js";
 
 import { rotacion } from "./lib/ciclos.js";
 import {
@@ -13,6 +14,7 @@ import {
 import {
   ordenPersonalTecnicoFeriado,
   ordenPersonalInformesFeriado,
+  ordenPersonalAyudantiaFeriado,
 } from "./lib/feriados.js";
 
 const ciclos = (ciclo, personal) => {
@@ -28,9 +30,10 @@ const ciclos = (ciclo, personal) => {
 };
 
 console.log(ordenPersonalInformesFeriado)
-secuenciaDias(arrSemana0, 0, personalInformesJudiciales, ordenPersonalInformesFeriado);
+
 
 secuenciaDias(arrSemana0, 0, personalTecnico, ordenPersonalTecnicoFeriado);
-
+secuenciaDias(arrSemana0, 0, personalAyudantia, ordenPersonalAyudantiaFeriado);
+secuenciaDias(arrSemana0, 0, personalInformesJudiciales, ordenPersonalInformesFeriado);
 
 console.log(ordenPersonalInformesFeriado)

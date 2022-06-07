@@ -7,7 +7,7 @@ import {
   arrSemana3,
   arrSemana4,
 } from "./lib/dom.js";
-import { personalTecnico, personalInformesJudiciales,personalAyudantia } from "./lib/personal.js";
+import { personalAyudantia, } from "./personal/personal-ayudantia.js";
 import {
   ordenPersonalTecnicoFeriado,
   ordenPersonalInformesFeriado,

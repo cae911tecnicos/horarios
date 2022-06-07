@@ -1,5 +1,6 @@
 import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
 import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
+import { personalAyudantia } from "../personal/personal-ayudantia.js";
 import {
   sumarDias,
   diasSemana,
@@ -59,13 +60,23 @@ const numeroXpersonal = (numero, fecha, personal) => {
 
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
-  let maniana, tarde, semana, diaSemana, etiquetaSemana;
+  let maniana;
+  let tarde;
+  let semana;
+  let diaSemana;
+  let etiquetaSemana;
   if (personal == personalTecnico) {
     semana = "semanaTecnicos";
     maniana = "manianaTecnicos";
     tarde = "tardeTecnicos";
     diaSemana = "diaSemanaTecnicos";
     etiquetaSemana = "etiquetaSemanaTecnicos";
+  } else if (personal == personalAyudantia) {
+    semana = "semanaAyudantia";
+    maniana = "manianaAyudantia";
+    tarde = "tardeAyudantia";
+    diaSemana = "diaSemanaAyudantia";
+    etiquetaSemana = "etiquetaSemanaAyudantia";
   } else if (personal == personalInformesJudiciales) {
     semana = "semanaInformes";
     maniana = "manianaInformes";
