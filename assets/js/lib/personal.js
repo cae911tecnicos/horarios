@@ -117,19 +117,18 @@ export const listaOrdenPersonal = (personal, fecha) => {
     return false;
   });
   
+  // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
   // INICIO PRUEBASSS
-
-  //console.log(girarFechaFormateada(fecha))
-  //console.log(numeroDeSemana(girarFechaFormateada(fecha)))
-
-
+  let fechaDeldia = new Date(fecha)
+  let numSemana = numeroDeSemana(fechaDeldia)
+  let numdiaSemana = diasSemana(fechaDeldia)[5]
+  console.log(numdiaSemana)
   //let hola = girarFechaFormateada(fecha)
   //let numSemana = numeroDeSemana(hola)
   // console.log(numSemana)
 
-  // FIN PRUEBAS 
 
-  // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
+
   //console.log(numeroDeSemana(fecha));
 /*   for (let i = 0; i < filtro_02.length; i++) {
     if (filtro_02[i].inicioSituacion == fecha) {
@@ -137,9 +136,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
     } else { console.log("nada por aki") }
 
   } */
-
-  // es filtro_02
-
+  // FIN PRUEBAS 
   return [filtro_04, proximasLicencias];
 };
 
