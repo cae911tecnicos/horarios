@@ -105,8 +105,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   }
 
-  //Elimina los duplicados
-  /*   const sinDuplicados = enServicio.filter((element) => {
+  //Elimina los duplicados  | filtro_04
+  const filtro_04 = filtro_02.filter((element) => {
     // Crea un array con solo los apelidos
     const isDuplicate = soloApellido.includes(element.apellido);
 
@@ -115,7 +115,23 @@ export const listaOrdenPersonal = (personal, fecha) => {
       return true;
     }
     return false;
-  }); */
+  });
+    console.log(date, soloApellido)
 
-  return [filtro_02, proximasLicencias] /* personal */;
+  // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
+/*   for (let i = 0; i < filtro_02.length; i++) {
+    if (filtro_02[i].inicioSituacion == fecha) {
+      console.log("hola")
+    } else { console.log("nada por aki") }
+
+  } */
+
+  // es filtro_02
+
+  return [filtro_04, proximasLicencias];
 };
+
+
+let prueba = listaOrdenPersonal(personalTecnico, fechaActual)[0]
+
+console.table(prueba)
