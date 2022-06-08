@@ -1,4 +1,5 @@
 import { ciclo2, ciclo3, ciclo4, ciclo5, ciclo6, rotacion } from "./lib/ciclos.js";
+import { personalAyudantia } from "./personal/personal-ayudantia.js"
 import {
   secuenciaDias,
   arrSemana0,
@@ -7,7 +8,6 @@ import {
   arrSemana3,
   arrSemana4,
 } from "./lib/dom.js";
-import { personalAyudantia, } from "./personal/personal-ayudantia.js";
 import {
   ordenPersonalTecnicoFeriado,
   ordenPersonalInformesFeriado,

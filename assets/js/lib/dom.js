@@ -90,7 +90,8 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
     let personalEnServicio = personalRevista(personal, fecha)[1];
 
-    let arr = cicloDelDia(personalEnServicio.length);
+    let numServicio = personalEnServicio.length
+    let arr = cicloDelDia(personal,numServicio);
 
     while (arr[0].length < cuentaDias) {
       arr[0] = [...arr[0], ...arr[0]];

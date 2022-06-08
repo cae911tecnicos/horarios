@@ -1,3 +1,4 @@
+import { personalAyudantia, } from "../personal/personal-ayudantia.js"
 // CICLOS DIVISION AREA TECNIC Y SECCION INFORMES JUDICIALES -----------------------------------------
 
 //Estos  ciclos estan pensado para que una persona trabaje minimamente 3 veces por semana.
@@ -22,6 +23,30 @@ export const ciclo6 = [
   [12, 34, 56, 32, 56, 4, 4],
   [56, 2, 1, 4, 13, 4, 4],
 ];
+
+// CICLOS DIVISION AYUDANTIA  -----------------------------------------------------------------------
+export const ciclo_2_ayudantia = [
+  [1, 2, 1, 2, 1, 2, 2],
+  [1, 2, 1, 2, 1, 2, 2],
+];
+export const ciclo_3_ayudantia = [
+  [12, 12, 12, 12, 12, 1, 1],
+  [3, 3, 3, 3, 3, 1, 1],
+];
+export const ciclo_4_ayudantia = [
+  [12, 41, 34, 23, 12, 4, 4],
+  [3, 2, 1, 4, 3, 4, 4],
+];
+export const ciclo_5_ayudantia = [
+  [12, 45, 23, 51, 34, 1, 1],
+  [3, 1, 4, 2, 5, 1, 1],
+];
+export const ciclo_6_ayudantia = [
+  [12, 34, 56, 32, 56, 4, 4],
+  [56, 2, 1, 4, 13, 4, 4],
+];
+
+// FUNCIONES PARA LOS CICLOS  -----------------------------------------------------------------------
 
 //Funcion para generar la rotacion en las diferentes semanas
 export const rotacion = (arr, personal) => {
@@ -61,41 +86,38 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-export const cicloDelDia = (numero) => {
-  let ciclo =
-    numero == 6
-      ? ciclos(ciclo6, 6)
-      : numero == 5
-      ? ciclos(ciclo5, 5)
-      : numero == 4
-      ? ciclos(ciclo4, 4)
-      : numero == 3
-      ? ciclos(ciclo3, 3)
-      : numero == 2
-      ? ciclos(ciclo3, 2)
-      : "No existe ese ciclo";
-  return ciclo;
+export const cicloDelDia = (personal, numero) => {
+  if (personal == personalAyudantia) {
+    let ciclo =
+      numero == 6
+        ? ciclos(ciclo_6_ayudantia, 6)
+        : numero == 5
+          ? ciclos(ciclo_5_ayudantia, 5)
+          : numero == 4
+            ? ciclos(ciclo_4_ayudantia, 4)
+            : numero == 3
+              ? ciclos(ciclo_3_ayudantia, 3)
+              : numero == 2
+                ? ciclos(ciclo_2_ayudantia, 2)
+                : "No existe ese ciclo";
+    return ciclo;
+  } else {
+
+    let ciclo =
+      numero == 6
+        ? ciclos(ciclo6, 6)
+        : numero == 5
+          ? ciclos(ciclo5, 5)
+          : numero == 4
+            ? ciclos(ciclo4, 4)
+            : numero == 3
+              ? ciclos(ciclo3, 3)
+              : numero == 2
+                ? ciclos(ciclo3, 2)
+                : "No existe ese ciclo";
+    return ciclo;
+  }
 };
 
-// CICLOS DIVISION AYUDANTIA  -----------------------------------------------------------------------
 
-export const ciclo_2_ayudantia = [
-  [1, 2, 1, 2, 1, 2, 2],
-  [1, 2, 1, 2, 1, 2, 2],
-];
-export const ciclo_3_ayudantia = [
-  [1, 3, 2, 1, 3, 2, 2],
-  [2, 1, 3, 2, 1, 2, 2],
-];
-export const ciclo_4_ayudantia = [
-  [1, 3, 1, 4, 2, 4, 4],
-  [2, 4, 2, 3, 1, 4, 4],
-];
-export const ciclo_5_ayudantia = [
-  [12, 5, 23, 4, 13, 4, 4],
-  [3, 4, 1, 5, 2, 4, 4],
-];
-export const ciclo_6_ayudantia = [
-  [12, 34, 56, 32, 56, 4, 4],
-  [56, 2, 1, 4, 13, 4, 4],
-];
+
