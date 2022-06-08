@@ -28,6 +28,7 @@ export const personalRevista = (personal, fecha) => {
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
+  let personalFiltrado = listaOrdenPersonal(personal,fecha)[0]
   return personalRevista(personal, fecha)[1];
 };
 // Funcion para conocer el personal que se encuentra con articulo
@@ -101,7 +102,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
     return false;
   });
-  // [sinDuplicados,enServicio, proximasLicencias]
-  return personal;
+  // 
+  return [sinDuplicados,enServicio, proximasLicencias]/* personal */;
 };
 
+let personalFiltrado = listaOrdenPersonal(personalTecnico,fechaActual)[0]

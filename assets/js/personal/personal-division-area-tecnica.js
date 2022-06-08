@@ -1,6 +1,13 @@
 // PERSONAL DIVISION AREA TECNICA
 export let personalTecnico = [
   {
+    nombre: "Gabriel",
+    apellido: "Knuttzen",
+    situacion: "Licencia",
+    inicioSituacion: "03-05-2023",
+    finSituacion: "30-05-2023",
+  },
+  {
     nombre: "Fernando",
     apellido: "Saucedo",
     situacion: "Licencia",

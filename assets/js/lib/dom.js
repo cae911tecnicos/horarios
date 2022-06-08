@@ -33,8 +33,7 @@ export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
-  //let personalApellido = personalRevista(personal, fecha)[1];
-  let cantidadPersonal = listaOrdenPersonal(personal, fecha);
+  let cantidadPersonal = personal;
 
   let str = String(numero),
     strA,
@@ -48,7 +47,10 @@ const numeroXpersonal = (numero, fecha, personal) => {
     numB = Number(strB);
     numA = numA - 1;
     numA = cantidadPersonal[numA].apellido;
+    console.warn(numB)
     numB = numB - 1;
+    console.warn(numB)
+    console.warn(cantidadPersonal[numB])
     numB = cantidadPersonal[numB].apellido;
     numero = `${numA}\n${numB}`;
   } else {
@@ -65,19 +67,19 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   let semana;
   let diaSemana;
   let etiquetaSemana;
-  if (personal == personalTecnico) {
+  if (personal === personalTecnico) {
     semana = "semanaTecnicos";
     maniana = "manianaTecnicos";
     tarde = "tardeTecnicos";
     diaSemana = "diaSemanaTecnicos";
     etiquetaSemana = "etiquetaSemanaTecnicos";
-  } else if (personal == personalAyudantia) {
+  } else if (personal === personalAyudantia) {
     semana = "semanaAyudantia";
     maniana = "manianaAyudantia";
     tarde = "tardeAyudantia";
     diaSemana = "diaSemanaAyudantia";
     etiquetaSemana = "etiquetaSemanaAyudantia";
-  } else if (personal == personalInformesJudiciales) {
+  } else if (personal === personalInformesJudiciales) {
     semana = "semanaInformes";
     maniana = "manianaInformes";
     tarde = "tardeInformes";
@@ -122,12 +124,15 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
       let fechaDelDia = arrSemana[i];
     }
   }
+
   // Determina el turno de la mañana
   let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let campoManiana = determinaCicloDelDia(fechaDelDia)[0];
-    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personal);
+    let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
@@ -164,7 +169,9 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let campoTarde = determinaCicloDelDia(fechaDelDia)[1];
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personal);
+    let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
@@ -191,5 +198,3 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 };
-
-
