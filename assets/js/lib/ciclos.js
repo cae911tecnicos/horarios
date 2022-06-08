@@ -1,5 +1,4 @@
-//import { personalTecnico } from "../personal/personal-division-area-tecnica.js"
-//import { personalInformesJudiciales } from "../personal/personal-division-area-tecnica.js"
+// CICLOS DIVISION AREA TECNIC Y SECCION INFORMES JUDICIALES -----------------------------------------
 
 //Estos  ciclos estan pensado para que una persona trabaje minimamente 3 veces por semana.
 // Cada ciclo dura un numero N de semanas, donde N es igual al numero de personal disponible.
@@ -77,3 +76,26 @@ export const cicloDelDia = (numero) => {
       : "No existe ese ciclo";
   return ciclo;
 };
+
+// CICLOS DIVISION AYUDANTIA  -----------------------------------------------------------------------
+
+export const ciclo_2_ayudantia = [
+  [1, 2, 1, 2, 1, 2, 2],
+  [1, 2, 1, 2, 1, 2, 2],
+];
+export const ciclo_3_ayudantia = [
+  [1, 3, 2, 1, 3, 2, 2],
+  [2, 1, 3, 2, 1, 2, 2],
+];
+export const ciclo_4_ayudantia = [
+  [1, 3, 1, 4, 2, 4, 4],
+  [2, 4, 2, 3, 1, 4, 4],
+];
+export const ciclo_5_ayudantia = [
+  [12, 5, 23, 4, 13, 4, 4],
+  [3, 4, 1, 5, 2, 4, 4],
+];
+export const ciclo_6_ayudantia = [
+  [12, 34, 56, 32, 56, 4, 4],
+  [56, 2, 1, 4, 13, 4, 4],
+];
