@@ -119,4 +119,3 @@ export const listaOrdenPersonal = (personal, fecha) => {
 
   return [filtro_02, proximasLicencias] /* personal */;
 };
-
