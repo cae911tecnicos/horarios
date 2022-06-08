@@ -22,16 +22,12 @@ export const feriados = [
       "Feriado 15. Paso a la Inmortalidad del Gral. José de San Martín (17/8)",
   },
   {
-    dia: "07-10-2022",
-    acontecimiento: "Feriado 7. Feriado con fines turísticos",
-  },
-  {
     dia: "10-10-2022",
     acontecimiento: "Feriado 10. Día del Respeto a la Diversidad Cultural (12/10)",
   },
   {
-    dia: "21-11-2022",
-    acontecimiento: "Feriado 21. Feriado con fines turísticos",
+    dia: "08-12-2022",
+    acontecimiento: "8. Inmaculada Concepción de María",
   },
   {
     dia: "25-12-2022",
