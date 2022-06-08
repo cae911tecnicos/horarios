@@ -11,9 +11,10 @@ export let personalTecnico = [
     nombre: "Fernando",
     apellido: "Saucedo",
     situacion: "Licencia",
-    inicioSituacion: "08-06-2022",
+    inicioSituacion: "11-06-2022",
     finSituacion: "02-04-2023",
   },
+
   {
     nombre: "Fernando",
     apellido: "Saucedo",
@@ -43,4 +44,5 @@ export let personalTecnico = [
     inicioSituacion: "22-04-2022",
     finSituacion: "01-05-2022",
   },
+  
 ];

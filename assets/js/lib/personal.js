@@ -11,7 +11,7 @@ export const listaPersonal = (personal) => {
 };
 // Funcion para conocer la situacion de revista del personal
 export const personalRevista = (personal, fecha) => {
-  let personalFiltrado = listaOrdenPersonal(personal,fecha)[0]
+  let personalFiltrado = listaOrdenPersonal(personal, fecha)[0];
 
   let articulo = [];
   let enServicio = [];
@@ -30,7 +30,7 @@ export const personalRevista = (personal, fecha) => {
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
-  let personalFiltrado = listaOrdenPersonal(personal,fecha)[0]
+  let personalFiltrado = listaOrdenPersonal(personal, fecha)[0];
   return personalRevista(personal, fecha)[1];
 };
 // Funcion para conocer el personal que se encuentra con articulo
@@ -55,10 +55,13 @@ export const personalConArticulo = (personal, fecha) => {
 export const listaOrdenPersonal = (personal, fecha) => {
   let orden = [];
   let proximasLicencias = [];
+  let filtro_01 = [];
+  let filtro_02 = [];
+  let filtro_03 = [];
+  let conArticulo = [];
   let soloApellido = [];
   let enServicio = [];
-  let date = fecha 
-  let articulo = []
+  let date = fecha;
 
   //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
   personal.sort(
@@ -66,38 +69,44 @@ export const listaOrdenPersonal = (personal, fecha) => {
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
   );
-  
 
-  // Elimina el personal que todavía no inicio su articulo segun parametro de fecha
+  // Elimina el personas que se encuentra con articulo segun parametro de fecha | filtro_01
   for (let i = 0; i < personal.length; i++) {
     let inicio = stringToDate(personal[i].inicioSituacion),
       fin = stringToDate(personal[i].finSituacion),
       date = stringToDate(fecha);
 
-    if (date.getTime() >= inicio.getTime()) {
-      orden.push(personal[i]);
+    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
+      conArticulo.push(personal[i]);
     } else {
-      proximasLicencias.push(personal[i]);
+      filtro_01.push(personal[i]);
     }
   }
 
-
-  // Elimina quien este de licencia
-  for (let i = 0; i < orden.length; i++) {
-    let inicio = stringToDate(orden[i].inicioSituacion),
-      fin = stringToDate(orden[i].finSituacion),
+  // Elimina el personal que todavía no inicio su articulo segun parametro de fecha | filtro_02
+  for (let i = 0; i < filtro_01.length; i++) {
+    let inicio = stringToDate(filtro_01[i].inicioSituacion),
+      fin = stringToDate(filtro_01[i].finSituacion),
       date = stringToDate(fecha);
 
-    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
-      articulo.push(orden[i]);
+    if (date.getTime() <= inicio.getTime()) {
+      proximasLicencias.push(filtro_01[i]);
     } else {
-      enServicio.push(orden[i]);
+      filtro_02.push(filtro_01[i]);
     }
   }
-  
+
+  // Elimina la persona pasadas que en la actualidad tienen articulo | filtro_03
+  for (let a = 0; a < conArticulo.length; a++) {
+    for (let i = 0; i < filtro_02.length; i++) {
+      if (filtro_02[i].apellido == conArticulo[a].apellido) {
+        filtro_02.splice(i, i + 1);
+      }
+    }
+  }
 
   //Elimina los duplicados
-  const sinDuplicados = enServicio.filter((element) => {
+  /*   const sinDuplicados = enServicio.filter((element) => {
     // Crea un array con solo los apelidos
     const isDuplicate = soloApellido.includes(element.apellido);
 
@@ -106,12 +115,10 @@ export const listaOrdenPersonal = (personal, fecha) => {
       return true;
     }
     return false;
-  });
+  }); */
 
-  console.warn(sinDuplicados)
-  // 
-  return [sinDuplicados,enServicio, proximasLicencias]/* personal */;
+  return [filtro_02, proximasLicencias] /* personal */;
 };
 
-let personalFiltrado = listaOrdenPersonal(personalTecnico,fechaActual)[0]
-console.log(personalFiltrado)
+let personalFiltrado = listaOrdenPersonal(personalTecnico, fechaActual)[1];
+console.log(personalFiltrado);
