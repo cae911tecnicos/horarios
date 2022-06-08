@@ -1,5 +1,5 @@
-import { fechaActual, stringToDate } from "./date.js";
-import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
+import { fechaActual, stringToDate, numeroDeSemana,girarFechaFormateada,diasSemana,  } from "./date.js";
+import { personalTecnico, } from "../personal/personal-division-area-tecnica.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
 export const listaPersonal = (personal) => {
@@ -116,9 +116,21 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
     return false;
   });
-    console.log(date, soloApellido)
+  
+  // INICIO PRUEBASSS
+
+  //console.log(girarFechaFormateada(fecha))
+  //console.log(numeroDeSemana(girarFechaFormateada(fecha)))
+
+
+  //let hola = girarFechaFormateada(fecha)
+  //let numSemana = numeroDeSemana(hola)
+  // console.log(numSemana)
+
+  // FIN PRUEBAS 
 
   // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
+  //console.log(numeroDeSemana(fecha));
 /*   for (let i = 0; i < filtro_02.length; i++) {
     if (filtro_02[i].inicioSituacion == fecha) {
       console.log("hola")
@@ -134,4 +146,4 @@ export const listaOrdenPersonal = (personal, fecha) => {
 
 let prueba = listaOrdenPersonal(personalTecnico, fechaActual)[0]
 
-console.table(prueba)
+//console.table(prueba)
