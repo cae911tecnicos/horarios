@@ -11,16 +11,18 @@ export const listaPersonal = (personal) => {
 };
 // Funcion para conocer la situacion de revista del personal
 export const personalRevista = (personal, fecha) => {
+  let personalFiltrado = listaOrdenPersonal(personal,fecha)[0]
+
   let articulo = [];
   let enServicio = [];
-  for (let i = 0; i < personal.length; i++) {
-    let inicio = stringToDate(personal[i].inicioSituacion);
-    let fin = stringToDate(personal[i].finSituacion);
+  for (let i = 0; i < personalFiltrado.length; i++) {
+    let inicio = stringToDate(personalFiltrado[i].inicioSituacion);
+    let fin = stringToDate(personalFiltrado[i].finSituacion);
     let date = stringToDate(fecha);
     if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
-      articulo.push(personal[i]);
+      articulo.push(personalFiltrado[i]);
     } else {
-      enServicio.push(personal[i]);
+      enServicio.push(personalFiltrado[i]);
     }
   }
 
@@ -64,6 +66,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
   );
+  
 
   // Elimina el personal que todavía no inicio su articulo segun parametro de fecha
   for (let i = 0; i < personal.length; i++) {
@@ -78,6 +81,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   }
 
+
   // Elimina quien este de licencia
   for (let i = 0; i < orden.length; i++) {
     let inicio = stringToDate(orden[i].inicioSituacion),
@@ -90,6 +94,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
       enServicio.push(orden[i]);
     }
   }
+  
 
   //Elimina los duplicados
   const sinDuplicados = enServicio.filter((element) => {
@@ -102,8 +107,11 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
     return false;
   });
+
+  console.warn(sinDuplicados)
   // 
   return [sinDuplicados,enServicio, proximasLicencias]/* personal */;
 };
 
 let personalFiltrado = listaOrdenPersonal(personalTecnico,fechaActual)[0]
+console.log(personalFiltrado)

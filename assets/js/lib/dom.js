@@ -47,10 +47,7 @@ const numeroXpersonal = (numero, fecha, personal) => {
     numB = Number(strB);
     numA = numA - 1;
     numA = cantidadPersonal[numA].apellido;
-    console.warn(numB)
     numB = numB - 1;
-    console.warn(numB)
-    console.warn(cantidadPersonal[numB])
     numB = cantidadPersonal[numB].apellido;
     numero = `${numA}\n${numB}`;
   } else {
