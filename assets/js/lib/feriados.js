@@ -11,11 +11,11 @@ export const feriados = [
   {
     dia: "20-06-2022",
     acontecimiento: "Feriado 20. Paso a la Inmortalidad del Gral. Manuel Belgrano",
-  },
+  },/*
   {
     dia: "09-07-2022",
     acontecimiento: "Feriado 9. Día de la Independencia",
-  },
+  },*/
   {
     dia: "15-09-2022",
     acontecimiento:

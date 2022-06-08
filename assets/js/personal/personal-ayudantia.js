@@ -18,13 +18,14 @@ export let personalAyudantia = [
       inicioSituacion: "18-02-2022",
       finSituacion: "05-04-2022",
     },
+    /*
     {
       nombre: "Juan Ignacio",
       apellido: "Moyano",
       situacion: "Licencia",
       inicioSituacion: "06-04-2022",
       finSituacion: "06-04-2022",
-    },
+    },*/
     {
       nombre: "Emilce",
       apellido: "Ramirez",
