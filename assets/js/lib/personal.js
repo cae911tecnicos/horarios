@@ -5,10 +5,13 @@ import {
   girarFechaFormateada,
   diasSemana,
   sumarDias,
+  diferenciaFecha,
+  iniciCicloFormateado,
 } from "./date.js";
-import { determinaCicloDelDia } from "./dom.js";
+
 import { cicloDelDia } from "./ciclos.js";
 import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
+import { determinaCicloDelDia } from "./dom.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
 export const listaPersonal = (personal) => {
@@ -116,31 +119,53 @@ export const listaOrdenPersonal = (personal, fecha) => {
   return [filtro_04, proximasLicencias];
 };
 
-
-export const vueltaDelPersonal = (personal, fecha) => {
+const vueltaDelPersonal = (personal, fecha) => {
   // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
   let fechaRegresoArticulo = stringToDate(fecha);
   // ↓ Para saber el dia sabado de la semana en la que vuelve el personal
   let diaSabado = diasSemana(fechaRegresoArticulo)[5];
   //Determina el cilo del dia sabado
-  let numeroDiaSabado = determinaCicloDelDia(diaSabado, personal)[0]
+
   console.error(fecha);
   console.log(diaSabado);
-  console.warn(numeroDiaSabado)
+  
   console.log("-----");
+  
+
+  /// -----------------
+  const determinaDia = (fecha, personal) => {
+    let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
+    let personalEnServicio = personalRevista(personal, fecha)[1];
+
+    let numServicio = personalEnServicio.length;
+    let arr = cicloDelDia(personal, numServicio);
+
+    while (arr[0].length < cuentaDias) {
+      arr[0] = [...arr[0], ...arr[0]];
+    }
+
+    while (arr[1].length < cuentaDias) {
+      arr[1] = [...arr[1], ...arr[1]];
+    }
+
+    let mañana = arr[0][cuentaDias];
+    let tarde = arr[1][cuentaDias];
+
+    return [mañana, tarde];
+  };
+  let numeroDiaSabado = determinaDia(diaSabado, personal)[0];
+
   /*   for (let i = 0; i < filtro_02.length; i++) {
     if (filtro_02[i].inicioSituacion == fecha) {
       console.log("hola")
     } else { console.log("nada por aki") }
   } */
   // FIN PRUEBAS
-  let lista = "termina funcion vueeltaDelPersonal"
-  return lista;
+  return numeroDiaSabado;
 };
 
-let hola = listaOrdenPersonal(personalTecnico,fechaActual)[0]
-let hola2 = vueltaDelPersonal(hola, fechaActual)
+let hola = listaOrdenPersonal(personalTecnico, fechaActual)[0];
+let hola2 = vueltaDelPersonal(hola, fechaActual);
 
-
-console.warn(hola2)
-console.log(hola)
+console.warn(hola2);
+console.log(hola);
