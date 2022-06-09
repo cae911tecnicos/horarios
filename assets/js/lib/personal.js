@@ -127,7 +127,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
   //let numeroDiaSabado = determinaCicloDelDia(diaSabado)
   console.error(fecha)
   console.log(diaSabado)
-  console.warn(numeroDiaSabado)
+  //console.warn(numeroDiaSabado)
   console.log("-----")
 
  
