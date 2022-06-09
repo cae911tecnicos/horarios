@@ -62,6 +62,17 @@ export const listaOrdenPersonal = (personal, fecha) => {
   let enServicio = [];
   let date = fecha;
 
+  // Agregar personal que se reincorpora al numero que trabaja el fin de semana
+/*   for (let i = 0; i < personal.length; i++) {
+    let fechaFinalDeArticulo = stringToDate(personal[i].finSituacion);
+    let unDia = 1000 * 60 * 60 * 24 * 1;
+    let sumaUnDia = fechaFinalDeArticulo.getTime() + unDia;
+    let fechaIncorporacionPersonal = new Date(sumaUnDia);
+    if (fecha == fechaIncorporacionPersonal) {
+      console.log("hola");
+    }
+  } */
+
   //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
   personal.sort(
     (a, b) =>
@@ -126,12 +137,6 @@ const vueltaDelPersonal = (personal, fecha) => {
   let diaSabado = diasSemana(fechaRegresoArticulo)[5];
   //Determina el cilo del dia sabado
 
-  console.error(fecha);
-  console.log(diaSabado);
-  
-  console.log("-----");
-  
-
   /// -----------------
   const determinaDia = (fecha, personal) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
@@ -167,5 +172,5 @@ const vueltaDelPersonal = (personal, fecha) => {
 let hola = listaOrdenPersonal(personalTecnico, fechaActual)[0];
 let hola2 = vueltaDelPersonal(hola, fechaActual);
 
+console.table(hola);
 console.warn(hola2);
-console.log(hola);

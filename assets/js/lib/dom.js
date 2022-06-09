@@ -34,7 +34,6 @@ export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
   let cantidadPersonal = personal;
-
   let str = String(numero),
     strA,
     strB,
@@ -46,13 +45,16 @@ const numeroXpersonal = (numero, fecha, personal) => {
     numA = Number(strA);
     numB = Number(strB);
     numA = numA - 1;
-    numA = cantidadPersonal[numA].apellido;
+
     numB = numB - 1;
+    numA = cantidadPersonal[numA].apellido;
+
     numB = cantidadPersonal[numB].apellido;
     numero = `${numA}\n${numB}`;
   } else {
-    numero = numero - 1;
-    numero = cantidadPersonal[numero].apellido;
+    numero = Number(numero);
+    let numC = numero - 1;
+    numero = cantidadPersonal[numC].apellido;
   }
   return numero;
 };
@@ -61,7 +63,6 @@ const numeroXpersonal = (numero, fecha, personal) => {
 export const determinaCicloDelDia = (fecha, personal) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
   let personalEnServicio = personalRevista(personal, fecha)[1];
-
   let numServicio = personalEnServicio.length;
   let arr = cicloDelDia(personal, numServicio);
 

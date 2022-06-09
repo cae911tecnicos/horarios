@@ -75,6 +75,7 @@ export const rotacion = (arr, personal) => {
 };
 // Funcion para completar y generar los ciclos
 const ciclos = (ciclo, personal) => {
+  
   for (let a = 0; a < 2; a++) {
     for (let i = 0; i < 7 * (personal - 1); i++) {
       let aRotar = ciclo[a][i];
@@ -113,7 +114,7 @@ export const cicloDelDia = (personal, numero) => {
             : numero == 3
               ? ciclos(ciclo3, 3)
               : numero == 2
-                ? ciclos(ciclo3, 2)
+                ? ciclos(ciclo2, 2)
                 : "No existe ese ciclo";
     return ciclo;
   }
