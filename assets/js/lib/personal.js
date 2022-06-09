@@ -1,6 +1,14 @@
-import { fechaActual, stringToDate, numeroDeSemana,girarFechaFormateada,diasSemana, sumarDias,  } from "./date.js";
-//import {determinaCicloDelDia, } from "./dom.js"
-import { personalTecnico, } from "../personal/personal-division-area-tecnica.js";
+import {
+  fechaActual,
+  stringToDate,
+  numeroDeSemana,
+  girarFechaFormateada,
+  diasSemana,
+  sumarDias,
+} from "./date.js";
+import { determinaCicloDelDia } from "./dom.js";
+import { cicloDelDia } from "./ciclos.js";
+import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
 export const listaPersonal = (personal) => {
@@ -38,19 +46,6 @@ export const personalEnServicio = (personal, fecha) => {
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
-
-/* export const prueba = (personal, fecha) => {
-  let arr = [];
-  for (let i = 0; i < personal.length; i++) {
-    let fin = stringToDate(personal[i].finSituacion);
-    let date = stringToDate(fecha);
-    if (date.getTime() < fin.getTime()) {
-      arr.push(personal[i]);
-    }
-  }
-
-  return arr;
-}; */
 
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
 export const listaOrdenPersonal = (personal, fecha) => {
@@ -117,29 +112,35 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
     return false;
   });
-  
-  // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
-  // INICIO PRUEBASSS
-  let fechaRegresoArticulo = stringToDate(fecha)
-  // ↓ Para saber el dia sabado de la semana en la que vuelve el personal
-  let diaSabado = diasSemana(fechaRegresoArticulo)[5]
-  //Determina el cilo del dia sabado
-  //let numeroDiaSabado = determinaCicloDelDia(diaSabado)
-  console.error(fecha)
-  console.log(diaSabado)
-  //console.warn(numeroDiaSabado)
-  console.log("-----")
 
- 
-
-  //console.log(numeroDeSemana(fecha));
-/*   for (let i = 0; i < filtro_02.length; i++) {
-    if (filtro_02[i].inicioSituacion == fecha) {
-      console.log("hola")
-    } else { console.log("nada por aki") }
-
-  } */
-  // FIN PRUEBAS 
   return [filtro_04, proximasLicencias];
 };
 
+
+export const vueltaDelPersonal = (personal, fecha) => {
+  // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
+  let fechaRegresoArticulo = stringToDate(fecha);
+  // ↓ Para saber el dia sabado de la semana en la que vuelve el personal
+  let diaSabado = diasSemana(fechaRegresoArticulo)[5];
+  //Determina el cilo del dia sabado
+  let numeroDiaSabado = determinaCicloDelDia(diaSabado, personal)[0]
+  console.error(fecha);
+  console.log(diaSabado);
+  console.warn(numeroDiaSabado)
+  console.log("-----");
+  /*   for (let i = 0; i < filtro_02.length; i++) {
+    if (filtro_02[i].inicioSituacion == fecha) {
+      console.log("hola")
+    } else { console.log("nada por aki") }
+  } */
+  // FIN PRUEBAS
+  let lista = "termina funcion vueeltaDelPersonal"
+  return lista;
+};
+
+let hola = listaOrdenPersonal(personalTecnico,fechaActual)[0]
+let hola2 = vueltaDelPersonal(hola, fechaActual)
+
+
+console.warn(hola2)
+console.log(hola)

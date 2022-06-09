@@ -57,6 +57,28 @@ const numeroXpersonal = (numero, fecha, personal) => {
   return numero;
 };
 
+// Funcion que determina que ciclo que tiene el dia
+export const determinaCicloDelDia = (fecha, personal) => {
+  let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
+  let personalEnServicio = personalRevista(personal, fecha)[1];
+
+  let numServicio = personalEnServicio.length;
+  let arr = cicloDelDia(personal, numServicio);
+
+  while (arr[0].length < cuentaDias) {
+    arr[0] = [...arr[0], ...arr[0]];
+  }
+
+  while (arr[1].length < cuentaDias) {
+    arr[1] = [...arr[1], ...arr[1]];
+  }
+
+  let mañana = arr[0][cuentaDias];
+  let tarde = arr[1][cuentaDias];
+
+  return [mañana, tarde];
+};
+
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   let maniana;
@@ -85,27 +107,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   }
 
   etiquetaSemana = document.querySelector(`#${semana}${num}`);
-  // Funcion que determina que ciclo que tiene el dia
-  const determinaCicloDelDia = (fecha) => {
-    let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-    let personalEnServicio = personalRevista(personal, fecha)[1];
-
-    let numServicio = personalEnServicio.length
-    let arr = cicloDelDia(personal,numServicio);
-
-    while (arr[0].length < cuentaDias) {
-      arr[0] = [...arr[0], ...arr[0]];
-    }
-
-    while (arr[1].length < cuentaDias) {
-      arr[1] = [...arr[1], ...arr[1]];
-    }
-
-    let mañana = arr[0][cuentaDias];
-    let tarde = arr[1][cuentaDias];
-
-    return [mañana, tarde];
-  };
 
   // Determina fecha del dia
   for (let i = 0; i < 7; i++) {
@@ -127,9 +128,8 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let campoManiana = determinaCicloDelDia(fechaDelDia)[0];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
-
+    let campoManiana = determinaCicloDelDia(fechaDelDia, personalFiltrado)[0];
     campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
@@ -139,7 +139,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     if (i == 5 || i == 6) {
       diaSemana.className = "finde-maniana";
     }
-
     // ↓ Para colorear el FERIADO
     for (let a = 0; a < feriados.length; a++) {
       let fechaFeriado = feriados[a].dia;
@@ -166,9 +165,8 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   const etiquetaTarde = document.querySelector(`#${tarde}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let campoTarde = determinaCicloDelDia(fechaDelDia)[1];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
-
+    let campoTarde = determinaCicloDelDia(fechaDelDia, personalFiltrado)[1];
     campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
