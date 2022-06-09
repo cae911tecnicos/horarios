@@ -1,4 +1,5 @@
-import { fechaActual, stringToDate, numeroDeSemana,girarFechaFormateada,diasSemana,  } from "./date.js";
+import { fechaActual, stringToDate, numeroDeSemana,girarFechaFormateada,diasSemana, sumarDias,  } from "./date.js";
+//import {determinaCicloDelDia, } from "./dom.js"
 import { personalTecnico, } from "../personal/personal-division-area-tecnica.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
@@ -119,15 +120,17 @@ export const listaOrdenPersonal = (personal, fecha) => {
   
   // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
   // INICIO PRUEBASSS
-  let fechaDeldia = new Date(fecha)
-  let numSemana = numeroDeSemana(fechaDeldia)
-  let numdiaSemana = diasSemana(fechaDeldia)[5]
-  console.log(numdiaSemana)
-  //let hola = girarFechaFormateada(fecha)
-  //let numSemana = numeroDeSemana(hola)
-  // console.log(numSemana)
+  let fechaRegresoArticulo = stringToDate(fecha)
+  // ↓ Para saber el dia sabado de la semana en la que vuelve el personal
+  let diaSabado = diasSemana(fechaRegresoArticulo)[5]
+  //Determina el cilo del dia sabado
+  //let numeroDiaSabado = determinaCicloDelDia(diaSabado)
+  console.error(fecha)
+  console.log(diaSabado)
+  console.warn(numeroDiaSabado)
+  console.log("-----")
 
-
+ 
 
   //console.log(numeroDeSemana(fecha));
 /*   for (let i = 0; i < filtro_02.length; i++) {
@@ -140,7 +143,3 @@ export const listaOrdenPersonal = (personal, fecha) => {
   return [filtro_04, proximasLicencias];
 };
 
-
-let prueba = listaOrdenPersonal(personalTecnico, fechaActual)[0]
-
-//console.table(prueba)
