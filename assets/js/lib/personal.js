@@ -67,7 +67,9 @@ const vueltaDelPersonal = (personal, fecha) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
     let personalEnServicio = personalRevista(personal, fecha)[1];
 
+    
     let numServicio = personalEnServicio.length;
+    console.error(numServicio)
     let arr = cicloDelDia(personal, numServicio);
     console.log(arr)
 

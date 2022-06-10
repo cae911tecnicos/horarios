@@ -65,7 +65,6 @@ export const determinaCicloDelDia = (fecha, personal) => {
   let personalEnServicio = personalRevista(personal, fecha)[1];
   let numServicio = personalEnServicio.length;
   let arr = cicloDelDia(personal, numServicio);
-
   while (arr[0].length < cuentaDias) {
     arr[0] = [...arr[0], ...arr[0]];
   }
@@ -74,10 +73,10 @@ export const determinaCicloDelDia = (fecha, personal) => {
     arr[1] = [...arr[1], ...arr[1]];
   }
 
-  let mañana = arr[0][cuentaDias];
+  let maniana = arr[0][cuentaDias];
   let tarde = arr[1][cuentaDias];
 
-  return [mañana, tarde];
+  return [maniana, tarde];
 };
 
 // Funcion Crear secuencias de Dias
@@ -131,7 +130,10 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+    // Error detectado aca
+    console.warn("26-06-2022"+determinaCicloDelDia("26-06-2022",personalInformesJudiciales))
     let campoManiana = determinaCicloDelDia(fechaDelDia, personalFiltrado)[0];
+    console.log(fechaDelDia,campoManiana)
     //campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
@@ -196,3 +198,5 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 };
+
+console.table(determinaCicloDelDia("26-06-2022",personalInformesJudiciales))
