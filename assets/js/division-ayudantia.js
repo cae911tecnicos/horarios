@@ -1,4 +1,4 @@
-import { ciclo2, ciclo3, ciclo4, ciclo5, ciclo6, rotacion } from "./lib/ciclos.js";
+import { rotacion } from "./lib/ciclos.js";
 import { personalAyudantia } from "./personal/personal-ayudantia.js"
 import {
   secuenciaDias,

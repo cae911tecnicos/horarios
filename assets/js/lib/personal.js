@@ -69,6 +69,7 @@ const vueltaDelPersonal = (personal, fecha) => {
 
     let numServicio = personalEnServicio.length;
     let arr = cicloDelDia(personal, numServicio);
+    console.log(arr)
 
     while (arr[0].length < cuentaDias) {
       arr[0] = [...arr[0], ...arr[0]];

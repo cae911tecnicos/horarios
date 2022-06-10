@@ -34,7 +34,6 @@ export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
   let cantidadPersonal = personal;
-  console.log(cantidadPersonal.length)
   let str = String(numero),
     strA,
     strB,
@@ -48,7 +47,9 @@ const numeroXpersonal = (numero, fecha, personal) => {
     numA = numA - 1;
     numB = numB - 1;
     numA = cantidadPersonal[numA].apellido;
+    console.log(numA)
     numB = cantidadPersonal[numB].apellido;
+    console.log(numB)
     numero = `${numA}\n${numB}`;
   } else {
     numero = Number(numero);
@@ -131,7 +132,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
     let campoManiana = determinaCicloDelDia(fechaDelDia, personalFiltrado)[0];
-    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
+    //campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
@@ -168,7 +169,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
     let campoTarde = determinaCicloDelDia(fechaDelDia, personalFiltrado)[1];
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
+    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);

@@ -1,7 +1,7 @@
 import { personalTecnico, } from "./personal/personal-division-area-tecnica.js"
 import { personalInformesJudiciales, } from "./personal/personal-seccion-informes-judiciales.js"
 
-import { ciclo2, ciclo3, ciclo4, ciclo5, ciclo6, rotacion } from "./lib/ciclos.js";
+import { ciclo_2_tecnicos, ciclo_3_tecnicos, ciclo_4_tecnicos, ciclo_5_tecnicos, ciclo_6_tecnicos, rotacion } from "./lib/ciclos.js";
 import {
   secuenciaDias,
   arrSemana0,
