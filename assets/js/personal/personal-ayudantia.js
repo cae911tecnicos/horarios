@@ -4,16 +4,12 @@ export let personalAyudantia = [
       nombre: "Florencia",
       apellido: "Techterman",
       situacion: "Licencia",
-      // original
       inicioSituacion: "03-03-2022",
       finSituacion: "04-04-2022",
-      // prueba
-      /*     inicioSituacion: "02-06-2022",
-      finSituacion: "20-08-2022", */
     },
     {
       nombre: "Emiliano",
-      apellido: "Perez",
+      apellido: "Perez ",
       situacion: "Licencia",
       inicioSituacion: "18-02-2022",
       finSituacion: "05-04-2022",
@@ -25,7 +21,8 @@ export let personalAyudantia = [
       situacion: "Licencia",
       inicioSituacion: "06-04-2022",
       finSituacion: "06-04-2022",
-    },*/
+    },
+    */
     {
       nombre: "Noel",
       apellido: "Gomez",
