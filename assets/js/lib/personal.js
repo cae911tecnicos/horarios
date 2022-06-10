@@ -1,4 +1,4 @@
-import _, { map } from './underscore/underscore.js';
+//import _, { map } from './underscore/underscore.js';
 import {
   fechaActual,
   stringToDate,
@@ -13,6 +13,8 @@ import {
 
 import { cicloDelDia } from "./ciclos.js";
 import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
+import { personalAyudantia } from "../personal/personal-ayudantia.js";
+import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
 import { determinaCicloDelDia } from "./dom.js";
 
 // Funcion Lista del personal de la Division Area Tecnica:
@@ -171,10 +173,10 @@ export const listaOrdenPersonal = (personal, fecha) => {
 
   
 
-  console.log(fecha)
-  console.log(filtro_04)
-  console.log("----")
-  console.log("LoDash output", _.uniq(filtro_04));
+  //console.log(fecha)
+  //console.log(filtro_04)
+  //console.log("----")
+  //console.log("LoDash output", _.uniq(filtro_04));
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
 /*   let filtro_05, personalReincorporado, numDePosicion;
@@ -192,13 +194,13 @@ export const listaOrdenPersonal = (personal, fecha) => {
       personalReincorporado = filtro_04[i];
     }
   } */
-
+  
   return [filtro_02, proximasLicencias];
 };
 
 let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
-let hola = listaOrdenPersonal(personalTecnico, fechaActual)[0];
+let hola = listaOrdenPersonal(personalInformesJudiciales, fechaActual)[0];
 let hola2 = vueltaDelPersonal(hola, fechaActual);
 
-//console.error(hola3);
+console.table(hola);
 
