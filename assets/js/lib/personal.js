@@ -110,6 +110,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
       new Date(stringToDate(a.finSituacion)).getTime()
   );
 
+  
+
   // Elimina el personas que se encuentra con articulo segun parametro de fecha | filtro_01
   for (let i = 0; i < personal.length; i++) {
     let inicio = stringToDate(personal[i].inicioSituacion),
@@ -122,6 +124,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
       filtro_01.push(personal[i]);
     }
   }
+
+  
 
   // Elimina el personal que todavía no inicio su articulo segun parametro de fecha | filtro_02
   for (let i = 0; i < filtro_01.length; i++) {
@@ -136,6 +140,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   }
 
+  console.warn(fecha, filtro_02)
+
   // Elimina la persona pasadas que en la actualidad tienen articulo | filtro_03
   for (let a = 0; a < conArticulo.length; a++) {
     for (let i = 0; i < filtro_02.length; i++) {
@@ -144,6 +150,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
       }
     }
   }
+  
 
   //Elimina los duplicados  | filtro_04
   const filtro_04 = filtro_02.filter((element) => {
@@ -158,8 +165,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
   });
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
-  let personalReincorporado,
-  numDePosicion;
+  let filtro_05, personalReincorporado, numDePosicion;
+
   for (let i = 0; i < filtro_04.length; i++) {
     let fechaFinalDeArticulo = stringToDate(filtro_04[i].finSituacion);
     let unDia = 1000 * 60 * 60 * 24 * 1;
@@ -168,25 +175,18 @@ export const listaOrdenPersonal = (personal, fecha) => {
     let fechaIncorporacionPersonalFormateada = fechaFormateada(
       fechaIncorporacionPersonal
     );
-    if (fecha == fechaIncorporacionPersonalFormateada) {
-      console.log(filtro_04[i].apellido);
+    if (fecha === fechaIncorporacionPersonalFormateada) {
       numDePosicion = vueltaDelPersonal(filtro_04, fecha);
       personalReincorporado = filtro_04[i];
-      console.log(personalReincorporado);
-      
-      console.error(numDePosicion)
-      filtro_04.splice(numDePosicion, 0, personalReincorporado);
-//      filtro_04.shift();
     }
   }
-  //filtro_04.shift();
-  //filtro_04.splice(numDePosicion, 0, personalReincorporado);
 
   return [filtro_04, proximasLicencias];
 };
 
+let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
 let hola = listaOrdenPersonal(personalTecnico, fechaActual)[0];
 let hola2 = vueltaDelPersonal(hola, fechaActual);
 
-console.table(hola);
-console.warn(hola2);
+//console.table(hola3);
+
