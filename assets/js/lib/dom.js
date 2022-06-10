@@ -130,6 +130,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+    console.warn(personalFiltrado)
     let campoManiana = determinaCicloDelDia(fechaDelDia, personalFiltrado)[0];
     campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");

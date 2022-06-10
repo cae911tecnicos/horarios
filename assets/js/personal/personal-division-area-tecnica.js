@@ -8,6 +8,7 @@ export let personalTecnico = [
     inicioSituacion: "01-06-2022",
     finSituacion: "08-06-2022",
   },
+  
   // fin prueba
   {
     nombre: "Fernando",

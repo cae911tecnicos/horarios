@@ -100,8 +100,9 @@ export const listaOrdenPersonal = (personal, fecha) => {
   let filtro_03 = [];
   let conArticulo = [];
   let soloApellido = [];
-  let enServicio = [];
   let date = fecha;
+
+
 
   //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
   personal.sort(
@@ -110,7 +111,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
       new Date(stringToDate(a.finSituacion)).getTime()
   );
 
-  
+
 
   // Elimina el personas que se encuentra con articulo segun parametro de fecha | filtro_01
   for (let i = 0; i < personal.length; i++) {
@@ -125,8 +126,6 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   }
 
-  
-
   // Elimina el personal que todavía no inicio su articulo segun parametro de fecha | filtro_02
   for (let i = 0; i < filtro_01.length; i++) {
     let inicio = stringToDate(filtro_01[i].inicioSituacion),
@@ -140,7 +139,9 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   }
 
-  console.warn(fecha, filtro_02)
+ 
+
+  
 
   // Elimina la persona pasadas que en la actualidad tienen articulo | filtro_03
   for (let a = 0; a < conArticulo.length; a++) {
@@ -150,8 +151,10 @@ export const listaOrdenPersonal = (personal, fecha) => {
       }
     }
   }
-  
 
+
+  
+  // ACA ESTA EL ERROR!
   //Elimina los duplicados  | filtro_04
   const filtro_04 = filtro_02.filter((element) => {
     // Crea un array con solo los apelidos
@@ -164,8 +167,12 @@ export const listaOrdenPersonal = (personal, fecha) => {
     return false;
   });
 
+  console.log(fecha)
+  console.table(filtro_04)
+  console.log("----")
+
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
-  let filtro_05, personalReincorporado, numDePosicion;
+/*   let filtro_05, personalReincorporado, numDePosicion;
 
   for (let i = 0; i < filtro_04.length; i++) {
     let fechaFinalDeArticulo = stringToDate(filtro_04[i].finSituacion);
@@ -179,7 +186,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
       numDePosicion = vueltaDelPersonal(filtro_04, fecha);
       personalReincorporado = filtro_04[i];
     }
-  }
+  } */
 
   return [filtro_04, proximasLicencias];
 };
@@ -188,5 +195,5 @@ let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
 let hola = listaOrdenPersonal(personalTecnico, fechaActual)[0];
 let hola2 = vueltaDelPersonal(hola, fechaActual);
 
-//console.table(hola3);
+//console.error(hola3);
 

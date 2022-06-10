@@ -29,7 +29,7 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-
+console.warn("personal sin filtros "+personalTecnico)
 secuenciaDias(arrSemana0, 0, personalTecnico, ordenPersonalTecnicoFeriado);
 secuenciaDias(arrSemana0, 0, personalAyudantia, ordenPersonalAyudantiaFeriado);
 secuenciaDias(arrSemana0, 0, personalInformesJudiciales, ordenPersonalInformesFeriado);
