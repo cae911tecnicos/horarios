@@ -125,6 +125,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 
+    
   // Determina el turno de la mañana
   let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {

@@ -1,3 +1,4 @@
+import _, { map } from './underscore/underscore.js';
 import {
   fechaActual,
   stringToDate,
@@ -166,10 +167,14 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
     return false;
   });
+  
+
+  
 
   console.log(fecha)
-  console.table(filtro_04)
+  console.log(filtro_04)
   console.log("----")
+  console.log("LoDash output", _.uniq(filtro_04));
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
 /*   let filtro_05, personalReincorporado, numDePosicion;
@@ -188,7 +193,7 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   } */
 
-  return [filtro_04, proximasLicencias];
+  return [filtro_02, proximasLicencias];
 };
 
 let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
