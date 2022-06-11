@@ -12,7 +12,7 @@ import {
 
 import { cicloDelDia } from "./ciclos.js";
 import { feriados } from "./feriados.js";
-import { situacionDelPersonal } from "./personal.js";
+import { personalEnServicio } from "./personal.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -119,13 +119,13 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let personalFiltrado = situacionDelPersonal(personal, fechaDelDia)[0];
+    let enServicio = personalEnServicio(personal, fechaDelDia);
     // Error detectado aca
     let campoManiana = determinaCicloDelDia(arrSemana[i], personal)[0];
     //Aca arriba esta el error
 
     //↓ Cambia el numero por el apellido de la persona
-    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
@@ -162,11 +162,11 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   const etiquetaTarde = document.querySelector(`#${tarde}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let personalFiltrado = situacionDelPersonal(personal, fechaDelDia)[0];
+    let enServicio = personalEnServicio(personal, fechaDelDia);
     let campoTarde = determinaCicloDelDia(fechaDelDia, personal)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
