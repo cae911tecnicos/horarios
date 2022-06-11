@@ -136,7 +136,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let campoManiana = determinaCicloDelDia(arrSemana[i], personal)[0];
     //Aca arriba esta el error
     console.error(fechaDelDia,campoManiana)
-    //campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
@@ -172,8 +172,8 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
-    let campoTarde = determinaCicloDelDia(fechaDelDia, personalFiltrado)[1];
-    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
+    let campoTarde = determinaCicloDelDia(fechaDelDia, personal)[1];
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
