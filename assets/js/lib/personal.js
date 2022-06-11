@@ -65,10 +65,10 @@ const vueltaDelPersonal = (personal, fecha) => {
   /// -----------------
   const determinaDia = (fecha, personal) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-    let personalEnServicio = personalRevista(personal, fecha)[1];
-
-    
-    let numServicio = personalEnServicio.length;
+    /* let personalEnServicio = personalRevista(personal, fecha)[1]; */
+    /* let personalEnServicio = personal.length */
+   
+    let numServicio = personal.length;
     console.error(numServicio)
     let arr = cicloDelDia(personal, numServicio);
     console.log(arr)
@@ -205,5 +205,5 @@ let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
 let hola = listaOrdenPersonal(personalInformesJudiciales, fechaActual)[0];
 let hola2 = vueltaDelPersonal(hola, fechaActual);
 
-console.table(hola);
+console.table(hola3);
 

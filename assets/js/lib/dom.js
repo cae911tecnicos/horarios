@@ -62,8 +62,9 @@ const numeroXpersonal = (numero, fecha, personal) => {
 // Funcion que determina que ciclo que tiene el dia
 export const determinaCicloDelDia = (fecha, personal) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-  let personalEnServicio = personalRevista(personal, fecha)[1];
-  let numServicio = personalEnServicio.length;
+  /* let personalEnServicio = personalRevista(personal, fecha)[1]; */
+  let numServicio = personal.length;
+  console.log(numServicio)
   let arr = cicloDelDia(personal, numServicio);
   while (arr[0].length < cuentaDias) {
     arr[0] = [...arr[0], ...arr[0]];
@@ -131,9 +132,10 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
     // Error detectado aca
-    console.warn("26-06-2022"+determinaCicloDelDia("26-06-2022",personalInformesJudiciales))
-    let campoManiana = determinaCicloDelDia(fechaDelDia, personalFiltrado)[0];
-    console.log(fechaDelDia,campoManiana)
+    console.warn(fechaDelDia+" "+determinaCicloDelDia(fechaDelDia,personalInformesJudiciales))
+    let campoManiana = determinaCicloDelDia(arrSemana[i], personal)[0];
+    //Aca arriba esta el error
+    console.error(fechaDelDia,campoManiana)
     //campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
