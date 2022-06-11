@@ -47,9 +47,7 @@ const numeroXpersonal = (numero, fecha, personal) => {
     numA = numA - 1;
     numB = numB - 1;
     numA = cantidadPersonal[numA].apellido;
-    console.log(numA)
     numB = cantidadPersonal[numB].apellido;
-    console.log(numB)
     numero = `${numA}\n${numB}`;
   } else {
     numero = Number(numero);
@@ -64,7 +62,6 @@ export const determinaCicloDelDia = (fecha, personal) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
   /* let personalEnServicio = personalRevista(personal, fecha)[1]; */
   let numServicio = personal.length;
-  console.log(numServicio)
   let arr = cicloDelDia(personal, numServicio);
   while (arr[0].length < cuentaDias) {
     arr[0] = [...arr[0], ...arr[0]];
@@ -132,11 +129,13 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
     // Error detectado aca
-    console.warn(fechaDelDia+" "+determinaCicloDelDia(fechaDelDia,personalInformesJudiciales))
     let campoManiana = determinaCicloDelDia(arrSemana[i], personal)[0];
     //Aca arriba esta el error
-    console.error(fechaDelDia,campoManiana)
-    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
+
+    //↓ Cambia el numero por el apellido de la persona
+    /* campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado); */
+    //↑ Cambia el numero por el apellido de la persona
+
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
@@ -173,7 +172,11 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
     let campoTarde = determinaCicloDelDia(fechaDelDia, personal)[1];
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
+
+    //↓ Cambia el numero por el apellido de la persona
+    /* campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado); */
+    //↑ Cambia el numero por el apellido de la persona
+    
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
@@ -200,5 +203,3 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 };
-
-console.table(determinaCicloDelDia("26-06-2022",personalInformesJudiciales))

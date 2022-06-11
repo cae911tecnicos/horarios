@@ -69,9 +69,7 @@ const vueltaDelPersonal = (personal, fecha) => {
     /* let personalEnServicio = personal.length */
    
     let numServicio = personal.length;
-    console.error(numServicio)
     let arr = cicloDelDia(personal, numServicio);
-    console.log(arr)
 
     while (arr[0].length < cuentaDias) {
       arr[0] = [...arr[0], ...arr[0]];
@@ -205,5 +203,4 @@ let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
 let hola = listaOrdenPersonal(personalInformesJudiciales, fechaActual)[0];
 let hola2 = vueltaDelPersonal(hola, fechaActual);
 
-console.table(hola3);
 
