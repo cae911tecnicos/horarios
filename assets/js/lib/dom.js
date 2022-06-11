@@ -12,7 +12,7 @@ import {
 
 import { cicloDelDia } from "./ciclos.js";
 import { feriados } from "./feriados.js";
-import { personalRevista, situacionDelPersonal } from "./personal.js";
+import { situacionDelPersonal } from "./personal.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -60,7 +60,7 @@ const numeroXpersonal = (numero, fecha, personal) => {
 // Funcion que determina que ciclo que tiene el dia
 export const determinaCicloDelDia = (fecha, personal) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-  /* let personalEnServicio = personalRevista(personal, fecha)[1]; */
+  /* let personalEnServicio = personalEnServicio(personal, fecha)[1]; */
   let numServicio = personal.length;
   let arr = cicloDelDia(personal, numServicio);
   while (arr[0].length < cuentaDias) {
@@ -122,7 +122,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 
-    
   // Determina el turno de la mañana
   let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {
@@ -176,7 +175,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     //↓ Cambia el numero por el apellido de la persona
     campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
     //↑ Cambia el numero por el apellido de la persona
-    
+
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
@@ -205,4 +204,4 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
 };
 
 // ↓ ↓ ↓ no borrar esta linea  ↓ ↓ ↓
-console.table(determinaCicloDelDia("26-06-2022",personalInformesJudiciales))
+console.table(determinaCicloDelDia("26-06-2022", personalInformesJudiciales));

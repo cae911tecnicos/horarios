@@ -28,9 +28,6 @@ const vueltaDelPersonal = (personal, fecha) => {
   /// -----------------
   const determinaDia = (fecha, personal) => {
     let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-    /* let personalEnServicio = personalRevista(personal, fecha)[1]; */
-    /* let personalEnServicio = personal.length */
-   
     let numServicio = personal.length;
     let arr = cicloDelDia(personal, numServicio);
 
@@ -57,7 +54,6 @@ const vueltaDelPersonal = (personal, fecha) => {
   // FIN PRUEBAS
   return numeroDiaSabado;
 };
-
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
 export const situacionDelPersonal = (personal, fecha) => {
   let orden = [];
@@ -170,24 +166,6 @@ export const personalEnServicio = (personal, fecha) => {
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
-// Funcion para conocer la situacion de revista del personal
-export const personalRevista = (personal, fecha) => {
-  let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
 
-  let articulo = [];
-  let enServicio = [];
-  for (let i = 0; i < personalFiltrado.length; i++) {
-    let inicio = stringToDate(personalFiltrado[i].inicioSituacion);
-    let fin = stringToDate(personalFiltrado[i].finSituacion);
-    let date = stringToDate(fecha);
-    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
-      articulo.push(personalFiltrado[i]);
-    } else {
-      enServicio.push(personalFiltrado[i]);
-    }
-  }
-
-  return [articulo, enServicio];
-};
 
 
