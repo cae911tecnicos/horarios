@@ -100,16 +100,21 @@ export const situacionDelPersonal = (personal, fecha) => {
 
   // ACA ESTA EL ERROR!
   //Elimina los duplicados  | filtro_04
-  const filtro_04 = filtro_02.filter((element) => {
-    // Crea un array con solo los apelidos
-    const isDuplicate = soloApellido.includes(element.apellido);
+  let hash = {};
+  filtro_03 = filtro_02.filter(function (elemento) {
+    let go =
+      elemento.apellido !== undefined
+        ? String(elemento.apellido)
+        : "Error, puede que el apellido este mal escrito";
 
-    if (!isDuplicate) {
-      soloApellido.push(element.apellido);
-      return true;
-    }
-    return false;
+    let exists = !hash[go] || false;
+
+    hash[go] = true;
+
+    return exists;
   });
+
+  console.log(filtro_03)
 
   //console.log(fecha)
   //console.log(filtro_04)
