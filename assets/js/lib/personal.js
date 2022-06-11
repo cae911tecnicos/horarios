@@ -27,7 +27,7 @@ export const listaPersonal = (personal) => {
 };
 // Funcion para conocer la situacion de revista del personal
 export const personalRevista = (personal, fecha) => {
-  let personalFiltrado = listaOrdenPersonal(personal, fecha)[0];
+  let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
 
   let articulo = [];
   let enServicio = [];
@@ -44,15 +44,7 @@ export const personalRevista = (personal, fecha) => {
 
   return [articulo, enServicio];
 };
-// Funcion para conocer el personal que se encuentra en servicio
-export const personalEnServicio = (personal, fecha) => {
-  let personalFiltrado = listaOrdenPersonal(personal, fecha)[0];
-  return personalRevista(personal, fecha)[1];
-};
-// Funcion para conocer el personal que se encuentra con articulo
-export const personalConArticulo = (personal, fecha) => {
-  return personalRevista(personal, fecha)[0];
-};
+
 
 // Funcion que determina en que numero deberia estar el personal que se reincorpora (para trabajar el fin de semana)
 const vueltaDelPersonal = (personal, fecha) => {
@@ -96,7 +88,7 @@ const vueltaDelPersonal = (personal, fecha) => {
 };
 
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
-export const listaOrdenPersonal = (personal, fecha) => {
+export const situacionDelPersonal = (personal, fecha) => {
   let orden = [];
   let proximasLicencias = [];
   let filtro_01 = [];
@@ -198,9 +190,15 @@ export const listaOrdenPersonal = (personal, fecha) => {
   
   return [filtro_02, proximasLicencias];
 };
+// Funcion para conocer el personal que se encuentra en servicio
+export const personalEnServicio = (personal, fecha) => {
+  let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
+  return personalRevista(personal, fecha)[1];
+};
+// Funcion para conocer el personal que se encuentra con articulo
+export const personalConArticulo = (personal, fecha) => {
+  return personalRevista(personal, fecha)[0];
+};
 
-/* let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
-let hola = listaOrdenPersonal(personalInformesJudiciales, fechaActual)[0];
-let hola2 = vueltaDelPersonal(hola, fechaActual); */
 
 

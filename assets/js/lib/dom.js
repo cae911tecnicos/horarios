@@ -12,7 +12,7 @@ import {
 
 import { cicloDelDia } from "./ciclos.js";
 import { feriados } from "./feriados.js";
-import { personalRevista, listaOrdenPersonal } from "./personal.js";
+import { personalRevista, situacionDelPersonal } from "./personal.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -127,7 +127,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+    let personalFiltrado = situacionDelPersonal(personal, fechaDelDia)[0];
     // Error detectado aca
     let campoManiana = determinaCicloDelDia(arrSemana[i], personal)[0];
     //Aca arriba esta el error
@@ -170,7 +170,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   const etiquetaTarde = document.querySelector(`#${tarde}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+    let personalFiltrado = situacionDelPersonal(personal, fechaDelDia)[0];
     let campoTarde = determinaCicloDelDia(fechaDelDia, personal)[1];
 
     //↓ Cambia el numero por el apellido de la persona
