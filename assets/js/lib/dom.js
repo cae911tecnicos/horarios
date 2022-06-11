@@ -12,7 +12,7 @@ import {
 
 import { cicloDelDia } from "./ciclos.js";
 import { feriados } from "./feriados.js";
-import { personalRevista, listaOrdenPersonal } from "./personal.js";
+import { situacionDelPersonal } from "./personal.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -26,15 +26,9 @@ export const arrSemana2 = diasSemana(sumarDias(semana2, 14));
 export const arrSemana3 = diasSemana(sumarDias(semana3, 21));
 export const arrSemana4 = diasSemana(sumarDias(semana4, 28));
 
-// Funcion para generar el resumen
-/*export const totalPersonal = (personal) => {
-  return personal.length;
-};*/
-
 // Funcion para reemplazar Numero de ciclo por la lista del personal
 const numeroXpersonal = (numero, fecha, personal) => {
   let cantidadPersonal = personal;
-
   let str = String(numero),
     strA,
     strB,
@@ -46,15 +40,36 @@ const numeroXpersonal = (numero, fecha, personal) => {
     numA = Number(strA);
     numB = Number(strB);
     numA = numA - 1;
-    numA = cantidadPersonal[numA].apellido;
     numB = numB - 1;
+    numA = cantidadPersonal[numA].apellido;
     numB = cantidadPersonal[numB].apellido;
     numero = `${numA}\n${numB}`;
   } else {
-    numero = numero - 1;
-    numero = cantidadPersonal[numero].apellido;
+    numero = Number(numero);
+    let numC = numero - 1;
+    numero = cantidadPersonal[numC].apellido;
   }
   return numero;
+};
+
+// Funcion que determina que ciclo que tiene el dia
+export const determinaCicloDelDia = (fecha, personal) => {
+  let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
+  /* let personalEnServicio = personalEnServicio(personal, fecha)[1]; */
+  let numServicio = personal.length;
+  let arr = cicloDelDia(personal, numServicio);
+  while (arr[0].length < cuentaDias) {
+    arr[0] = [...arr[0], ...arr[0]];
+  }
+
+  while (arr[1].length < cuentaDias) {
+    arr[1] = [...arr[1], ...arr[1]];
+  }
+
+  let maniana = arr[0][cuentaDias];
+  let tarde = arr[1][cuentaDias];
+
+  return [maniana, tarde];
 };
 
 // Funcion Crear secuencias de Dias
@@ -85,27 +100,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   }
 
   etiquetaSemana = document.querySelector(`#${semana}${num}`);
-  // Funcion que determina que ciclo que tiene el dia
-  const determinaCicloDelDia = (fecha) => {
-    let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-    let personalEnServicio = personalRevista(personal, fecha)[1];
-
-    let numServicio = personalEnServicio.length
-    let arr = cicloDelDia(personal,numServicio);
-
-    while (arr[0].length < cuentaDias) {
-      arr[0] = [...arr[0], ...arr[0]];
-    }
-
-    while (arr[1].length < cuentaDias) {
-      arr[1] = [...arr[1], ...arr[1]];
-    }
-
-    let mañana = arr[0][cuentaDias];
-    let tarde = arr[1][cuentaDias];
-
-    return [mañana, tarde];
-  };
 
   // Determina fecha del dia
   for (let i = 0; i < 7; i++) {
@@ -127,10 +121,15 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   let etiquetaManiana = document.querySelector(`#${maniana}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let campoManiana = determinaCicloDelDia(fechaDelDia)[0];
-    let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+    let personalFiltrado = situacionDelPersonal(personal, fechaDelDia)[0];
+    // Error detectado aca
+    let campoManiana = determinaCicloDelDia(arrSemana[i], personal)[0];
+    //Aca arriba esta el error
 
+    //↓ Cambia el numero por el apellido de la persona
     campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
+    //↑ Cambia el numero por el apellido de la persona
+
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
@@ -139,7 +138,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     if (i == 5 || i == 6) {
       diaSemana.className = "finde-maniana";
     }
-
     // ↓ Para colorear el FERIADO
     for (let a = 0; a < feriados.length; a++) {
       let fechaFeriado = feriados[a].dia;
@@ -166,10 +164,13 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   const etiquetaTarde = document.querySelector(`#${tarde}${num}`);
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
-    let campoTarde = determinaCicloDelDia(fechaDelDia)[1];
-    let personalFiltrado = listaOrdenPersonal(personal, fechaDelDia)[0];
+    let personalFiltrado = situacionDelPersonal(personal, fechaDelDia)[0];
+    let campoTarde = determinaCicloDelDia(fechaDelDia, personal)[1];
 
+    //↓ Cambia el numero por el apellido de la persona
     campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
+    //↑ Cambia el numero por el apellido de la persona
+
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
@@ -196,3 +197,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 };
+
+// ↓ ↓ ↓ no borrar esta linea  ↓ ↓ ↓
+console.table(determinaCicloDelDia("26-06-2022", personalInformesJudiciales));

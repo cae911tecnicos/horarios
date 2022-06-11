@@ -1,58 +1,62 @@
-import { fechaActual, stringToDate } from "./date.js";
-import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
+//import _, { map } from './underscore/underscore.js';
+import {
+  fechaActual,
+  stringToDate,
+  numeroDeSemana,
+  girarFechaFormateada,
+  diasSemana,
+  sumarDias,
+  diferenciaFecha,
+  iniciCicloFormateado,
+  fechaFormateada,
+} from "./date.js";
 
-// Funcion Lista del personal de la Division Area Tecnica:
-export const listaPersonal = (personal) => {
-  let arr = [];
-  for (let i = 0; i < personal.length; i++) {
-    arr.push(personal[i].apellido);
-  }
-  return arr;
-};
-// Funcion para conocer la situacion de revista del personal
-export const personalRevista = (personal, fecha) => {
-  let personalFiltrado = listaOrdenPersonal(personal, fecha)[0];
+import { cicloDelDia } from "./ciclos.js";
+//import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
+//import { personalAyudantia } from "../personal/personal-ayudantia.js";
+//import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
+//import { determinaCicloDelDia } from "./dom.js";
 
-  let articulo = [];
-  let enServicio = [];
-  for (let i = 0; i < personalFiltrado.length; i++) {
-    let inicio = stringToDate(personalFiltrado[i].inicioSituacion);
-    let fin = stringToDate(personalFiltrado[i].finSituacion);
-    let date = stringToDate(fecha);
-    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
-      articulo.push(personalFiltrado[i]);
-    } else {
-      enServicio.push(personalFiltrado[i]);
+// Funcion que determina en que numero deberia estar el personal que se reincorpora (para trabajar el fin de semana)
+const vueltaDelPersonal = (personal, fecha) => {
+  // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
+  let fechaRegresoArticulo = stringToDate(fecha);
+  // ↓ Para saber el dia sabado de la semana en la que vuelve el personal
+  let diaSabado = diasSemana(fechaRegresoArticulo)[5];
+  //Determina el cilo del dia sabado
+
+  /// -----------------
+  const determinaDia = (fecha, personal) => {
+    let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
+    let numServicio = personal.length;
+    let arr = cicloDelDia(personal, numServicio);
+
+    while (arr[0].length < cuentaDias) {
+      arr[0] = [...arr[0], ...arr[0]];
     }
-  }
 
-  return [articulo, enServicio];
-};
-// Funcion para conocer el personal que se encuentra en servicio
-export const personalEnServicio = (personal, fecha) => {
-  let personalFiltrado = listaOrdenPersonal(personal, fecha)[0];
-  return personalRevista(personal, fecha)[1];
-};
-// Funcion para conocer el personal que se encuentra con articulo
-export const personalConArticulo = (personal, fecha) => {
-  return personalRevista(personal, fecha)[0];
-};
-
-/* export const prueba = (personal, fecha) => {
-  let arr = [];
-  for (let i = 0; i < personal.length; i++) {
-    let fin = stringToDate(personal[i].finSituacion);
-    let date = stringToDate(fecha);
-    if (date.getTime() < fin.getTime()) {
-      arr.push(personal[i]);
+    while (arr[1].length < cuentaDias) {
+      arr[1] = [...arr[1], ...arr[1]];
     }
-  }
 
-  return arr;
-}; */
+    let mañana = arr[0][cuentaDias];
+    let tarde = arr[1][cuentaDias];
 
+    return [mañana, tarde];
+  };
+
+  let numeroDiaSabado = determinaDia(diaSabado, personal)[0];
+
+  /*   for (let i = 0; i < filtro_02.length; i++) {
+    if (filtro_02[i].inicioSituacion == fecha) {
+      console.log("hola")
+    } else { console.log("nada por aki") }
+  } */
+  // FIN PRUEBAS
+  return numeroDiaSabado;
+};
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
-export const listaOrdenPersonal = (personal, fecha) => {
+export const situacionDelPersonal = (personal, fecha) => {
   let orden = [];
   let proximasLicencias = [];
   let filtro_01 = [];
@@ -60,8 +64,9 @@ export const listaOrdenPersonal = (personal, fecha) => {
   let filtro_03 = [];
   let conArticulo = [];
   let soloApellido = [];
-  let enServicio = [];
   let date = fecha;
+
+
 
   //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
   personal.sort(
@@ -69,6 +74,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
   );
+
+
 
   // Elimina el personas que se encuentra con articulo segun parametro de fecha | filtro_01
   for (let i = 0; i < personal.length; i++) {
@@ -96,6 +103,10 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   }
 
+ 
+
+  
+
   // Elimina la persona pasadas que en la actualidad tienen articulo | filtro_03
   for (let a = 0; a < conArticulo.length; a++) {
     for (let i = 0; i < filtro_02.length; i++) {
@@ -105,8 +116,11 @@ export const listaOrdenPersonal = (personal, fecha) => {
     }
   }
 
-  //Elimina los duplicados
-  /*   const sinDuplicados = enServicio.filter((element) => {
+
+  
+  // ACA ESTA EL ERROR!
+  //Elimina los duplicados  | filtro_04
+  const filtro_04 = filtro_02.filter((element) => {
     // Crea un array con solo los apelidos
     const isDuplicate = soloApellido.includes(element.apellido);
 
@@ -115,7 +129,41 @@ export const listaOrdenPersonal = (personal, fecha) => {
       return true;
     }
     return false;
-  }); */
+  });
+  
 
-  return [filtro_02, proximasLicencias] /* personal */;
+  
+
+  //console.log(fecha)
+  //console.log(filtro_04)
+  //console.log("----")
+  //console.log("LoDash output", _.uniq(filtro_04));
+
+  // Agregar personal que se reincorpora al numero que trabaja el fin de semana
+/*   let filtro_05, personalReincorporado, numDePosicion;
+
+  for (let i = 0; i < filtro_04.length; i++) {
+    let fechaFinalDeArticulo = stringToDate(filtro_04[i].finSituacion);
+    let unDia = 1000 * 60 * 60 * 24 * 1;
+    let sumaUnDia = fechaFinalDeArticulo.getTime() + unDia;
+    let fechaIncorporacionPersonal = new Date(sumaUnDia);
+    let fechaIncorporacionPersonalFormateada = fechaFormateada(
+      fechaIncorporacionPersonal
+    );
+    if (fecha === fechaIncorporacionPersonalFormateada) {
+      numDePosicion = vueltaDelPersonal(filtro_04, fecha);
+      personalReincorporado = filtro_04[i];
+    }
+  } */
+  
+  return [filtro_02, proximasLicencias];
+};
+// Funcion para conocer el personal que se encuentra en servicio
+export const personalEnServicio = (personal, fecha) => {
+  let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
+  return personalFiltrado;
+};
+// Funcion para conocer el personal que se encuentra con articulo
+export const personalConArticulo = (personal, fecha) => {
+  return personalRevista(personal, fecha)[0];
 };
