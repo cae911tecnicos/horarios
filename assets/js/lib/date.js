@@ -1,10 +1,3 @@
-//import { personalTecnico } from "../personal/personal-division-area-tecnica.js"
-//import { personalInformesJudiciales } from "../personal/personal-division-area-tecnica.js"
-
-// Fecha inicio de los ciclos
-export const iniciCiclo = new Date(2022, 0, 3);
-export const hoy = new Date();
-
 // Variables
 let numPositivo = [],
   numNegativo = [],
@@ -101,10 +94,7 @@ export function diferenciaFecha(date1, date2) {
   const day = 1000 * 60 * 60 * 24;
   return (date2utc - date1utc) / day;
 }
-export const fechaActual = fechaFormateada(hoy);
-
-export const iniciCicloFormateado = fechaFormateada(iniciCiclo);
-
+// Funcion para convertir un string a date
 export const stringToDate = (fecha) => {
   let anio = fecha.substring(6, 10),
     mes = fecha.substring(3, 5),
@@ -115,3 +105,12 @@ export const stringToDate = (fecha) => {
   let date = new Date(partes[0], partes[1] - 1, partes[2]);
   return date;
 };
+
+// Constante de la fecha inicio de los ciclos
+export const iniciCiclo = new Date(2022, 0, 3);
+// Contante de la fecha actual
+export const hoy = new Date();
+// Contante que termina cuando empieza los ciclos
+export const iniciCicloFormateado = fechaFormateada(iniciCiclo);
+// Constante que determina la fecha actual
+export const fechaActual = fechaFormateada(hoy);

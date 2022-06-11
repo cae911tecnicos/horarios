@@ -51,7 +51,6 @@ const numeroXpersonal = (numero, fecha, personal) => {
   }
   return numero;
 };
-
 // Funcion que determina que ciclo que tiene el dia
 export const determinaCicloDelDia = (fecha, personal) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
@@ -71,7 +70,6 @@ export const determinaCicloDelDia = (fecha, personal) => {
 
   return [maniana, tarde];
 };
-
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   let maniana;

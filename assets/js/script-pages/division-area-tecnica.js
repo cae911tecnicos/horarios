@@ -1,7 +1,6 @@
-import { personalTecnico, } from "../personal/personal-division-area-tecnica.js"
-import { personalInformesJudiciales, } from "../personal/personal-seccion-informes-judiciales.js"
+import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
 
-import { ciclo_2_tecnicos, ciclo_3_tecnicos, ciclo_4_tecnicos, ciclo_5_tecnicos, ciclo_6_tecnicos, rotacion } from "../lib/ciclos.js";
+import { rotacion } from "../lib/ciclos.js";
 import {
   secuenciaDias,
   arrSemana0,
@@ -10,11 +9,7 @@ import {
   arrSemana3,
   arrSemana4,
 } from "../lib/dom.js";
-import {
-  ordenPersonalTecnicoFeriado,
-  ordenPersonalInformesFeriado,
-} from "../lib/feriados.js";
-
+import { ordenPersonalTecnicoFeriado } from "../lib/feriados.js";
 
 const ciclos = (ciclo, personal) => {
   for (let a = 0; a < 2; a++) {

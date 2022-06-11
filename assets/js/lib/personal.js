@@ -1,21 +1,11 @@
-//import _, { map } from './underscore/underscore.js';
 import {
-  fechaActual,
   stringToDate,
-  numeroDeSemana,
-  girarFechaFormateada,
   diasSemana,
-  sumarDias,
   diferenciaFecha,
   iniciCicloFormateado,
-  fechaFormateada,
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-//import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
-//import { personalAyudantia } from "../personal/personal-ayudantia.js";
-//import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
-//import { determinaCicloDelDia } from "./dom.js";
 
 // Funcion que determina en que numero deberia estar el personal que se reincorpora (para trabajar el fin de semana)
 const vueltaDelPersonal = (personal, fecha) => {
@@ -66,16 +56,12 @@ export const situacionDelPersonal = (personal, fecha) => {
   let soloApellido = [];
   let date = fecha;
 
-
-
   //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
   personal.sort(
     (a, b) =>
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
   );
-
-
 
   // Elimina el personas que se encuentra con articulo segun parametro de fecha | filtro_01
   for (let i = 0; i < personal.length; i++) {
@@ -103,10 +89,6 @@ export const situacionDelPersonal = (personal, fecha) => {
     }
   }
 
- 
-
-  
-
   // Elimina la persona pasadas que en la actualidad tienen articulo | filtro_03
   for (let a = 0; a < conArticulo.length; a++) {
     for (let i = 0; i < filtro_02.length; i++) {
@@ -116,8 +98,6 @@ export const situacionDelPersonal = (personal, fecha) => {
     }
   }
 
-
-  
   // ACA ESTA EL ERROR!
   //Elimina los duplicados  | filtro_04
   const filtro_04 = filtro_02.filter((element) => {
@@ -130,9 +110,6 @@ export const situacionDelPersonal = (personal, fecha) => {
     }
     return false;
   });
-  
-
-  
 
   //console.log(fecha)
   //console.log(filtro_04)
@@ -140,7 +117,7 @@ export const situacionDelPersonal = (personal, fecha) => {
   //console.log("LoDash output", _.uniq(filtro_04));
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
-/*   let filtro_05, personalReincorporado, numDePosicion;
+  /*   let filtro_05, personalReincorporado, numDePosicion;
 
   for (let i = 0; i < filtro_04.length; i++) {
     let fechaFinalDeArticulo = stringToDate(filtro_04[i].finSituacion);
@@ -155,7 +132,7 @@ export const situacionDelPersonal = (personal, fecha) => {
       personalReincorporado = filtro_04[i];
     }
   } */
-  
+
   return [filtro_02, proximasLicencias];
 };
 // Funcion para conocer el personal que se encuentra en servicio

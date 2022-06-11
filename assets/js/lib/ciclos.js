@@ -1,8 +1,7 @@
 import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
 import { personalAyudantia } from "../personal/personal-ayudantia.js";
-import { personalTecnico, } from "../personal/personal-division-area-tecnica.js";
-// CICLOS DIVISION AREA TECNIC Y SECCION INFORMES JUDICIALES -----------------------------------------
 
+// CICLOS DIVISION AREA TECNIC Y SECCION INFORMES JUDICIALES -----------------------------------------
 //Estos  ciclos estan pensado para que una persona trabaje minimamente 3 veces por semana.
 // Cada ciclo dura un numero N de semanas, donde N es igual al numero de personal disponible.
 export const ciclo_2_tecnicos = [
@@ -106,10 +105,9 @@ const ciclos = (ciclo, personal) => {
       ciclo[a].push(rotacion(aRotar, personal));
     }
   }
-
   return ciclo;
 };
-
+// Funcion para saber el ciclo que tiene el dia de acuerdo al personal
 export const cicloDelDia = (personal, numero) => {
   if (personal == personalAyudantia) {
     let ciclo =
@@ -125,7 +123,7 @@ export const cicloDelDia = (personal, numero) => {
         ? ciclos(ciclo_2_ayudantia, 2)
         : "No existe ese ciclo";
     return ciclo;
-  } else if(personal == personalInformesJudiciales) {
+  } else if (personal == personalInformesJudiciales) {
     let ciclo =
       numero == 6
         ? ciclos(ciclo_6_informes_judiciales, 6)
@@ -139,7 +137,7 @@ export const cicloDelDia = (personal, numero) => {
         ? ciclos(ciclo_2_informes_judiciales, 2)
         : "No existe ese ciclo";
     return ciclo;
-  } else{
+  } else {
     let ciclo =
       numero == 6
         ? ciclos(ciclo_6_tecnicos, 6)
