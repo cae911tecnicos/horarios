@@ -6,10 +6,6 @@ import { rotacion } from "./lib/ciclos.js";
 import {
   secuenciaDias,
   arrSemana0,
-  arrSemana1,
-  arrSemana2,
-  arrSemana3,
-  arrSemana4,
 } from "./lib/dom.js";
 import {
   ordenPersonalTecnicoFeriado,

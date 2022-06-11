@@ -12,10 +12,10 @@ import {
 } from "./date.js";
 
 import { cicloDelDia } from "./ciclos.js";
-import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
-import { personalAyudantia } from "../personal/personal-ayudantia.js";
-import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
-import { determinaCicloDelDia } from "./dom.js";
+//import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
+//import { personalAyudantia } from "../personal/personal-ayudantia.js";
+//import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
+//import { determinaCicloDelDia } from "./dom.js";
 
 // Funcion que determina en que numero deberia estar el personal que se reincorpora (para trabajar el fin de semana)
 const vueltaDelPersonal = (personal, fecha) => {
@@ -44,6 +44,7 @@ const vueltaDelPersonal = (personal, fecha) => {
 
     return [mañana, tarde];
   };
+
   let numeroDiaSabado = determinaDia(diaSabado, personal)[0];
 
   /*   for (let i = 0; i < filtro_02.length; i++) {
@@ -166,6 +167,3 @@ export const personalEnServicio = (personal, fecha) => {
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
-
-
-
