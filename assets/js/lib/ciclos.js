@@ -155,5 +155,3 @@ export const cicloDelDia = (personal, numero) => {
     return ciclo;
   }
 };
-
-//console.table(ciclos(ciclo6, 6))

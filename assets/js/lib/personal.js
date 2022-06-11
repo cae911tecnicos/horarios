@@ -199,8 +199,8 @@ export const listaOrdenPersonal = (personal, fecha) => {
   return [filtro_02, proximasLicencias];
 };
 
-let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
+/* let hola3 = listaOrdenPersonal(personalTecnico, "07-06-2022")[0];
 let hola = listaOrdenPersonal(personalInformesJudiciales, fechaActual)[0];
-let hola2 = vueltaDelPersonal(hola, fechaActual);
+let hola2 = vueltaDelPersonal(hola, fechaActual); */
 
 

@@ -133,7 +133,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     //Aca arriba esta el error
 
     //↓ Cambia el numero por el apellido de la persona
-    /* campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado); */
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, personalFiltrado);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
@@ -174,7 +174,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let campoTarde = determinaCicloDelDia(fechaDelDia, personal)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    /* campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado); */
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, personalFiltrado);
     //↑ Cambia el numero por el apellido de la persona
     
     diaSemana = document.createElement("td");
@@ -203,3 +203,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     }
   }
 };
+
+// no borrar esta linea  ↓↓↓
+console.table(determinaCicloDelDia("26-06-2022",personalInformesJudiciales))
