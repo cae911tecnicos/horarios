@@ -17,35 +17,6 @@ import { personalAyudantia } from "../personal/personal-ayudantia.js";
 import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
 import { determinaCicloDelDia } from "./dom.js";
 
-// Funcion Lista del personal de la Division Area Tecnica:
-export const listaPersonal = (personal) => {
-  let arr = [];
-  for (let i = 0; i < personal.length; i++) {
-    arr.push(personal[i].apellido);
-  }
-  return arr;
-};
-// Funcion para conocer la situacion de revista del personal
-export const personalRevista = (personal, fecha) => {
-  let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
-
-  let articulo = [];
-  let enServicio = [];
-  for (let i = 0; i < personalFiltrado.length; i++) {
-    let inicio = stringToDate(personalFiltrado[i].inicioSituacion);
-    let fin = stringToDate(personalFiltrado[i].finSituacion);
-    let date = stringToDate(fecha);
-    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
-      articulo.push(personalFiltrado[i]);
-    } else {
-      enServicio.push(personalFiltrado[i]);
-    }
-  }
-
-  return [articulo, enServicio];
-};
-
-
 // Funcion que determina en que numero deberia estar el personal que se reincorpora (para trabajar el fin de semana)
 const vueltaDelPersonal = (personal, fecha) => {
   // Agrega el personal que se reincorporo al Numero que le toca ese fin de semana
@@ -193,12 +164,30 @@ export const situacionDelPersonal = (personal, fecha) => {
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
   let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
-  return personalRevista(personal, fecha)[1];
+  return personalFiltrado;
 };
 // Funcion para conocer el personal que se encuentra con articulo
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
+// Funcion para conocer la situacion de revista del personal
+export const personalRevista = (personal, fecha) => {
+  let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
 
+  let articulo = [];
+  let enServicio = [];
+  for (let i = 0; i < personalFiltrado.length; i++) {
+    let inicio = stringToDate(personalFiltrado[i].inicioSituacion);
+    let fin = stringToDate(personalFiltrado[i].finSituacion);
+    let date = stringToDate(fecha);
+    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
+      articulo.push(personalFiltrado[i]);
+    } else {
+      enServicio.push(personalFiltrado[i]);
+    }
+  }
+
+  return [articulo, enServicio];
+};
 
 

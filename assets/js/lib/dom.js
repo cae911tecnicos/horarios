@@ -204,5 +204,5 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   }
 };
 
-// no borrar esta linea  ↓↓↓
+// ↓ ↓ ↓ no borrar esta linea  ↓ ↓ ↓
 console.table(determinaCicloDelDia("26-06-2022",personalInformesJudiciales))
