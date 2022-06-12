@@ -108,8 +108,8 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 // Funcion para saber el ciclo que tiene el dia de acuerdo al personal
-export const cicloDelDia = (personal, numero) => {
-  if (personal == personalAyudantia) {
+export const cicloDelDia = (area, numero) => {
+  if (area == "personalAyudantia") {
     let ciclo =
       numero == 6
         ? ciclos(ciclo_ayudantia_6, 6)
@@ -123,7 +123,7 @@ export const cicloDelDia = (personal, numero) => {
         ? ciclos(ciclo_ayudantia_2, 2)
         : "No existe ese ciclo";
     return ciclo;
-  } else if (personal == personalInformesJudiciales) {
+  } else if (area == "personalInformesJudiciales") {
     let ciclo =
       numero == 6
         ? ciclos(ciclo_informes_judiciales_6, 6)
@@ -155,7 +155,7 @@ export const cicloDelDia = (personal, numero) => {
 };
 
 // este tiene un error
-console.log(cicloDelDia(ciclo_ayudantia_5, 5))
+console.log(cicloDelDia(ciclo_ayudantia_5, 5, "ciclo_ayudantia_5"))
 // Este no tiene error
 //console.error(ciclos(ciclo_ayudantia_5, 5))
 

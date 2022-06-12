@@ -22,8 +22,38 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-secuenciaDias(arrSemana0, 0, personalAyudantia, ordenPersonalAyudantiaFeriado);
-secuenciaDias(arrSemana1, 1, personalAyudantia, ordenPersonalAyudantiaFeriado);
-secuenciaDias(arrSemana2, 2, personalAyudantia, ordenPersonalAyudantiaFeriado);
-secuenciaDias(arrSemana3, 3, personalAyudantia, ordenPersonalAyudantiaFeriado);
-secuenciaDias(arrSemana4, 4, personalAyudantia, ordenPersonalAyudantiaFeriado);
+secuenciaDias(
+  arrSemana0,
+  0,
+  personalAyudantia,
+  ordenPersonalAyudantiaFeriado,
+  "personalAyudantia"
+);
+secuenciaDias(
+  arrSemana1,
+  1,
+  personalAyudantia,
+  ordenPersonalAyudantiaFeriado,
+  "personalAyudantia"
+);
+secuenciaDias(
+  arrSemana2,
+  2,
+  personalAyudantia,
+  ordenPersonalAyudantiaFeriado,
+  "personalAyudantia"
+);
+secuenciaDias(
+  arrSemana3,
+  3,
+  personalAyudantia,
+  ordenPersonalAyudantiaFeriado,
+  "personalAyudantia"
+);
+secuenciaDias(
+  arrSemana4,
+  4,
+  personalAyudantia,
+  ordenPersonalAyudantiaFeriado,
+  "personalAyudantia"
+);

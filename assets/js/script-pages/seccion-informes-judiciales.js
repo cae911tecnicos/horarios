@@ -28,13 +28,15 @@ secuenciaDias(
   arrSemana0,
   0,
   personalInformesJudiciales,
-  ordenPersonalInformesFeriado
+  ordenPersonalInformesFeriado,
+  "personalInformesJudiciales"
 );
 secuenciaDias(
   arrSemana1,
   1,
   personalInformesJudiciales,
-  ordenPersonalInformesFeriado
+  ordenPersonalInformesFeriado,
+  "personalInformesJudiciales"
 );
 secuenciaDias(
   arrSemana2,
@@ -46,11 +48,13 @@ secuenciaDias(
   arrSemana3,
   3,
   personalInformesJudiciales,
-  ordenPersonalInformesFeriado
+  ordenPersonalInformesFeriado,
+  "personalInformesJudiciales"
 );
 secuenciaDias(
   arrSemana4,
   4,
   personalInformesJudiciales,
-  ordenPersonalInformesFeriado
+  ordenPersonalInformesFeriado,
+  "personalInformesJudiciales"
 );

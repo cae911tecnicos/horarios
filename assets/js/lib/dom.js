@@ -55,11 +55,11 @@ const numeroXpersonal = (numero, fecha, personal) => {
   return numero;
 };
 // Funcion que determina que ciclo que tiene el dia
-export const determinaCicloDelDia = (fecha, personal) => {
+export const determinaCicloDelDia = (fecha, personal, area) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
   /* let personalEnServicio = personalEnServicio(personal, fecha)[1]; */
   let numServicio = personal.length;
-  let arr = cicloDelDia(personal, numServicio);
+  let arr = cicloDelDia(area, numServicio);
   while (arr[0].length < cuentaDias) {
     arr[0] = [...arr[0], ...arr[0]];
   }
@@ -74,10 +74,10 @@ export const determinaCicloDelDia = (fecha, personal) => {
   return [maniana, tarde];
 };
 //Determina el cilo del dia sabado
-export const determinaDiaSabado = (fecha, personal) => {
+export const determinaDiaSabado = (fecha, personal, area) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
   let numServicio = personal.length;
-  let arr = cicloDelDia(personal, numServicio);
+  let arr = cicloDelDia(area, numServicio);
 
   while (arr[0].length < cuentaDias) {
     arr[0] = [...arr[0], ...arr[0]];
@@ -93,7 +93,7 @@ export const determinaDiaSabado = (fecha, personal) => {
   return [mañana, tarde];
 };
 // Funcion Crear secuencias de Dias
-export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
+export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   let maniana;
   let tarde;
   let semana;
@@ -143,7 +143,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let fechaDelDia = arrSemana[i];
     let enServicio = personalEnServicio(personal, fechaDelDia);
     // Error detectado aca
-    let campoManiana = determinaCicloDelDia(arrSemana[i], enServicio)[0];
+    let campoManiana = determinaCicloDelDia(arrSemana[i], enServicio, area)[0];
     //Aca arriba esta el error
 
     //↓ Cambia el numero por el apellido de la persona
@@ -185,7 +185,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let enServicio = personalEnServicio(personal, fechaDelDia);
-    let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio)[1];
+    let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
 
     //↓ Cambia el numero por el apellido de la persona
     //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
