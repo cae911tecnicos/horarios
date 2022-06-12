@@ -188,7 +188,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
     let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
+    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
@@ -219,4 +219,4 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado) => {
 };
 
 // ↓ ↓ ↓ no borrar esta linea  ↓ ↓ ↓
-console.table(determinaCicloDelDia("26-06-2022", personalInformesJudiciales));
+//console.table(determinaCicloDelDia("26-06-2022", personalInformesJudiciales));
