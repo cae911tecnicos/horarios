@@ -156,7 +156,6 @@ export const cicloDelDia = (personal, numero) => {
 
 // este tiene un error
 console.log(cicloDelDia(ciclo_ayudantia_5, 5))
-
 // Este no tiene error
 //console.error(ciclos(ciclo_ayudantia_5, 5))
 
