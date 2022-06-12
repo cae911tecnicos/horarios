@@ -40,11 +40,10 @@ const numeroXpersonal = (numero, fecha, personal) => {
     strB = str[1]; // 2
     numA = Number(strA);
     numB = Number(strB);
-    console.error(numB);
     numA = numA - 1;
     numB = numB - 1;
     numA = cantidadPersonal[numA].apellido;
-    console.error(numB);
+    //console.error(numB);
     numB = cantidadPersonal[numB].apellido;
     numero = `${numA}\n${numB}`;
   } else {
@@ -147,7 +146,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     //Aca arriba esta el error
 
     //↓ Cambia el numero por el apellido de la persona
-    //campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
@@ -188,7 +187,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
@@ -219,4 +218,4 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
 };
 
 // ↓ ↓ ↓ no borrar esta linea  ↓ ↓ ↓
-//console.table(determinaCicloDelDia("26-06-2022", personalInformesJudiciales));
+console.table(determinaCicloDelDia("26-06-2022", personalInformesJudiciales));

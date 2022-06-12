@@ -155,7 +155,8 @@ export const cicloDelDia = (area, numero) => {
 };
 
 // este tiene un error
-console.log(cicloDelDia(ciclo_ayudantia_5, 5, "ciclo_ayudantia_5"))
+
+//console.log(cicloDelDia(ciclo_informes_judiciales_5, 5, "ciclo_informes_judiciales_5"))
 // Este no tiene error
 //console.error(ciclos(ciclo_ayudantia_5, 5))
 
