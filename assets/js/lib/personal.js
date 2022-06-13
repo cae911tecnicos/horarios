@@ -92,7 +92,7 @@ export const situacionDelPersonal = (personal, fecha) => {
     }
   }
 
-  return [filtro_02, conArticulo, proximasLicencias];
+  return [filtro_03, conArticulo, proximasLicencias];
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
@@ -103,3 +103,5 @@ export const personalEnServicio = (personal, fecha) => {
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
+
+
