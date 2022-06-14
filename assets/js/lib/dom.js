@@ -171,7 +171,8 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         diaSemana.innerText = campoManiana;
 
         // ↓ Para agregar la leyenda debajo del la tabla
-        const etiquetaTabla = document.querySelector("#table" + [num]);
+        const etiquetaTabla = document.querySelector("#"+area + [num]);
+        console.log(area)
         const leyendaFeriado = document.createElement("div");
         etiquetaTabla.append(leyendaFeriado);
         leyendaFeriado.className = "leyenda";
