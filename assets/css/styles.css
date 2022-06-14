@@ -41,10 +41,16 @@
     vertical-align: middle;
 }
 
+.ahoraEnTurno {
+    font-weight: bold;
+}
+
 .hoy{
     background-color: rgb(159, 210, 146) !important;
     color: black !important;
     vertical-align: middle;
+    font-weight: bold;
+    font-size: 14px;
     
 }
 
