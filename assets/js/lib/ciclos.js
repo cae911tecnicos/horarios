@@ -97,12 +97,15 @@ export const rotacion = (arr, personal) => {
   }
 };
 
+console.table(ciclo_informes_judiciales_6)
 // Funcion para completar y generar los ciclos
 const ciclos = (ciclo, personal) => {
-  for (let a = 0; a < 2; a++) {
-    for (let i = 0; i < 7 * (personal - 1); i++) {
-      let aRotar = ciclo[a][i];
-      ciclo[a].push(rotacion(aRotar, personal));
+  let cicloCompleto = []
+  cicloCompleto.push(ciclo)
+  for (let elemento = 0; elemento < 2; elemento++) {
+    for (let i = 0; i < (7 * personal); i++) {
+      let aRotar = ciclo[elemento][i];
+      ciclo[elemento].push(rotacion(aRotar, personal));
     }
   }
   return ciclo;
@@ -154,8 +157,10 @@ export const cicloDelDia = (area, numero) => {
   }
 };
 
-// este tiene un error
+console.log(ciclos(ciclo_tecnicos_6, 6))
+console.log(ciclos(ciclo_informes_judiciales_6, 6))
 
+// este tiene un error
 //console.log(cicloDelDia(ciclo_informes_judiciales_5, 5, "ciclo_informes_judiciales_5"))
 // Este no tiene error
 //console.error(ciclos(ciclo_ayudantia_5, 5))

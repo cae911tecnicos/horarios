@@ -43,11 +43,13 @@
 
 .ahoraEnTurno {
     font-weight: bold;
+    background-color: #afdb9b !important;
+    color: black;
 }
 
 .hoy{
-    background-color: rgb(159, 210, 146) !important;
-    color: black !important;
+    background-color: #354a94 !important;
+    color: white !important;
     vertical-align: middle;
     font-weight: bold;
     font-size: 14px;
@@ -55,7 +57,7 @@
 }
 
 .feriado{
-    background-color: rgb(255, 192, 110) !important;
+    background-color: rgb(244, 202, 149) !important;
     color: black;
     vertical-align: middle;    
 }

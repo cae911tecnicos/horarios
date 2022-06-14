@@ -58,6 +58,7 @@ export const determinaCicloDelDia = (fecha, personal, area) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
   /* let personalEnServicio = personalEnServicio(personal, fecha)[1]; */
   let numServicio = personal.length;
+
   let arr = cicloDelDia(area, numServicio);
   while (arr[0].length < cuentaDias) {
     arr[0] = [...arr[0], ...arr[0]];
@@ -146,13 +147,22 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     //Aca arriba esta el error
 
     //↓ Cambia el numero por el apellido de la persona
-    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
+    //campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
     diaSemana.className = "maniana";
+    // ↓ Para colorear quien esta de turno ahora mismo
+    if (
+      stringToDate(arrSemana[i]).getTime() ==
+      stringToDate(fechaActual).getTime()
+    ) {
+      diaSemana.className = "ahoraEnTurno";
+      let fechaDelDia = arrSemana[i];
+    }
+
     // ↓ Para colorear el Fin de Semana
     if (i == 5 || i == 6) {
       diaSemana.className = "finde-maniana";
@@ -171,8 +181,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         diaSemana.innerText = campoManiana;
 
         // ↓ Para agregar la leyenda debajo del la tabla
-        const etiquetaTabla = document.querySelector("#"+area + [num]);
-        console.log(area)
+        const etiquetaTabla = document.querySelector("#" + area + [num]);
         const leyendaFeriado = document.createElement("div");
         etiquetaTabla.append(leyendaFeriado);
         leyendaFeriado.className = "leyenda";
@@ -188,13 +197,21 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
+    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
     diaSemana.className = "tarde";
+    // ↓ Para colorear quien esta de turno ahora mismo
+    if (
+      stringToDate(arrSemana[i]).getTime() ==
+      stringToDate(fechaActual).getTime()
+    ) {
+      diaSemana.className = "ahoraEnTurno";
+      let fechaDelDia = arrSemana[i];
+    }
     // ↓ Para colorear el Fin de Semana
     if (i == 5 || i == 6) {
       diaSemana.className = "finde-tarde";
@@ -219,5 +236,4 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
 };
 
 // ↓ ↓ ↓ no borrar esta linea  ↓ ↓ ↓
-console.table(determinaCicloDelDia("26-06-2022", personalInformesJudiciales));
-console.log(personalEnServicio(personalTecnico, fechaActual))
+//console.table(determinaCicloDelDia("30-06-2022", personalInformesJudiciales));
