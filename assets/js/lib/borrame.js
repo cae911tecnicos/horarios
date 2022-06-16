@@ -1,25 +1,30 @@
 const ciclo_tecnicos_4 = [
-    [1, 3, 1, 4, 2, 4, 4],
-    [2, 4, 2, 3, 1, 4, 4],
+  [1, 3, 1, 4, 2, 4, 4],
+  [2, 4, 2, 3, 1, 4, 4],
 ];
 
 // Funcion para completar y generar los ciclos
 const ciclos = (ciclo, num) => {
-    console.log(ciclo[0])
-    let cicloCompleto = []
-    let base = JSON.parse(JSON.stringify(ciclo))
-    let aux = []
+  let cicloCompleto = [];
+  let aux = JSON.parse(JSON.stringify(ciclo[0]));
+  let a = []
+  let b = []
+  cicloCompleto = [...aux];
+  console.warn(cicloCompleto);
+  for (let a = 0; a < num; a++) {
     for (let i = 0; i < 7; i++) {
-        let a = (ciclo[0][i]) + 1
-        let b = (ciclo[0][i] !== num || a < num) ? (ciclo[0][i]) + 1 : ciclo[0][i] = 1
+      a = aux[i] + 1;
+      b = aux[i] !== num || a < num ? aux[i] + 1 : (aux[i] = 1);
 
-        aux.push(b)
-        
+      aux.push(b);
     }
-    let copia = JSON.parse(JSON.stringify(aux))
-    cicloCompleto[0] = [...base[0], ...cicloCompleto, ...copia]
+    aux.splice(0,7)
+    console.error(aux)
+    cicloCompleto = [...cicloCompleto,...aux];
+    console.warn(cicloCompleto)
+  }
 
-    return cicloCompleto;
+  return cicloCompleto;
 };
 
-console.error(ciclos(ciclo_tecnicos_4, 4))
+console.log(ciclos(ciclo_tecnicos_4, 4));
