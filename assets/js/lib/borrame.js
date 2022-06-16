@@ -25,23 +25,23 @@ const rotacion = (arr, num) => {
   arr = String(arr);
   if (arr.length === 2) {
     arr = arr.split("");
-    if (arr.length === 1) {
-      arr.unshift(0);
-    }
+    let arr_1 = Number(arr[0]);
+    let arr_2 = Number(arr[1]);
 
-    let aa = Number(arr[0]);
-    let bb = Number(arr[1]);
+    aux_1 = arr_1 + 1;
+    aux_2 = arr_2 + 1;
 
-    aux_1 = aa + 1;
-    aux_2 = bb + 1;
+    // --
+    aux_1 = Number(arr);
+    aux_2 = Number(arr);
 
-    let a = arr !== aa || aux_1 < aa ? arr + 1 : (arr = 1);
-    let b = arr !== bb || aux_2 < bb ? arr + 1 : (arr = 1);
+    arr_1 = arr_1 !== num || aux_1 < num ? arr_1 + 1 : (arr_1 = 1);
+    arr_2 = arr_2 !== num || aux_2 < num ? arr_2 + 1 : (arr_2 = 1);
 
-    arr = `${a}${b}`;
-    arr = Number(arr);
+    resultado = `${arr_1}${arr_2}`;
+    resultado = Number(resultado);
 
-    return arr;
+    return resultado;
   } else {
     arr = Number(arr);
     aux_1 = arr + 1;
@@ -87,4 +87,4 @@ const ciclos = (ciclo, num) => {
   return cicloCompleto;
 };
 
-console.log(ciclos(ciclo_tecnicos_4, 4));
+console.log(ciclos(ciclo_tecnicos_6, 6));
