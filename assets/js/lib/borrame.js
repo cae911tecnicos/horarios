@@ -7,15 +7,17 @@ const ciclo_tecnicos_4 = [
 const ciclos = (ciclo, num) => {
     console.log(ciclo[0])
     let cicloCompleto = []
-    //let hola = JSON.parse(JSON.stringify(ciclo))
+    let base = JSON.parse(JSON.stringify(ciclo))
     let aux = []
     for (let i = 0; i < 7; i++) {
         let a = (ciclo[0][i]) + 1
         let b = (ciclo[0][i] !== num || a < num) ? (ciclo[0][i]) + 1 : ciclo[0][i] = 1
 
         aux.push(b)
+        
     }
-    cicloCompleto[0] = [...cicloCompleto, ...aux]
+    let copia = JSON.parse(JSON.stringify(aux))
+    cicloCompleto[0] = [...base[0], ...cicloCompleto, ...copia]
 
     return cicloCompleto;
 };
