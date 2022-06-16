@@ -12,9 +12,7 @@ import { determinaDiaSabado } from "./dom.js";
 const vueltaDelPersonal = (personal, fecha) => {
   let fechaRegresoArticulo = stringToDate(fecha);
   let diaSabado = diasSemana(fechaRegresoArticulo)[5];
-  //console.error("dia del sabado " + diaSabado);
   let numeroDiaSabado = determinaDiaSabado(diaSabado, personal)[0];
-  //console.error("numero del sabado " + numeroDiaSabado);
   return numeroDiaSabado;
 };
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
@@ -83,12 +81,11 @@ export const situacionDelPersonal = (personal, fecha) => {
   });
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
   for (let i = 0; i < filtro_03.length; i++) {
-    let finSituacion= filtro_03[i].finSituacion
+    let finSituacion = filtro_03[i].finSituacion;
     if (finSituacion === fecha) {
-      console.error(filtro_03[i].apellido);
+      // falta desarrollar
     } else {
-      //console.log(fechaIncorporacionPersonalFormateada);
-      //console.warn(fecha)
+      // falta desarrollar
     }
   }
 
@@ -103,5 +100,3 @@ export const personalEnServicio = (personal, fecha) => {
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
-
-
