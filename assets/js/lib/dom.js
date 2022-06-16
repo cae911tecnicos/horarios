@@ -43,7 +43,6 @@ const numeroXpersonal = (numero, fecha, personal) => {
     numA = numA - 1;
     numB = numB - 1;
     numA = cantidadPersonal[numA].apellido;
-    //console.error(numB);
     numB = cantidadPersonal[numB].apellido;
     numero = `${numA}\n${numB}`;
   } else {
@@ -58,13 +57,12 @@ export const determinaCicloDelDia = (fecha, personal, area) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
   /* let personalEnServicio = personalEnServicio(personal, fecha)[1]; */
   let numServicio = personal.length;
-
   let arr = cicloDelDia(area, numServicio);
-  while (arr[0].length < cuentaDias) {
+  while (arr[0].length < cuentaDias + 1) {
     arr[0] = [...arr[0], ...arr[0]];
   }
 
-  while (arr[1].length < cuentaDias) {
+  while (arr[1].length < cuentaDias + 1) {
     arr[1] = [...arr[1], ...arr[1]];
   }
 
@@ -142,12 +140,10 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let enServicio = personalEnServicio(personal, fechaDelDia);
-    // Error detectado aca
     let campoManiana = determinaCicloDelDia(arrSemana[i], enServicio, area)[0];
-    //Aca arriba esta el error
 
     //↓ Cambia el numero por el apellido de la persona
-    //campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
+    campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
@@ -197,7 +193,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
@@ -234,6 +230,3 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     }
   }
 };
-
-// ↓ ↓ ↓ no borrar esta linea  ↓ ↓ ↓
-//console.table(determinaCicloDelDia("30-06-2022", personalInformesJudiciales));

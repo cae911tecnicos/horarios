@@ -72,44 +72,73 @@ export const ciclo_informes_judiciales_6 = [
 // FUNCIONES PARA LOS CICLOS  -----------------------------------------------------------------------
 
 //Funcion para generar la rotacion en las diferentes semanas
-export const rotacion = (arr, personal) => {
+export const rotacion = (arr, num) => {
+  let resultado;
+  let aux_1;
+  let aux_2;
   arr = String(arr);
   if (arr.length === 2) {
     arr = arr.split("");
-    if (arr.length === 1) {
-      arr.unshift(0);
-    }
+    let arr_1 = Number(arr[0]);
+    let arr_2 = Number(arr[1]);
 
-    let a = Number(arr[0]);
-    let b = Number(arr[1]);
+    aux_1 = arr_1 + 1;
+    aux_2 = arr_2 + 1;
 
-    a = a < personal ? a + 1 : a === personal ? 1 : 0;
-    b = b < personal ? b + 1 : b === personal ? 1 : 0;
+    // --
+    aux_1 = Number(arr);
+    aux_2 = Number(arr);
 
-    arr = `${a}${b}`;
-    arr = Number(arr);
+    arr_1 = arr_1 !== num || aux_1 < num ? arr_1 + 1 : (arr_1 = 1);
+    arr_2 = arr_2 !== num || aux_2 < num ? arr_2 + 1 : (arr_2 = 1);
 
-    return arr;
+    resultado = `${arr_1}${arr_2}`;
+    resultado = Number(resultado);
+
+    return resultado;
   } else {
     arr = Number(arr);
-    arr = arr < personal ? arr + 1 : arr === personal ? 1 : 0;
-    return arr;
+    aux_1 = arr + 1;
+    let resultado = arr !== num || aux_1 < num ? arr + 1 : (arr = 1);
+    return resultado;
   }
 };
 
-console.table(ciclo_informes_judiciales_6)
 // Funcion para completar y generar los ciclos
-const ciclos = (ciclo, personal) => {
-  let cicloCompleto = []
-  cicloCompleto.push(ciclo)
-  console.error(ciclo)
-  for (let elemento = 0; elemento < 2; elemento++) {
+export const ciclos = (ciclo, num) => {
+  let auxA = JSON.parse(JSON.stringify(ciclo[0]));
+  let auxB = JSON.parse(JSON.stringify(ciclo[1]));
+  let a = [];
+  let b = [];
+  let parteA = [...auxA];
+  let parteB = [...auxB];
+  let cicloCompleto = [];
+
+  // APARTE A
+  for (let semana = 0; semana < num; semana++) {
     for (let i = 0; i < 7; i++) {
-      let aRotar = ciclo[elemento][i];
-      ciclo[elemento].push(rotacion(aRotar, personal));
+      let posicion = rotacion(auxA[i], num);
+      auxA.push(posicion);
     }
+    auxA.splice(0, 7);
+    parteA = [...parteA, ...auxA];
   }
-  return ciclo;
+  parteA.splice(num * 7, 7);
+  // APARTE B
+  for (let semana = 0; semana < num; semana++) {
+    for (let i = 0; i < 7; i++) {
+      let posicion = rotacion(auxB[i], num);
+      auxB.push(posicion);
+    }
+    auxB.splice(0, 7);
+    parteB = [...parteB, ...auxB];
+  }
+  parteB.splice(num * 7, 7);
+
+  cicloCompleto.push(parteA);
+  cicloCompleto.push(parteB);
+
+  return cicloCompleto;
 };
 // Funcion para saber el ciclo que tiene el dia de acuerdo al personal
 export const cicloDelDia = (area, numero) => {
@@ -157,18 +186,3 @@ export const cicloDelDia = (area, numero) => {
     return ciclo;
   }
 };
-
-
-console.log(rotacion(ciclo_ayudantia_5,5))
-
-//console.log(ciclos(ciclo_tecnicos_6, 6))
-//console.log(ciclos(ciclo_informes_judiciales_6, 6))
-
-// este tiene un error
-//console.log(cicloDelDia(ciclo_informes_judiciales_5, 5, "ciclo_informes_judiciales_5"))
-// Este no tiene error
-//console.error(ciclos(ciclo_ayudantia_5, 5))
-
-//console.log(rotacion(ciclo_ayudantia_5[1],5))
-
-

@@ -1,4 +1,4 @@
-const ciclo_tecnicos_2 = [
+/* const ciclo_tecnicos_2 = [
   [1, 2, 1, 2, 1, 2, 2],
   [1, 2, 1, 2, 1, 2, 2],
 ];
@@ -88,3 +88,10 @@ const ciclos = (ciclo, num) => {
 };
 
 console.log(ciclos(ciclo_tecnicos_6, 6));
+ */
+
+let arr = [[1,2,3],[1,2,3]]
+
+arr[0] = [...arr[0], ...arr[0]];
+
+console.log(arr)
