@@ -7,24 +7,25 @@ const ciclo_tecnicos_4 = [
 const ciclos = (ciclo, num) => {
   let cicloCompleto = [];
   let aux = JSON.parse(JSON.stringify(ciclo[0]));
-  let a = []
-  let b = []
+  let a = [];
+  let b = [];
   cicloCompleto = [...aux];
   console.warn(cicloCompleto);
-  for (let a = 0; a < num; a++) {
+
+  for (let semana = 0; semana < num; semana++) {
     for (let i = 0; i < 7; i++) {
       a = aux[i] + 1;
       b = aux[i] !== num || a < num ? aux[i] + 1 : (aux[i] = 1);
 
       aux.push(b);
     }
-    aux.splice(0,7)
-    console.error(aux)
-    cicloCompleto = [...cicloCompleto,...aux];
-    console.warn(cicloCompleto)
+    aux.splice(0, 7);
+    cicloCompleto = [...cicloCompleto, ...aux];
+    console.warn(aux);
   }
+  cicloCompleto.splice(28, 7);
 
   return cicloCompleto;
 };
 
-console.log(ciclos(ciclo_tecnicos_4, 4));
+console.error(ciclos(ciclo_tecnicos_4, 4));
