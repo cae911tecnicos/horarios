@@ -18,10 +18,10 @@ const vueltaDelPersonal = (personal, fecha) => {
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
 export const situacionDelPersonal = (personal, fecha) => {
   let proximasLicencias = [],
-    filtro_01 = [],
-    filtro_02 = [],
-    filtro_03 = [],
-    filtro_04 = [],
+    //filtro_01 = [],
+    //filtro_02 = [],
+    //filtro_03 = [],
+    //filtro_04 = [],
     conArticulo = [],
     date;
 
@@ -32,42 +32,64 @@ export const situacionDelPersonal = (personal, fecha) => {
       new Date(stringToDate(a.finSituacion)).getTime()
   );
   // Quita el personal que todavía no inician un articulo | filtro_01
-  for (let i = 0; i < personal.length; i++) {
-    let inicio = stringToDate(personal[i].inicioSituacion),
-      fin = stringToDate(personal[i].finSituacion),
-      date = stringToDate(fecha);
+  const filtro_01 = (personal, fecha) => {
+    let filtro_01 = [];
+    for (let i = 0; i < personal.length; i++) {
+      let inicio = stringToDate(personal[i].inicioSituacion),
+        fin = stringToDate(personal[i].finSituacion),
+        date = stringToDate(fecha);
 
-    if (date.getTime() <= inicio.getTime()) {
-      proximasLicencias.push(personal[i]);
-    } else {
-      filtro_01.push(personal[i]);
-    }
-  }
-
-  // Quita el personal que se encuentra con articulo segun parametro de fecha | filtro_02
-  for (let i = 0; i < filtro_01.length; i++) {
-    let inicio = stringToDate(filtro_01[i].inicioSituacion),
-      fin = stringToDate(filtro_01[i].finSituacion),
-      date = stringToDate(fecha);
-
-    if (date.getTime() >= inicio.getTime() && date.getTime() <= fin.getTime()) {
-      conArticulo.push(personal[i]);
-    } else {
-      filtro_02.push(personal[i]);
-    }
-  }
-
-  // Quita la persona pasadas que en la actualidad tienen articulo | filtro_03
-  /*   for (let a = 0; a < conArticulo.length; a++) {
-    for (let i = 0; i < filtro_02.length; i++) {
-      if (filtro_02[i].apellido == conArticulo[a].apellido) {
-        filtro_02.splice(i, i + 1);
+      if (date.getTime() < inicio.getTime()) {
+        proximasLicencias.push(personal[i]);
+      } else {
+        filtro_01.push(personal[i]);
       }
     }
-  } */
-  //Elimina los duplicados  | filtro_03
+    return [filtro_01, proximasLicencias];
+  };
+  let primerFiltro = filtro_01(personal, fecha)[0];
+  //console.warn(fecha, primerFiltro)
+
+  // Quita el personal que se encuentra con articulo segun parametro de fecha | filtro_02
+  const filtro_02 = (personal, fecha) => {
+    let filtro_02 = [];
+    for (let i = 0; i < personal.length; i++) {
+      let inicio = stringToDate(personal[i].inicioSituacion),
+        fin = stringToDate(personal[i].finSituacion),
+        date = stringToDate(fecha);
+
+      if (
+        date.getTime() >= inicio.getTime() &&
+        date.getTime() <= fin.getTime()
+      ) {
+        conArticulo.push(personal[i]);
+      } else {
+        filtro_02.push(personal[i]);
+      }
+    }
+    return [filtro_02, conArticulo];
+  };
+  let segundoFiltro = filtro_02(primerFiltro, fecha)[0];
+  let personalConArticulo = filtro_02(primerFiltro, fecha)[1];
+  //console.log(fecha, segundoFiltro)
+
+  // Quita la persona pasadas que en la actualidad tienen articulo | filtro_03
+  const filtro_03 = (personal, personalConArticulo) => {
+    for (let a = 0; a < personalConArticulo.length; a++) {
+      for (let i = 0; i < personal.length; i++) {
+        if (personal[i].apellido == personalConArticulo[a].apellido) {
+          personal.splice(i, i + 1);
+        }
+      }
+    }
+
+    return personal;
+  };
+  let tercerFiltro = filtro_03(segundoFiltro, personalConArticulo);
+
+  //Elimina los duplicados  del tercer filtro
   let hash = {};
-  filtro_03 = filtro_02.filter(function (elemento) {
+  tercerFiltro = tercerFiltro.filter(function (elemento) {
     let go =
       elemento.apellido !== undefined
         ? String(elemento.apellido)
@@ -79,17 +101,18 @@ export const situacionDelPersonal = (personal, fecha) => {
 
     return exists;
   });
+
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
-  for (let i = 0; i < filtro_03.length; i++) {
+  /*   for (let i = 0; i < filtro_03.length; i++) {
     let finSituacion = filtro_03[i].finSituacion;
     if (finSituacion === fecha) {
       // falta desarrollar
     } else {
       // falta desarrollar
     }
-  }
-
-  return [filtro_03, conArticulo, proximasLicencias];
+  } */
+  console.log(fecha, tercerFiltro)
+  return [tercerFiltro, conArticulo, proximasLicencias];
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
