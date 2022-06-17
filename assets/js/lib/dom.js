@@ -71,25 +71,7 @@ export const determinaCicloDelDia = (fecha, personal, area) => {
 
   return [maniana, tarde];
 };
-//Determina el cilo del dia sabado
-export const determinaDiaSabado = (fecha, personal, area) => {
-  let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
-  let numServicio = personal.length;
-  let arr = cicloDelDia(area, numServicio);
 
-  while (arr[0].length < cuentaDias) {
-    arr[0] = [...arr[0], ...arr[0]];
-  }
-
-  while (arr[1].length < cuentaDias) {
-    arr[1] = [...arr[1], ...arr[1]];
-  }
-
-  let mañana = arr[0][cuentaDias];
-  let tarde = arr[1][cuentaDias];
-
-  return [mañana, tarde];
-};
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   let maniana;
@@ -229,4 +211,23 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
       }
     }
   }
+};
+//Determina el cilo del dia sabado
+export const determinaDiaSabado = (fecha, personal, area) => {
+  let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
+  let numServicio = personal.length;
+  let arr = cicloDelDia(area, numServicio);
+
+  while (arr[0].length < cuentaDias) {
+    arr[0] = [...arr[0], ...arr[0]];
+  }
+
+  while (arr[1].length < cuentaDias) {
+    arr[1] = [...arr[1], ...arr[1]];
+  }
+
+  let mañana = arr[0][cuentaDias];
+  let tarde = arr[1][cuentaDias];
+
+  return [mañana, tarde];
 };

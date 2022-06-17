@@ -3,11 +3,31 @@ import {
   diasSemana,
   diferenciaFecha,
   iniciCicloFormateado,
-  fechaFormateada,
+  sumarDias,
+  fechaActual,
 } from "./date.js";
 import { cicloDelDia } from "./ciclos.js";
-import { determinaDiaSabado } from "./dom.js";
+import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
 
+//Determina el cilo del dia sabado
+const determinaDiaSabado = (fecha, personal, area) => {
+  let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
+  let numServicio = personal.length;
+  let arr = cicloDelDia(area, numServicio);
+
+  while (arr[0].length < cuentaDias) {
+    arr[0] = [...arr[0], ...arr[0]];
+  }
+
+  while (arr[1].length < cuentaDias) {
+    arr[1] = [...arr[1], ...arr[1]];
+  }
+
+  let mañana = arr[0][cuentaDias];
+  let tarde = arr[1][cuentaDias];
+
+  return [mañana, tarde];
+};
 // Funcion que determina en que numero deberia estar el personal que se reincorpora (para trabajar el fin de semana)
 const vueltaDelPersonal = (personal, fecha) => {
   let fechaRegresoArticulo = stringToDate(fecha);
@@ -15,13 +35,10 @@ const vueltaDelPersonal = (personal, fecha) => {
   let numeroDiaSabado = determinaDiaSabado(diaSabado, personal)[0];
   return numeroDiaSabado;
 };
+
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
 export const situacionDelPersonal = (personal, fecha) => {
   let proximasLicencias = [],
-    //filtro_01 = [],
-    //filtro_02 = [],
-    //filtro_03 = [],
-    //filtro_04 = [],
     conArticulo = [],
     date;
 
@@ -103,15 +120,21 @@ export const situacionDelPersonal = (personal, fecha) => {
   });
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
-  /*   for (let i = 0; i < filtro_03.length; i++) {
-    let finSituacion = filtro_03[i].finSituacion;
-    if (finSituacion === fecha) {
-      // falta desarrollar
-    } else {
-      // falta desarrollar
+  const filtro_04 = (personal, fecha) => {
+    for (let i = 0; i < personal.length; i++) {
+      let finSituacion = stringToDate(personal[i].finSituacion)
+      finSituacion = sumarDias(finSituacion,1)
+      if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
+        return personal[i];
+      } else {
+        return "chau";
+      }
     }
-  } */
-  console.log(fecha, tercerFiltro)
+  };
+  let prueba = filtro_04(tercerFiltro, fecha);
+  console.log(prueba);
+  //console.log(fecha, tercerFiltro)
+
   return [tercerFiltro, conArticulo, proximasLicencias];
 };
 // Funcion para conocer el personal que se encuentra en servicio
