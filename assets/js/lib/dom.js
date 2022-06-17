@@ -132,15 +132,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     diaSemana.innerText = campoManiana;
     etiquetaManiana.append(diaSemana);
     diaSemana.className = "maniana";
-    // ↓ Para colorear quien esta de turno ahora mismo
-    if (
-      stringToDate(arrSemana[i]).getTime() ==
-      stringToDate(fechaActual).getTime()
-    ) {
-      diaSemana.className = "ahoraEnTurno";
-      let fechaDelDia = arrSemana[i];
-    }
-
     // ↓ Para colorear el Fin de Semana
     if (i == 5 || i == 6) {
       diaSemana.className = "finde-maniana";
@@ -166,6 +157,14 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         leyendaFeriado.innerText = feriados[a].acontecimiento;
       }
     }
+    // ↓ Para colorear quien esta de turno ahora mismo
+    if (
+      stringToDate(arrSemana[i]).getTime() ==
+      stringToDate(fechaActual).getTime()
+    ) {
+      diaSemana.className = "ahoraEnTurno";
+      let fechaDelDia = arrSemana[i];
+    }
   }
   // Determina el turno de la tarde
   const etiquetaTarde = document.querySelector(`#${tarde}${num}`);
@@ -175,25 +174,13 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
+    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
     diaSemana.innerText = campoTarde;
     etiquetaTarde.append(diaSemana);
     diaSemana.className = "tarde";
-    // ↓ Para colorear quien esta de turno ahora mismo
-    if (
-      stringToDate(arrSemana[i]).getTime() ==
-      stringToDate(fechaActual).getTime()
-    ) {
-      diaSemana.className = "ahoraEnTurno";
-      let fechaDelDia = arrSemana[i];
-    }
-    // ↓ Para colorear el Fin de Semana
-    if (i == 5 || i == 6) {
-      diaSemana.className = "finde-tarde";
-    }
     // ↓ Para colorear el FERIADO
     for (let a = 0; a < feriados.length; a++) {
       let fechaFeriado = feriados[a].dia;
@@ -209,6 +196,18 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         ordenFeriado.shift();
         diaSemana.innerText = campoTarde;
       }
+    }
+    // ↓ Para colorear quien esta de turno ahora mismo
+    if (
+      stringToDate(arrSemana[i]).getTime() ==
+      stringToDate(fechaActual).getTime()
+    ) {
+      diaSemana.className = "ahoraEnTurno";
+      let fechaDelDia = arrSemana[i];
+    }
+    // ↓ Para colorear el Fin de Semana
+    if (i == 5 || i == 6) {
+      diaSemana.className = "finde-tarde";
     }
   }
 };
