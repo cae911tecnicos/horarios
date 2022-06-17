@@ -121,18 +121,23 @@ export const situacionDelPersonal = (personal, fecha) => {
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
   const filtro_04 = (personal, fecha) => {
+    let numero;
     for (let i = 0; i < personal.length; i++) {
-      let finSituacion = stringToDate(personal[i].finSituacion)
-      finSituacion = sumarDias(finSituacion,1)
+      let finSituacion = stringToDate(personal[i].finSituacion);
+      finSituacion = sumarDias(finSituacion, 1);
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
-        return personal[i];
-      } else {
-        return "chau";
+          numero = vueltaDelPersonal(personal, fecha)
+          
+
       }
     }
+    numero = numero -1
+    // falta mover la posicion de numero al array
+
+    return numero
   };
   let prueba = filtro_04(tercerFiltro, fecha);
-  console.log(prueba);
+  console.log(fecha, prueba);
   //console.log(fecha, tercerFiltro)
 
   return [tercerFiltro, conArticulo, proximasLicencias];
@@ -146,3 +151,4 @@ export const personalEnServicio = (personal, fecha) => {
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
+
