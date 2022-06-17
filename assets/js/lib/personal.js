@@ -65,7 +65,6 @@ export const situacionDelPersonal = (personal, fecha) => {
     return [filtro_01, proximasLicencias];
   };
   let primerFiltro = filtro_01(personal, fecha)[0];
-  //console.warn(fecha, primerFiltro)
 
   // Quita el personal que se encuentra con articulo segun parametro de fecha | filtro_02
   const filtro_02 = (personal, fecha) => {
@@ -88,7 +87,6 @@ export const situacionDelPersonal = (personal, fecha) => {
   };
   let segundoFiltro = filtro_02(primerFiltro, fecha)[0];
   let personalConArticulo = filtro_02(primerFiltro, fecha)[1];
-  //console.log(fecha, segundoFiltro)
 
   // Quita la persona pasadas que en la actualidad tienen articulo | filtro_03
   const filtro_03 = (personal, personalConArticulo) => {
@@ -127,18 +125,14 @@ export const situacionDelPersonal = (personal, fecha) => {
       finSituacion = sumarDias(finSituacion, 1);
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
           numero = vueltaDelPersonal(personal, fecha)
-          
-
       }
     }
     numero = numero -1
     // falta mover la posicion de numero al array
+    // Falta desallorrar
 
     return numero
   };
-  let prueba = filtro_04(tercerFiltro, fecha);
-  console.log(fecha, prueba);
-  //console.log(fecha, tercerFiltro)
 
   return [tercerFiltro, conArticulo, proximasLicencias];
 };
@@ -151,4 +145,3 @@ export const personalEnServicio = (personal, fecha) => {
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
-
