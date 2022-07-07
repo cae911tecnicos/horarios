@@ -123,9 +123,14 @@ export const situacionDelPersonal = (personal, fecha) => {
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
       finSituacion = sumarDias(finSituacion, 1);
+      console.error(fecha)
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
           numero = vueltaDelPersonal(personal, fecha)
+          console.error(fecha)
           console.log(numero)
+          console.log(finSituacion)
+          console.log(personal)
+          // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
       }
     }
     // falta mover la posicion de numero al array
