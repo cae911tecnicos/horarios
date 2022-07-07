@@ -119,6 +119,7 @@ export const situacionDelPersonal = (personal, fecha) => {
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
   const filtro_04 = (personal, fecha) => {
+    let newPersonal = [];
     let numero;
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
@@ -126,15 +127,18 @@ export const situacionDelPersonal = (personal, fecha) => {
       console.error(fecha)
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
           numero = vueltaDelPersonal(personal, fecha)
-          console.error(fecha)
-          console.log(numero)
-          console.log(finSituacion)
-          console.log(personal)
+          
+
           // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
+          
+
+          newPersonal = personal.splice(numero,0,personal.splice(0,1)[0]);
+          
       }
     }
     // falta mover la posicion de numero al array
-    
+    console.error(fecha)
+    console.log(newPersonal);
 
     return " "
   };
