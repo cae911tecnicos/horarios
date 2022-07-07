@@ -125,14 +125,16 @@ export const situacionDelPersonal = (personal, fecha) => {
       finSituacion = sumarDias(finSituacion, 1);
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
           numero = vueltaDelPersonal(personal, fecha)
+          console.log(numero)
       }
     }
-    numero = numero -1
     // falta mover la posicion de numero al array
-    // Falta desallorrar
+    
 
-    return numero
+    return " "
   };
+  console.log(filtro_04(tercerFiltro, fecha))
+  console.log(fecha, tercerFiltro)
 
   return [tercerFiltro, conArticulo, proximasLicencias];
 };

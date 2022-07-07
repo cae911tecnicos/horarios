@@ -174,7 +174,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
 
     //↓ Cambia el numero por el apellido de la persona
-    campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
+    //campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
     //↑ Cambia el numero por el apellido de la persona
 
     diaSemana = document.createElement("td");
