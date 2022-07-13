@@ -124,7 +124,7 @@ export const situacionDelPersonal = (personal, fecha) => {
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
       finSituacion = sumarDias(finSituacion, 1);
-      console.error(fecha)
+      //console.error(fecha)
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
           numero = vueltaDelPersonal(personal, fecha)
           
@@ -137,13 +137,13 @@ export const situacionDelPersonal = (personal, fecha) => {
       }
     }
     // falta mover la posicion de numero al array
-    console.error(fecha)
-    console.log(newPersonal);
+    //console.error(fecha)
+    //console.log(newPersonal);
 
     return " "
   };
-  console.log(filtro_04(tercerFiltro, fecha))
-  console.log(fecha, tercerFiltro)
+  //console.log(filtro_04(tercerFiltro, fecha))
+  //console.log(fecha, tercerFiltro)
 
   return [tercerFiltro, conArticulo, proximasLicencias];
 };
