@@ -88,12 +88,14 @@ export const situacionDelPersonal = (personal, fecha) => {
   let segundoFiltro = filtro_02(primerFiltro, fecha)[0];
   let personalConArticulo = filtro_02(primerFiltro, fecha)[1];
 
+
+
   // Quita la persona pasadas que en la actualidad tienen articulo | filtro_03
   const filtro_03 = (personal, personalConArticulo) => {
     for (let a = 0; a < personalConArticulo.length; a++) {
       for (let i = 0; i < personal.length; i++) {
         if (personal[i].apellido == personalConArticulo[a].apellido) {
-          personal.splice(i, i + 1);
+          personal.splice(i, i - 1);
         }
       }
     }
@@ -102,6 +104,8 @@ export const situacionDelPersonal = (personal, fecha) => {
   };
   let tercerFiltro = filtro_03(segundoFiltro, personalConArticulo);
 
+ 
+
   //Elimina los duplicados  del tercer filtro
   let hash = {};
   tercerFiltro = tercerFiltro.filter(function (elemento) {
@@ -109,12 +113,9 @@ export const situacionDelPersonal = (personal, fecha) => {
       elemento.apellido !== undefined
         ? String(elemento.apellido)
         : "Error, puede que el apellido este mal escrito";
-
-    let exists = !hash[go] || false;
-
-    hash[go] = true;
-
-    return exists;
+   let exists = !hash[go] || false;
+   hash[go] = true;
+   return exists;
   });
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
