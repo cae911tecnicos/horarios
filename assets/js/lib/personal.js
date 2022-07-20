@@ -104,7 +104,7 @@ export const situacionDelPersonal = (personal, fecha) => {
   };
   let tercerFiltro = filtro_03(segundoFiltro, personalConArticulo);
 
- 
+
 
   //Elimina los duplicados  del tercer filtro
   let hash = {};
@@ -113,9 +113,9 @@ export const situacionDelPersonal = (personal, fecha) => {
       elemento.apellido !== undefined
         ? String(elemento.apellido)
         : "Error, puede que el apellido este mal escrito";
-   let exists = !hash[go] || false;
-   hash[go] = true;
-   return exists;
+    let exists = !hash[go] || false;
+    hash[go] = true;
+    return exists;
   });
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
@@ -127,24 +127,21 @@ export const situacionDelPersonal = (personal, fecha) => {
       finSituacion = sumarDias(finSituacion, 1);
       //console.error(fecha)
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
-          numero = vueltaDelPersonal(personal, fecha)
-          
+        numero = vueltaDelPersonal(personal, fecha)
 
-          // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
-          
+        // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO que trabaja el finde
 
-          newPersonal = personal.splice(numero,0,personal.splice(0,1)[0]);
-          
+        //personal.splice(0, 0, personal.splice(0, 1)[0]);
+        personal.splice(1,1, personal.splice(2,1)[0]);
+
       }
     }
-    // falta mover la posicion de numero al array
-    //console.error(fecha)
-    //console.log(newPersonal);
-
-    return " "
+    return personal
   };
-  //console.log(filtro_04(tercerFiltro, fecha))
-  //console.log(fecha, tercerFiltro)
+
+  let cuartoFiltro = filtro_04(tercerFiltro, fecha);
+  console.log(fecha, cuartoFiltro)
+
 
   return [tercerFiltro, conArticulo, proximasLicencias];
 };
