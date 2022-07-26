@@ -6,12 +6,12 @@ export const ordenPersonalTecnicoFeriado = [
   "Gerometta",
 ];
 export const ordenPersonalInformesFeriado = [
-  "Olivera",
-  "Morello",
   "Sosa",
   "Diaz",
   "Riuli",
   "Alcoba",
+  "Olivera",
+  "Morello",
 ];
 export const ordenPersonalAyudantiaFeriado = [
   "Ramirez",
@@ -39,7 +39,7 @@ export const feriados = [
     acontecimiento: "Feriado 9. Día de la Independencia",
   },*/,
   {
-    dia: "15-09-2022",
+    dia: "15-08-2022",
     acontecimiento:
       "Feriado 15. Paso a la Inmortalidad del Gral. José de San Martín (17/8)",
   },
