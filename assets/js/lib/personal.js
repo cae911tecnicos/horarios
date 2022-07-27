@@ -121,33 +121,30 @@ export const situacionDelPersonal = (personal, fecha) => {
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
   const filtro_04 = (personal, fecha) => {
     let numero;
-    var fechaVuelta;
-    var personalVuelta
+    let hola = []
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
       finSituacion = sumarDias(finSituacion, 1);
       if (stringToDate(fecha).getTime() === finSituacion.getTime()) {
-
-        console.warn(finSituacion)
+        
         numero = vueltaDelPersonal(personal, fecha)
-
+        
         // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO que trabaja el finde
         //personal.splice(0, 0, personal.splice(0, 1)[0]);
 
         personal.splice(numero, 1, personal[i]);
-        //fechaVuelta = fecha
-        //personalVuelta = personal[i]
-        //console.error(fecha, personal)
+        hola.push(personal[i])
 
+      } else {
+        }
 
-      } else {//console.log(fecha, personal)
-      }
     }
-    return [fechaVuelta, personalVuelta, numero]
+    
+    return hola
   };
 
   let cuartoFiltro = filtro_04(tercerFiltro, fecha)[1];
-  //console.log(cuartoFiltro)
+  console.log(cuartoFiltro)
 
 
   return [tercerFiltro, conArticulo, proximasLicencias];
