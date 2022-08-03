@@ -150,11 +150,12 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         diaSemana.innerText = campoManiana;
 
         // ↓ Para agregar la leyenda debajo del la tabla
-        const etiquetaTabla = document.querySelector("#" + area + [num]);
-        const leyendaFeriado = document.createElement("div");
-        etiquetaTabla.append(leyendaFeriado);
-        leyendaFeriado.className = "leyenda";
-        leyendaFeriado.innerText = feriados[a].acontecimiento;
+        //const etiquetaTabla = document.querySelector("#" + area + [num]);
+        //const leyendaFeriado = document.createElement("div");
+        //etiquetaTabla.append(leyendaFeriado);
+        //leyendaFeriado.className = "leyenda";
+        //leyendaFeriado.innerText = feriados[a].acontecimiento;
+        //tiene bug
       }
     }
     // ↓ Para colorear quien esta de turno ahora mismo

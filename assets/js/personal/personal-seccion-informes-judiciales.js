@@ -6,7 +6,6 @@ export let personalInformesJudiciales = [
     situacion: "Licencia",
     inicioSituacion: "18-02-2022",
     finSituacion: "05-04-2022",
-
   },
   {
     nombre: "Rocio",
@@ -28,7 +27,7 @@ export let personalInformesJudiciales = [
     situacion: "Licencia",
     inicioSituacion: "14-03-2022",
     finSituacion: "02-05-2022",
-    
+  
   },
   {
     nombre: "Andrea",
@@ -43,6 +42,5 @@ export let personalInformesJudiciales = [
     situacion: "Licencia",
     inicioSituacion: "03-03-2022",
     finSituacion: "04-04-2022",
-
   },
 ];
