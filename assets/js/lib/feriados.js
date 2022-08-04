@@ -14,12 +14,12 @@ export const ordenPersonalInformesFeriado = [
   "Morello",
 ];
 export const ordenPersonalAyudantiaFeriado = [
-  "Ramirez",
-  "Gomez",
   "Techtermann",
   "Perez",
   "Carlotta",
   "Moyano",
+  "Ramirez",
+  "Gomez",
 ];
 
 // Lista con los feriados segun calendario oficial
