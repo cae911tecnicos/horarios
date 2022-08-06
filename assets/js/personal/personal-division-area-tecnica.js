@@ -36,4 +36,11 @@ export let personalTecnico = [
     inicioSituacion: "25-07-2022",
     finSituacion: "08-08-2022",
   },
+  {
+    nombre: "Gabriel",
+    apellido: "Knuttzen",
+    situacion: "Licencia",
+    inicioSituacion: "09-08-2022",
+    finSituacion: "18-08-2022",
+  },
 ];

@@ -48,7 +48,7 @@ export const situacionDelPersonal = (personal, fecha) => {
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
   );
-  // Quita el personal que todavía no inician un articulo | filtro_01
+  // Quita el personal que todavía 875988o | filtro_01
   const filtro_01 = (personal, fecha) => {
     let filtro_01 = [];
     for (let i = 0; i < personal.length; i++) {
@@ -62,9 +62,12 @@ export const situacionDelPersonal = (personal, fecha) => {
         filtro_01.push(personal[i]);
       }
     }
+    
     return [filtro_01, proximasLicencias];
   };
   let primerFiltro = filtro_01(personal, fecha)[0];
+
+
 
   // Quita el personal que se encuentra con articulo segun parametro de fecha | filtro_02
   const filtro_02 = (personal, fecha) => {
@@ -99,7 +102,7 @@ export const situacionDelPersonal = (personal, fecha) => {
         }
       }
     }
-
+    
     return personal;
   };
   let tercerFiltro = filtro_03(segundoFiltro, personalConArticulo);
@@ -122,6 +125,7 @@ export const situacionDelPersonal = (personal, fecha) => {
   const filtro_04 = (personal, fecha) => {
     let newPersonal = [];
     let numero;
+    var hola;
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
       finSituacion = sumarDias(finSituacion, 1);
@@ -131,22 +135,26 @@ export const situacionDelPersonal = (personal, fecha) => {
           
 
           // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
-          
+        //hola = personal[i]
 
-          newPersonal = personal.splice(numero,0,personal.splice(0,1)[0]);
+        
+        //personal.splice((0,1)[0]);
           
+          console.warn(fecha, numero, personal)
+          hola = personal[i]
+
       }
     }
-    // falta mover la posicion de numero al array
-    //console.error(fecha)
-    //console.log(newPersonal);
-
-    return " "
+    personal.splice(numero,0,personal[0]); 
+    personal.shift()
+    
+    return personal
   };
-  //console.log(filtro_04(tercerFiltro, fecha))
-  //console.log(fecha, tercerFiltro)
+  console.log(filtro_04(tercerFiltro, fecha))
+  let cuartoFiltro = filtro_04(tercerFiltro, fecha)
 
-  return [tercerFiltro, conArticulo, proximasLicencias];
+  
+  return [cuartoFiltro, conArticulo, proximasLicencias];
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
