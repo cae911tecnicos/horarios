@@ -62,7 +62,7 @@ export const situacionDelPersonal = (personal, fecha) => {
         filtro_01.push(personal[i]);
       }
     }
-    
+
     return [filtro_01, proximasLicencias];
   };
   let primerFiltro = filtro_01(personal, fecha)[0];
@@ -102,12 +102,12 @@ export const situacionDelPersonal = (personal, fecha) => {
         }
       }
     }
-    
+
     return personal;
   };
   let tercerFiltro = filtro_03(segundoFiltro, personalConArticulo);
 
- 
+
 
   //Elimina los duplicados  del tercer filtro
   let hash = {};
@@ -116,9 +116,9 @@ export const situacionDelPersonal = (personal, fecha) => {
       elemento.apellido !== undefined
         ? String(elemento.apellido)
         : "Error, puede que el apellido este mal escrito";
-   let exists = !hash[go] || false;
-   hash[go] = true;
-   return exists;
+    let exists = !hash[go] || false;
+    hash[go] = true;
+    return exists;
   });
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
@@ -126,34 +126,44 @@ export const situacionDelPersonal = (personal, fecha) => {
     let newPersonal = [];
     let numero;
     var hola;
+    var modificoPersonal = false;
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
       finSituacion = sumarDias(finSituacion, 1);
       //console.error(fecha)
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
-          numero = vueltaDelPersonal(personal, fecha)
-          
+        numero = vueltaDelPersonal(personal, fecha)
 
-          // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
+
+        // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
         //hola = personal[i]
 
-        
+
         //personal.splice((0,1)[0]);
-          
-          console.warn(fecha, numero, personal)
-          hola = personal[i]
+
+        console.warn(fecha, numero, personal)
+        hola = personal[i]
+        modificoPersonal = true;
 
       }
     }
-    personal.splice(numero,0,personal[0]); 
+    personal.splice(numero, 0, personal[0]);
     personal.shift()
-    
-    return personal
-  };
-  console.log(filtro_04(tercerFiltro, fecha))
-  let cuartoFiltro = filtro_04(tercerFiltro, fecha)
 
-  
+    return [personal, modificoPersonal]
+  };
+  //console.log(fecha, filtro_04(tercerFiltro, fecha))
+  let cuartoFiltro = filtro_04(tercerFiltro, fecha)[0]
+  //let seModificoPersonal = filtro_04(tercerFiltro, fecha)[1]
+
+  //console.log(fecha,  cuartoFiltro2)
+
+  //const filtro_05(ModificoPersonal){
+  //  if(ModificoPersonal === true){ 
+  //    
+  //  }
+  //}
+  console.log(fecha, cuartoFiltro)
   return [cuartoFiltro, conArticulo, proximasLicencias];
 };
 // Funcion para conocer el personal que se encuentra en servicio
