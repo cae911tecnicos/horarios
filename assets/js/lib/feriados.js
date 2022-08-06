@@ -6,8 +6,8 @@ export const ordenPersonalTecnicoFeriado = [
   "Knuttzen",
 ];
 export const ordenPersonalInformesFeriado = [
-  "Sosa",
   "Diaz",
+  "Sosa",
   "Riuli",
   "Alcoba",
   "Olivera",
