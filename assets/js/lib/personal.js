@@ -9,6 +9,10 @@ import {
 import { cicloDelDia } from "./ciclos.js";
 import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
 
+var pivote;
+var actual;
+var AuxActual
+
 //Determina el cilo del dia sabado
 const determinaDiaSabado = (fecha, personal, area) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
@@ -122,7 +126,7 @@ export const situacionDelPersonal = (personal, fecha) => {
     let newPersonal = [];
     let numero;
     var hola;
-    
+
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
       finSituacion = sumarDias(finSituacion, 1);
@@ -149,22 +153,23 @@ export const situacionDelPersonal = (personal, fecha) => {
   let modificado = filtro_04(tercerFiltro, fecha)[1]
 
   console.log(fecha, cuartoFiltro)
-  return [cuartoFiltro, conArticulo, proximasLicencias,modificado];
+  return [cuartoFiltro, conArticulo, proximasLicencias, modificado];
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
   // -------> ^.^ <-------
-  var pivote = situacionDelPersonal(personal, "08-08-2022")[0];
-  
-  // -------> ^.^ <-------
-  let seModifica = situacionDelPersonal(personal, fecha)[3];
-  //console.error(fecha, seModifica)
+  pivote = situacionDelPersonal(personal, "08-08-2022")[0];
+  actual = situacionDelPersonal(personal, fecha)[0];
+  AuxActual = 
 
-  var personalFiltrado = situacionDelPersonal(personal, fecha)[0];
-  // actualiza el array
-  if(seModifica){pivote = situacionDelPersonal(personal, fecha)[0];}
+  if (fechaActual == "08-08-2022") {
+    
 
-  
+  }  else if(actual != pivote ){
+    pivote = 
+  }
+
+
   return pivote;
 };
 // Funcion para conocer el personal que se encuentra con articulo
