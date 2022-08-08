@@ -38,6 +38,7 @@ const vueltaDelPersonal = (personal, fecha) => {
 
 // Funcion para crear la lista del personal que va rotando segun vuelve de licencia.
 export const situacionDelPersonal = (personal, fecha) => {
+  var modificoPersonal = false;
   let proximasLicencias = [],
     conArticulo = [],
     date;
@@ -48,7 +49,8 @@ export const situacionDelPersonal = (personal, fecha) => {
       new Date(stringToDate(b.finSituacion)).getTime() -
       new Date(stringToDate(a.finSituacion)).getTime()
   );
-  // Quita el personal que todavía 875988o | filtro_01
+
+  // Quita el personal que todavía  | filtro_01
   const filtro_01 = (personal, fecha) => {
     let filtro_01 = [];
     for (let i = 0; i < personal.length; i++) {
@@ -66,8 +68,6 @@ export const situacionDelPersonal = (personal, fecha) => {
     return [filtro_01, proximasLicencias];
   };
   let primerFiltro = filtro_01(personal, fecha)[0];
-
-
 
   // Quita el personal que se encuentra con articulo segun parametro de fecha | filtro_02
   const filtro_02 = (personal, fecha) => {
@@ -91,8 +91,6 @@ export const situacionDelPersonal = (personal, fecha) => {
   let segundoFiltro = filtro_02(primerFiltro, fecha)[0];
   let personalConArticulo = filtro_02(primerFiltro, fecha)[1];
 
-
-
   // Quita la persona pasadas que en la actualidad tienen articulo | filtro_03
   const filtro_03 = (personal, personalConArticulo) => {
     for (let a = 0; a < personalConArticulo.length; a++) {
@@ -106,8 +104,6 @@ export const situacionDelPersonal = (personal, fecha) => {
     return personal;
   };
   let tercerFiltro = filtro_03(segundoFiltro, personalConArticulo);
-
-
 
   //Elimina los duplicados  del tercer filtro
   let hash = {};
@@ -126,7 +122,7 @@ export const situacionDelPersonal = (personal, fecha) => {
     let newPersonal = [];
     let numero;
     var hola;
-    var modificoPersonal = false;
+    
     for (let i = 0; i < personal.length; i++) {
       let finSituacion = stringToDate(personal[i].finSituacion);
       finSituacion = sumarDias(finSituacion, 1);
@@ -134,12 +130,7 @@ export const situacionDelPersonal = (personal, fecha) => {
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
         numero = vueltaDelPersonal(personal, fecha)
 
-
-        // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
         //hola = personal[i]
-
-
-        //personal.splice((0,1)[0]);
 
         console.warn(fecha, numero, personal)
         hola = personal[i]
@@ -147,31 +138,37 @@ export const situacionDelPersonal = (personal, fecha) => {
 
       }
     }
+    // Agregar el personal que ingresa al numero que trabaja el fin de semana
     personal.splice(numero, 0, personal[0]);
+    // Elimina el primer elemento del array, o sea la persona que se reintegra
     personal.shift()
 
     return [personal, modificoPersonal]
   };
-  //console.log(fecha, filtro_04(tercerFiltro, fecha))
   let cuartoFiltro = filtro_04(tercerFiltro, fecha)[0]
-  //let seModificoPersonal = filtro_04(tercerFiltro, fecha)[1]
+  let modificado = filtro_04(tercerFiltro, fecha)[1]
 
-  //console.log(fecha,  cuartoFiltro2)
-
-  //const filtro_05(ModificoPersonal){
-  //  if(ModificoPersonal === true){ 
-  //    
-  //  }
-  //}
   console.log(fecha, cuartoFiltro)
-  return [cuartoFiltro, conArticulo, proximasLicencias];
+  return [cuartoFiltro, conArticulo, proximasLicencias,modificado];
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
-  let personalFiltrado = situacionDelPersonal(personal, fecha)[0];
-  return personalFiltrado;
+  // -------> ^.^ <-------
+  var pivote = situacionDelPersonal(personal, "08-08-2022")[0];
+  
+  // -------> ^.^ <-------
+  let seModifica = situacionDelPersonal(personal, fecha)[3];
+  //console.error(fecha, seModifica)
+
+  var personalFiltrado = situacionDelPersonal(personal, fecha)[0];
+  // actualiza el array
+  if(seModifica){pivote = situacionDelPersonal(personal, fecha)[0];}
+
+  
+  return pivote;
 };
 // Funcion para conocer el personal que se encuentra con articulo
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
+
