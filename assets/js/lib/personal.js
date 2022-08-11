@@ -175,17 +175,16 @@ export const personalEnServicio = (personal, fecha) => {
   for (
     let i = pivoteDate; i === fechaDate; i = sumarDias(stringToDate(i), 1)
   ) {
-
-    if (fechaDate === i) {
+    if (fechaDate != i) {
       return pivote
     } else {
       
-      contador = fechaFormateada(i);
-      actual = situacionDelPersonal(aux, contador)[0];
+      //contador = fechaFormateada(i);
+      actual = situacionDelPersonal(aux, i)[0];
       aux = actual;
       //contador = stringToDate(contador);
-      pivote = aux;
-      pivote = situacionDelPersonal(personal, i)[0];
+      //pivote = aux;
+      pivote = situacionDelPersonal(personal, "15-08-2022")[0];
     }
     
   }
