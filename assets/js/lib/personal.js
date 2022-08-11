@@ -154,36 +154,42 @@ export const situacionDelPersonal = (personal, fecha) => {
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
-  // -------> ^.^ <-------
   let fechaPivote = "08-08-2022";
+  // -------> ^.^ <-------
+  
   pivote = situacionDelPersonal(personal, fechaPivote)[0];
-  let pivoteDate = stringToDate(fechaPivote);
-  let fechaDate = stringToDate(fecha);
+  let pivoteDate = fechaPivote;
+  let fechaDate = fecha;
   var aux = pivote;
+  var contador;
+  //console.warn(pivoteDate)
+  //console.warn(fechaDate)
+  //if (pivoteDate == fechaDate){
+  //  console.error("OK")
+  //}
 
-  // ----borrame abajo
-  //for (let i = 0; i < personal.length; i++) {
-  //  let finSituacion = stringToDate(personal[i].finSituacion);
-  //  finSituacion = sumarDias(finSituacion, 1);
-  //  //console.error(fecha)
-  //  if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
-  //    numero = vueltaDelPersonal(personal, fecha);
-  // ----borrame arriba
+  //let hola = "20-10-2022"
+  //hola = stringToDate(hola)
+  //console.error(sumarDias(hola,1))
 
   for (
-    let i = pivoteDate;     i == fechaDate; sumarDias(pivoteDate, 1)
+    let i = pivoteDate; i === fechaDate; i = sumarDias(stringToDate(i), 1)
   ) {
 
-    if (fecha == pivoteDate) {
-      return situacionDelPersonal(personal, "10-08-2022")[0];
+    if (fechaDate === i) {
+      return pivote
     } else {
-      pivoteDate = fechaFormateadapivoteDate(pivoteDate);
-      actual = situacionDelPersonal(aux, fechaPivote)[0];
+      
+      contador = fechaFormateada(i);
+      actual = situacionDelPersonal(aux, contador)[0];
       aux = actual;
-      pivoteDate = stringToDate(pivoteDate);
+      //contador = stringToDate(contador);
+      pivote = aux;
+      pivote = situacionDelPersonal(personal, i)[0];
     }
-    return hlasdfa;
+    
   }
+  return pivote;
 };
 
 
