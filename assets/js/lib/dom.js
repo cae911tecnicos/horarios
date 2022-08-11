@@ -212,7 +212,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     }
   }
 };
-//Determina el cilo del dia sabado
+//Determina el ciclo del dia sabado
 export const determinaDiaSabado = (fecha, personal, area) => {
   let cuentaDias = diferenciaFecha(iniciCicloFormateado, fecha); // ejemplo: 58
   let numServicio = personal.length;

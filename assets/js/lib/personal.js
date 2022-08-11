@@ -5,13 +5,13 @@ import {
   iniciCicloFormateado,
   sumarDias,
   fechaActual,
+  fechaFormateada,
 } from "./date.js";
 import { cicloDelDia } from "./ciclos.js";
 import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
 
 var pivote;
 var actual;
-var AuxActual
 
 //Determina el cilo del dia sabado
 const determinaDiaSabado = (fecha, personal, area) => {
@@ -132,48 +132,62 @@ export const situacionDelPersonal = (personal, fecha) => {
       finSituacion = sumarDias(finSituacion, 1);
       //console.error(fecha)
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
-        numero = vueltaDelPersonal(personal, fecha)
+        numero = vueltaDelPersonal(personal, fecha);
 
-        //hola = personal[i]
-
-        console.warn(fecha, numero, personal)
-        hola = personal[i]
+        console.warn(fecha, numero, personal);
+        hola = personal[i];
         modificoPersonal = true;
-
       }
     }
     // Agregar el personal que ingresa al numero que trabaja el fin de semana
     personal.splice(numero, 0, personal[0]);
     // Elimina el primer elemento del array, o sea la persona que se reintegra
-    personal.shift()
+    personal.shift();
 
-    return [personal, modificoPersonal]
+    return [personal, modificoPersonal];
   };
-  let cuartoFiltro = filtro_04(tercerFiltro, fecha)[0]
-  let modificado = filtro_04(tercerFiltro, fecha)[1]
+  let cuartoFiltro = filtro_04(tercerFiltro, fecha)[0];
+  let modificado = filtro_04(tercerFiltro, fecha)[1];
 
-  console.log(fecha, cuartoFiltro)
+  console.log(fecha, cuartoFiltro);
   return [cuartoFiltro, conArticulo, proximasLicencias, modificado];
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
   // -------> ^.^ <-------
-  pivote = situacionDelPersonal(personal, "08-08-2022")[0];
-  actual = situacionDelPersonal(personal, fecha)[0];
-  AuxActual = 
+  let fechaPivote = "08-08-2022";
+  pivote = situacionDelPersonal(personal, fechaPivote)[0];
+  let pivoteDate = stringToDate(fechaPivote);
+  let fechaDate = stringToDate(fecha);
+  var aux = pivote;
 
-  if (fechaActual == "08-08-2022") {
-    
+  // ----borrame abajo
+  //for (let i = 0; i < personal.length; i++) {
+  //  let finSituacion = stringToDate(personal[i].finSituacion);
+  //  finSituacion = sumarDias(finSituacion, 1);
+  //  //console.error(fecha)
+  //  if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
+  //    numero = vueltaDelPersonal(personal, fecha);
+  // ----borrame arriba
 
-  }  else if(actual != pivote ){
-    pivote = 
+  for (
+    let i = pivoteDate;     i == fechaDate; sumarDias(pivoteDate, 1)
+  ) {
+
+    if (fecha == pivoteDate) {
+      return situacionDelPersonal(personal, "10-08-2022")[0];
+    } else {
+      pivoteDate = fechaFormateadapivoteDate(pivoteDate);
+      actual = situacionDelPersonal(aux, fechaPivote)[0];
+      aux = actual;
+      pivoteDate = stringToDate(pivoteDate);
+    }
+    return hlasdfa;
   }
-
-
-  return pivote;
 };
+
+
 // Funcion para conocer el personal que se encuentra con articulo
 export const personalConArticulo = (personal, fecha) => {
   return personalRevista(personal, fecha)[0];
 };
-
