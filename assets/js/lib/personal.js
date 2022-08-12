@@ -154,31 +154,36 @@ export const situacionDelPersonal = (personal, fecha) => {
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
-  console.warn(fecha)
+  //console.warn(fecha)
   let fechaPivote = "08-08-2022";
+
   // -------> ^.^ <-------
   pivote = situacionDelPersonal(personal, fechaPivote)[0];
   var aux = pivote;
-  //console.warn(pivoteDate)
-  //console.warn(fechaDate)
 
-  for (let i = 0; fechaPivote != fecha; i++) {
-    console.log(i)
-    fechaPivote = stringToDate(fechaPivote);
-    fechaPivote = sumarDias(fechaPivote, i);
-    fechaPivote = fechaFormateada(fechaPivote);
-    console.log(fechaPivote);
+  fechaPivote = stringToDate(fechaPivote);
+  fecha = stringToDate(fecha);
 
-    //if (fechaPivote == fecha) {
-    //  console.warn(fechaPivote);
-    //  console.error("fechaPivote --> " + fechaPivote + " es igual a " + "fecha --> " + fecha );
-    //  return pivote;
-    //} else {
-    //  console.warn(fechaPivote);
-    //  actual = situacionDelPersonal(aux, fechaPivote)[0];
-    //  aux = actual;
-    //  pivote = aux;
-    //}
+  for (let i = 0; fechaPivote <= fecha; i++) {
+    fechaPivote = sumarDias(fechaPivote, 1);
+
+    if (fechaFormateada(fechaPivote) == fechaFormateada(fecha)) {
+      fechaPivote = fechaFormateada(fechaPivote);
+      fecha = fechaFormateada(fecha);
+      console.error(pivote)
+      return pivote;
+    } else {
+
+      fechaPivote = fechaFormateada(fechaPivote);
+
+      //console.warn(fechaPivote);
+      actual = situacionDelPersonal(aux, fechaPivote)[0];
+      aux = actual;
+      pivote = aux;
+
+      console.log(fecha, pivote)
+      fechaPivote = stringToDate(fechaPivote);
+    }
   }
   return pivote;
 };
