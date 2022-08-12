@@ -149,48 +149,39 @@ export const situacionDelPersonal = (personal, fecha) => {
   let cuartoFiltro = filtro_04(tercerFiltro, fecha)[0];
   let modificado = filtro_04(tercerFiltro, fecha)[1];
 
-  console.log(fecha, cuartoFiltro);
+  //console.log(fecha, cuartoFiltro);
   return [cuartoFiltro, conArticulo, proximasLicencias, modificado];
 };
 // Funcion para conocer el personal que se encuentra en servicio
 export const personalEnServicio = (personal, fecha) => {
+  console.warn(fecha)
   let fechaPivote = "08-08-2022";
   // -------> ^.^ <-------
-  
   pivote = situacionDelPersonal(personal, fechaPivote)[0];
-  let pivoteDate = fechaPivote;
-  let fechaDate = fecha;
   var aux = pivote;
-  var contador;
   //console.warn(pivoteDate)
   //console.warn(fechaDate)
-  //if (pivoteDate == fechaDate){
-  //  console.error("OK")
-  //}
 
-  //let hola = "20-10-2022"
-  //hola = stringToDate(hola)
-  //console.error(sumarDias(hola,1))
+  for (let i = 0; fechaPivote != fecha; i++) {
+    console.log(i)
+    fechaPivote = stringToDate(fechaPivote);
+    fechaPivote = sumarDias(fechaPivote, i);
+    fechaPivote = fechaFormateada(fechaPivote);
+    console.log(fechaPivote);
 
-  for (
-    let i = pivoteDate; i === fechaDate; i = sumarDias(stringToDate(i), 1)
-  ) {
-    if (fechaDate != i) {
-      return pivote
-    } else {
-      
-      //contador = fechaFormateada(i);
-      actual = situacionDelPersonal(aux, i)[0];
-      aux = actual;
-      //contador = stringToDate(contador);
-      //pivote = aux;
-      pivote = situacionDelPersonal(personal, "15-08-2022")[0];
-    }
-    
+    //if (fechaPivote == fecha) {
+    //  console.warn(fechaPivote);
+    //  console.error("fechaPivote --> " + fechaPivote + " es igual a " + "fecha --> " + fecha );
+    //  return pivote;
+    //} else {
+    //  console.warn(fechaPivote);
+    //  actual = situacionDelPersonal(aux, fechaPivote)[0];
+    //  aux = actual;
+    //  pivote = aux;
+    //}
   }
   return pivote;
 };
-
 
 // Funcion para conocer el personal que se encuentra con articulo
 export const personalConArticulo = (personal, fecha) => {
