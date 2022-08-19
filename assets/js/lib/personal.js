@@ -43,11 +43,11 @@ export const situacionDelPersonal = (personal, fecha) => {
     date;
 
   //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
-  personal.sort(
-    (a, b) =>
-      new Date(stringToDate(b.finSituacion)).getTime() -
-      new Date(stringToDate(a.finSituacion)).getTime()
-  );
+  //personal.sort(
+  //  (a, b) =>
+  //    new Date(stringToDate(b.finSituacion)).getTime() -
+  //    new Date(stringToDate(a.finSituacion)).getTime()
+  //);
   // Quita el personal que todavía no inician un articulo | filtro_01
   const filtro_01 = (personal, fecha) => {
     let filtro_01 = [];

@@ -1,6 +1,13 @@
 // PERSONAL DIVISION AREA TECNICA
 export let personalTecnico = [
   {
+    nombre: "Juan Pablo",
+    apellido: "Galvan",
+    situacion: "Licencia",
+    inicioSituacion: "01-01-2022",
+    finSituacion: "21-08-2022",
+  },
+  {
     nombre: "Fernando",
     apellido: "Saucedo",
     situacion: "Licencia",
@@ -9,6 +16,21 @@ export let personalTecnico = [
   },
 
   {
+    nombre: "Milton",
+    apellido: "Gerometta",
+    situacion: "Licencia",
+    inicioSituacion: "22-04-2022",
+    finSituacion: "01-05-2022",
+  },
+
+  {
+    nombre: "Mauricio",
+    apellido: "Garigliano",
+    situacion: "Licencia",
+    inicioSituacion: "21-06-2022",
+    finSituacion: "04-07-2022",
+  },
+  {
     nombre: "Gabriel",
     apellido: "Knuttzen",
     situacion: "Licencia",
@@ -16,18 +38,11 @@ export let personalTecnico = [
     finSituacion: "05-04-2022",
   },
   {
-    nombre: "Milton",
-    apellido: "Gerometta",
-    situacion: "Licencia",
-    inicioSituacion: "22-04-2022",
-    finSituacion: "01-05-2022",
-  },
-  {
     nombre: "Mauricio",
     apellido: "Garigliano",
     situacion: "Licencia",
-    inicioSituacion: "21-06-2022",
-    finSituacion: "04-07-2022",
+    inicioSituacion: "26-08-2022",
+    finSituacion: "13-09-2022",
   },
   {
     nombre: "Milton",
