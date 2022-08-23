@@ -11,7 +11,7 @@ export const manual_area_tecnica = [
     },
     {
         dia: "24-08-2022",
-        maniana: "Knuttzen Garigliano",
+        maniana: "Knuttzen - Garigliano",
         tarde: "Galvan"
     },
     {
@@ -21,7 +21,7 @@ export const manual_area_tecnica = [
     },
     {
         dia: "26-08-2022",
-        maniana: "Gerometta Galvan",
+        maniana: "Gerometta - Galvan",
         tarde: "Knutzzen"
     },
 ]
