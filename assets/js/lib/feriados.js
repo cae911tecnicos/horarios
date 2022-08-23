@@ -1,25 +1,25 @@
 // Lista de orden de los feriados de acuerdo a cada area
 export const ordenPersonalTecnicoFeriado = [
-  "Garigliano",
   "Gerometta",
   "Saucedo",
   "Knuttzen",
+  "Garigliano",
 ];
 export const ordenPersonalInformesFeriado = [
-  "Diaz",
   "Sosa",
   "Riuli",
   "Alcoba",
   "Olivera",
   "Morello",
+  "Diaz",
 ];
 export const ordenPersonalAyudantiaFeriado = [
-  "Techtermann",
   "Perez",
   "Carlotta",
   "Moyano",
   "Ramirez",
   "Gomez",
+  "Techtermann",
 ];
 
 // Lista con los feriados segun calendario oficial

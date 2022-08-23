@@ -13,6 +13,7 @@ import {
 import { cicloDelDia } from "./ciclos.js";
 import { feriados } from "./feriados.js";
 import { personalEnServicio } from "./personal.js";
+import { manual_area_tecnica, manual_ayudantia, manual_judiciales } from "./manual.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -79,24 +80,28 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   let semana;
   let diaSemana;
   let etiquetaSemana;
+  let personalManual;
   if (personal === personalTecnico) {
     semana = "semanaTecnicos";
     maniana = "manianaTecnicos";
     tarde = "tardeTecnicos";
     diaSemana = "diaSemanaTecnicos";
     etiquetaSemana = "etiquetaSemanaTecnicos";
+    personalManual = manual_area_tecnica;
   } else if (personal === personalAyudantia) {
     semana = "semanaAyudantia";
     maniana = "manianaAyudantia";
     tarde = "tardeAyudantia";
     diaSemana = "diaSemanaAyudantia";
     etiquetaSemana = "etiquetaSemanaAyudantia";
+    personalManual = manual_ayudantia;
   } else if (personal === personalInformesJudiciales) {
     semana = "semanaInformes";
     maniana = "manianaInformes";
     tarde = "tardeInformes";
     diaSemana = "diaSemanaInformes";
     etiquetaSemana = "etiquetaSemanaInformes";
+    personalManual = manual_judiciales;
   }
 
   etiquetaSemana = document.querySelector(`#${semana}${num}`);
@@ -158,6 +163,21 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         //tiene bug
       }
     }
+
+    // Manual mañana
+    for (let a = 0; a < personalManual.length; a++) {
+      let manual = personalManual[a].dia;
+      if (
+        stringToDate(arrSemana[i]).getTime() ==
+        stringToDate(manual).getTime()
+      ) {
+        campoManiana = personalManual[a].maniana;
+        diaSemana.innerText = campoManiana;
+        console.log(personalManual[a].maniana)
+      }
+    }
+
+
     // ↓ Para colorear quien esta de turno ahora mismo
     if (
       stringToDate(arrSemana[i]).getTime() ==
@@ -198,6 +218,21 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         diaSemana.innerText = campoTarde;
       }
     }
+
+    // Manual tarde
+    for (let a = 0; a < personalManual.length; a++) {
+      let manual = personalManual[a].dia;
+      if (
+        stringToDate(arrSemana[i]).getTime() ==
+        stringToDate(manual).getTime()
+      ) {
+        ;
+        campoTarde = personalManual[a].tarde;
+        diaSemana.innerText = campoTarde;
+        console.log(personalManual[a].tarde)
+      }
+    }
+
     // ↓ Para colorear quien esta de turno ahora mismo
     if (
       stringToDate(arrSemana[i]).getTime() ==
