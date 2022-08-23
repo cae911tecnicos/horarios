@@ -43,11 +43,11 @@ export const situacionDelPersonal = (personal, fecha) => {
     date;
 
   //Ordena el personal de mayor a menor de acuerdo al fin de su situacion
-  //personal.sort(
-  //  (a, b) =>
-  //    new Date(stringToDate(b.finSituacion)).getTime() -
-  //    new Date(stringToDate(a.finSituacion)).getTime()
-  //);
+  personal.sort(
+    (a, b) =>
+      new Date(stringToDate(b.finSituacion)).getTime() -
+      new Date(stringToDate(a.finSituacion)).getTime()
+  );
   // Quita el personal que todavía no inician un articulo | filtro_01
   const filtro_01 = (personal, fecha) => {
     let filtro_01 = [];
@@ -88,8 +88,6 @@ export const situacionDelPersonal = (personal, fecha) => {
   let segundoFiltro = filtro_02(primerFiltro, fecha)[0];
   let personalConArticulo = filtro_02(primerFiltro, fecha)[1];
 
-
-
   // Quita la persona pasadas que en la actualidad tienen articulo | filtro_03
   const filtro_03 = (personal, personalConArticulo) => {
     for (let a = 0; a < personalConArticulo.length; a++) {
@@ -99,12 +97,9 @@ export const situacionDelPersonal = (personal, fecha) => {
         }
       }
     }
-
     return personal;
   };
   let tercerFiltro = filtro_03(segundoFiltro, personalConArticulo);
-
- 
 
   //Elimina los duplicados  del tercer filtro
   let hash = {};
@@ -113,9 +108,9 @@ export const situacionDelPersonal = (personal, fecha) => {
       elemento.apellido !== undefined
         ? String(elemento.apellido)
         : "Error, puede que el apellido este mal escrito";
-   let exists = !hash[go] || false;
-   hash[go] = true;
-   return exists;
+    let exists = !hash[go] || false;
+    hash[go] = true;
+    return exists;
   });
 
   // Agregar personal que se reincorpora al numero que trabaja el fin de semana
@@ -127,14 +122,14 @@ export const situacionDelPersonal = (personal, fecha) => {
       finSituacion = sumarDias(finSituacion, 1);
       //console.error(fecha)
       if (finSituacion.getTime() === stringToDate(fecha).getTime()) {
-          numero = vueltaDelPersonal(personal, fecha)
-          
+        numero = vueltaDelPersonal(personal, fecha)
 
-          // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
-          
 
-          newPersonal = personal.splice(numero,0,personal.splice(0,1)[0]);
-          
+        // ACA HAY QUE MOVER EL ARRAY , EL ULTIMO EN INGRESAR AL NUMERO $NUMERO que trabaja el finde
+
+
+        newPersonal = personal.splice(numero, 0, personal.splice(0, 1)[0]);
+
       }
     }
     // falta mover la posicion de numero al array
@@ -143,8 +138,6 @@ export const situacionDelPersonal = (personal, fecha) => {
 
     return " "
   };
-  //console.log(filtro_04(tercerFiltro, fecha))
-  //console.log(fecha, tercerFiltro)
 
   return [tercerFiltro, conArticulo, proximasLicencias];
 };

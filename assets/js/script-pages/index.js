@@ -43,3 +43,51 @@ secuenciaDias(
   ordenPersonalInformesFeriado,
   "personalInformesJudiciales"
 );
+
+// Quien trabaja hoy
+let actualTecnicosManiana = secuenciaDias(
+  arrSemana0,
+  0,
+  personalTecnico,
+  ordenPersonalTecnicoFeriado,
+  "personalTecnico"
+)[0];
+let actualTecnicosTarde = secuenciaDias(
+  arrSemana0,
+  0,
+  personalTecnico,
+  ordenPersonalTecnicoFeriado,
+  "personalTecnico"
+)[1]
+let actualAyudantiaManiana = secuenciaDias(
+  arrSemana0,
+  0,
+  personalAyudantia,
+  ordenPersonalAyudantiaFeriado,
+  "personalAyudantia"
+)[0];
+let actualAyudantiaTarde = secuenciaDias(
+  arrSemana0,
+  0,
+  personalInformesJudiciales,
+  ordenPersonalInformesFeriado,
+  "personalInformesJudiciales"
+)[1]
+let actualInformeManiana = secuenciaDias(
+  arrSemana0,
+  0,
+  personalInformesJudiciales,
+  ordenPersonalInformesFeriado,
+  "personalInformesJudiciales"
+)[0];
+let actualInformeTarde = secuenciaDias(
+  arrSemana0,
+  0,
+  personalInformesJudiciales,
+  ordenPersonalInformesFeriado,
+  "personalInformesJudiciales"
+)[1]
+
+console.log(actualInformeManiana, actualInformeTarde)
+console.log(actualAyudantiaManiana,actualAyudantiaTarde)
+console.log(actualTecnicosManiana,actualTecnicosTarde)

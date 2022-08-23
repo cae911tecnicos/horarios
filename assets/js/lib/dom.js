@@ -81,6 +81,10 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   let diaSemana;
   let etiquetaSemana;
   let personalManual;
+  let campoManiana;
+  let campoTarde;
+  let actualManiana;
+  let actualTarde;
   if (personal === personalTecnico) {
     semana = "semanaTecnicos";
     maniana = "manianaTecnicos";
@@ -127,7 +131,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let enServicio = personalEnServicio(personal, fechaDelDia);
-    let campoManiana = determinaCicloDelDia(arrSemana[i], enServicio, area)[0];
+    campoManiana = determinaCicloDelDia(arrSemana[i], enServicio, area)[0];
 
     //↓ Cambia el numero por el apellido de la persona
     campoManiana = numeroXpersonal(campoManiana, fechaDelDia, enServicio);
@@ -182,6 +186,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
       stringToDate(arrSemana[i]).getTime() ==
       stringToDate(fechaActual).getTime()
     ) {
+      actualManiana = campoManiana
       diaSemana.className = "ahoraEnTurno";
       let fechaDelDia = arrSemana[i];
     }
@@ -191,7 +196,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   for (let i = 0; i < 7; i++) {
     let fechaDelDia = arrSemana[i];
     let enServicio = personalEnServicio(personal, fechaDelDia);
-    let campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
+    campoTarde = determinaCicloDelDia(fechaDelDia, enServicio, area)[1];
 
     //↓ Cambia el numero por el apellido de la persona
     campoTarde = numeroXpersonal(campoTarde, fechaDelDia, enServicio);
@@ -236,6 +241,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
       stringToDate(arrSemana[i]).getTime() ==
       stringToDate(fechaActual).getTime()
     ) {
+      actualTarde = campoTarde
       diaSemana.className = "ahoraEnTurno";
       let fechaDelDia = arrSemana[i];
     }
@@ -244,6 +250,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
       diaSemana.className = "finde-tarde";
     }
   }
+  return [actualManiana,actualTarde]
 };
 //Determina el cilo del dia sabado
 export const determinaDiaSabado = (fecha, personal, area) => {
@@ -264,3 +271,7 @@ export const determinaDiaSabado = (fecha, personal, area) => {
 
   return [mañana, tarde];
 };
+//Quien trabaja hoy
+export const quienTrabajoHOy =  (fecha, personal, area) =>{
+
+}
