@@ -1,7 +1,7 @@
 import { personalTecnico } from "../personal/personal-division-area-tecnica.js";
 import { personalInformesJudiciales } from "../personal/personal-seccion-informes-judiciales.js";
 import { personalAyudantia } from "../personal/personal-ayudantia.js";
-
+import { fechaActual } from "../lib/date.js";
 import { rotacion } from "../lib/ciclos.js";
 import { secuenciaDias, arrSemana0 } from "../lib/dom.js";
 import {
@@ -88,6 +88,10 @@ let actualInformeTarde = secuenciaDias(
   "personalInformesJudiciales"
 )[1]
 
-console.log(actualInformeManiana, actualInformeTarde)
-console.log(actualAyudantiaManiana,actualAyudantiaTarde)
-console.log(actualTecnicosManiana,actualTecnicosTarde)
+document.getElementById('fecha').innerHTML = fechaActual;
+document.getElementById('actualManianaTecnico').innerHTML = actualTecnicosManiana;
+document.getElementById('actualTardeTecnico').innerHTML = actualTecnicosTarde;
+document.getElementById('actualManianaAyudantia').innerHTML = actualAyudantiaManiana;
+document.getElementById('actualTardeAyudantia').innerHTML = actualAyudantiaTarde;
+document.getElementById('actualManianaInformes').innerHTML = actualInformeManiana;
+document.getElementById('actualTardeInformes').innerHTML = actualInformeTarde;
