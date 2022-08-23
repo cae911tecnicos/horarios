@@ -173,7 +173,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
       ) {
         campoManiana = personalManual[a].maniana;
         diaSemana.innerText = campoManiana;
-        console.log(personalManual[a].maniana)
       }
     }
 
@@ -229,7 +228,6 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
         ;
         campoTarde = personalManual[a].tarde;
         diaSemana.innerText = campoTarde;
-        console.log(personalManual[a].tarde)
       }
     }
 
