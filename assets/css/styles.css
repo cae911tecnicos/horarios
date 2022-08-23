@@ -2,8 +2,14 @@
     min-height: calc(100vh - 120px);
 }
 
+/* Index*/
 .aux {
     background-color: #e9ecef !important;
+}
+.cuadro-main {
+    background-color: #f5f5f5 !important;
+    color: black;
+    font-size: small;
 }
 
 /* Resumen*/
