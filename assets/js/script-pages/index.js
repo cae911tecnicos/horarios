@@ -3,7 +3,10 @@ import { personalInformesJudiciales } from "../personal/personal-seccion-informe
 import { personalAyudantia } from "../personal/personal-ayudantia.js";
 import { fechaActual } from "../lib/date.js";
 import { rotacion } from "../lib/ciclos.js";
-import { secuenciaDias, arrSemana0 } from "../lib/dom.js";
+import {
+  secuenciaDias,
+  arrSemana0,
+} from "../lib/dom.js";
 import {
   ordenPersonalTecnicoFeriado,
   ordenPersonalInformesFeriado,
@@ -22,21 +25,21 @@ const ciclos = (ciclo, personal) => {
   return ciclo;
 };
 
-secuenciaDias(
+const actualTecnico = secuenciaDias(
   arrSemana0,
   0,
   personalTecnico,
   ordenPersonalTecnicoFeriado,
   "personalTecnico"
 );
-secuenciaDias(
+const actualAyudantia = secuenciaDias(
   arrSemana0,
   0,
   personalAyudantia,
   ordenPersonalAyudantiaFeriado,
   "personalAyudantia"
 );
-secuenciaDias(
+const actualInformes = secuenciaDias(
   arrSemana0,
   0,
   personalInformesJudiciales,
@@ -44,54 +47,14 @@ secuenciaDias(
   "personalInformesJudiciales"
 );
 
-// Quien trabaja hoy
-let actualTecnicosManiana = secuenciaDias(
-  arrSemana0,
-  0,
-  personalTecnico,
-  ordenPersonalTecnicoFeriado,
-  "personalTecnico"
-)[0];
-let actualTecnicosTarde = secuenciaDias(
-  arrSemana0,
-  0,
-  personalTecnico,
-  ordenPersonalTecnicoFeriado,
-  "personalTecnico"
-)[1]
-let actualAyudantiaManiana = secuenciaDias(
-  arrSemana0,
-  0,
-  personalAyudantia,
-  ordenPersonalAyudantiaFeriado,
-  "personalAyudantia"
-)[0];
-let actualAyudantiaTarde = secuenciaDias(
-  arrSemana0,
-  0,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado,
-  "personalInformesJudiciales"
-)[1]
-let actualInformeManiana = secuenciaDias(
-  arrSemana0,
-  0,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado,
-  "personalInformesJudiciales"
-)[0];
-let actualInformeTarde = secuenciaDias(
-  arrSemana0,
-  0,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado,
-  "personalInformesJudiciales"
-)[1]
+document.getElementById("fecha").innerHTML = fechaActual;
 
-document.getElementById('fecha').innerHTML = fechaActual;
-document.getElementById('actualManianaTecnico').innerHTML = actualTecnicosManiana;
-document.getElementById('actualTardeTecnico').innerHTML = actualTecnicosTarde;
-document.getElementById('actualManianaAyudantia').innerHTML = actualAyudantiaManiana;
-document.getElementById('actualTardeAyudantia').innerHTML = actualAyudantiaTarde;
-document.getElementById('actualManianaInformes').innerHTML = actualInformeManiana;
-document.getElementById('actualTardeInformes').innerHTML = actualInformeTarde;
+document.getElementById("actualManianaTecnico").innerHTML =  actualTecnico[0];
+document.getElementById("actualTardeTecnico").innerHTML = actualTecnico[1];
+
+document.getElementById("actualManianaAyudantia").innerHTML = actualAyudantia[0];
+document.getElementById("actualTardeAyudantia").innerHTML = actualAyudantia[1];
+
+document.getElementById("actualManianaInformes").innerHTML = actualInformes[0];
+document.getElementById("actualTardeInformes").innerHTML = actualInformes[1];
+

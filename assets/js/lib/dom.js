@@ -13,7 +13,16 @@ import {
 import { cicloDelDia } from "./ciclos.js";
 import { feriados } from "./feriados.js";
 import { personalEnServicio } from "./personal.js";
-import { manual_area_tecnica, manual_ayudantia, manual_judiciales } from "./manual.js";
+import {
+  manual_area_tecnica,
+  manual_ayudantia,
+  manual_judiciales,
+} from "./manual.js";
+import {
+  ordenPersonalTecnicoFeriado,
+  ordenPersonalInformesFeriado,
+  ordenPersonalAyudantiaFeriado,
+} from "../lib/feriados.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
@@ -73,6 +82,9 @@ export const determinaCicloDelDia = (fecha, personal, area) => {
   return [maniana, tarde];
 };
 
+let actualManiana;
+let actualTarde;
+
 // Funcion Crear secuencias de Dias
 export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   let maniana;
@@ -83,8 +95,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
   let personalManual;
   let campoManiana;
   let campoTarde;
-  let actualManiana;
-  let actualTarde;
+
   if (personal === personalTecnico) {
     semana = "semanaTecnicos";
     maniana = "manianaTecnicos";
@@ -172,21 +183,19 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     for (let a = 0; a < personalManual.length; a++) {
       let manual = personalManual[a].dia;
       if (
-        stringToDate(arrSemana[i]).getTime() ==
-        stringToDate(manual).getTime()
+        stringToDate(arrSemana[i]).getTime() == stringToDate(manual).getTime()
       ) {
         campoManiana = personalManual[a].maniana;
         diaSemana.innerText = campoManiana;
       }
     }
 
-
     // ↓ Para colorear quien esta de turno ahora mismo
     if (
       stringToDate(arrSemana[i]).getTime() ==
       stringToDate(fechaActual).getTime()
     ) {
-      actualManiana = campoManiana
+      actualManiana = campoManiana;
       diaSemana.className = "ahoraEnTurno";
       let fechaDelDia = arrSemana[i];
     }
@@ -227,10 +236,8 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
     for (let a = 0; a < personalManual.length; a++) {
       let manual = personalManual[a].dia;
       if (
-        stringToDate(arrSemana[i]).getTime() ==
-        stringToDate(manual).getTime()
+        stringToDate(arrSemana[i]).getTime() == stringToDate(manual).getTime()
       ) {
-        ;
         campoTarde = personalManual[a].tarde;
         diaSemana.innerText = campoTarde;
       }
@@ -241,7 +248,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
       stringToDate(arrSemana[i]).getTime() ==
       stringToDate(fechaActual).getTime()
     ) {
-      actualTarde = campoTarde
+      actualTarde = campoTarde;
       diaSemana.className = "ahoraEnTurno";
       let fechaDelDia = arrSemana[i];
     }
@@ -250,7 +257,7 @@ export const secuenciaDias = (arrSemana, num, personal, ordenFeriado, area) => {
       diaSemana.className = "finde-tarde";
     }
   }
-  return [actualManiana,actualTarde]
+  return [actualManiana, actualTarde];
 };
 //Determina el cilo del dia sabado
 export const determinaDiaSabado = (fecha, personal, area) => {
@@ -271,7 +278,8 @@ export const determinaDiaSabado = (fecha, personal, area) => {
 
   return [mañana, tarde];
 };
-//Quien trabaja hoy
-export const quienTrabajoHOy =  (fecha, personal, area) =>{
 
-}
+
+
+console.log(actualManiana)
+console.log(actualTarde)
