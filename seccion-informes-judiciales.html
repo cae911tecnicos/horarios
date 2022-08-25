@@ -51,10 +51,6 @@
   </nav>
   <div>
     <div class="container py-3">
-
-      <div class="container py-3">
-        <h1>Seccion Informes Judiciales</h1>
-      </div>
       <!--Inicio Acordion-->
       <!--
       <div class="accordion" id="accordionExample">
@@ -99,133 +95,175 @@
     <main>
       <div class="container py-3">
         <div class="row col mb-3">
-          <div class="col-12 my-3">
-            <h2>Horario semana actual:</h2>
-            
-          </div>
-          <br>
-          <hr>
-          <br>
-          <h3>Horario proximas semanas:</h3>
-          <div class="col-12 my-3">
-            <div id=table0 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semanaInformes0">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="manianaInformes0">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tardeInformes0">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-              <div id="personalInformesJudiciales0"></div>
+          <h1>Seccion Informes Judiciales</h1>
+          <div class="container container py-3">
+            <div class="row">
+              <div class="col-sm-4 py-3">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <i class="bi bi-pc-display-horizontal fs-3"></i>
+                    <h4 class="card-title">Total de Personal</h4>
+                    <div class="row py-2">
+                      <div class="col ">
+                        <div class="alert alert-success fw-bold hoy" role="alert" id="actualManianaTecnico"></div>
+                        <p>...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 py-3">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <i class="bi bi-inbox fs-3"></i>
+                    <h4 class="card-title">Personal en Servicio</h4>
+                    <div class="row py-2">
+                      <div class="col ">
+                        <div class="alert alert-success fw-bold hoy" role="alert" id="actualManianaAyudantia"></div>
+                        <p>...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 py-3">
+                <div class="card text-center">
+                  <div class="card-body">
+                    <i class="bi bi-envelope-paper fs-3"></i>
+                    <h4 class="card-title">Personal con Articulo</h4>
+                    <div class="row py-2">
+                      <div class="col ">
+                        <div class="alert alert-success fw-bold hoy" role="alert" id="actualManianaInformes"></div>
+                        <p>...</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div id=table1 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semanaInformes1">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="manianaInformes1">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tardeInformes1">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-              <div id="personalInformesJudiciales1"></div>
+            <br>
+            <hr>
+            <br>
+            <h3>Horario proximas semanas:</h3>
+            <div class="col-12 my-3">
+              <div id=table0 class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Turno</th>
+                      <th scope="col">Lunes</th>
+                      <th scope="col">Martes</th>
+                      <th scope="col">Miercoles</th>
+                      <th scope="col">Jueves</th>
+                      <th scope="col">Viernes</th>
+                      <th scope="col">Sabado</th>
+                      <th scope="col">Domingo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="semanaInformes0">
+                      <th scope="row">Fecha</th>
+                    </tr>
+                    <tr id="manianaInformes0">
+                      <th scope="row">Mañana</th>
+                    </tr>
+                    <tr id="tardeInformes0">
+                      <th scope="row">Tarde</th>
+                    </tr>
+                  </tbody>
+                </table>
+                <div id="personalInformesJudiciales0"></div>
+              </div>
+              <div id=table1 class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Turno</th>
+                      <th scope="col">Lunes</th>
+                      <th scope="col">Martes</th>
+                      <th scope="col">Miercoles</th>
+                      <th scope="col">Jueves</th>
+                      <th scope="col">Viernes</th>
+                      <th scope="col">Sabado</th>
+                      <th scope="col">Domingo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="semanaInformes1">
+                      <th scope="row">Fecha</th>
+                    </tr>
+                    <tr id="manianaInformes1">
+                      <th scope="row">Mañana</th>
+                    </tr>
+                    <tr id="tardeInformes1">
+                      <th scope="row">Tarde</th>
+                    </tr>
+                  </tbody>
+                </table>
+                <div id="personalInformesJudiciales1"></div>
+              </div>
             </div>
-          </div>
-          <div class="col-12 my-3">
-            <div id=table2 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semanaInformes2">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="manianaInformes2">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tardeInformes2">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-              <div id="personalInformesJudiciales2"></div>
+            <div class="col-12 my-3">
+              <div id=table2 class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Turno</th>
+                      <th scope="col">Lunes</th>
+                      <th scope="col">Martes</th>
+                      <th scope="col">Miercoles</th>
+                      <th scope="col">Jueves</th>
+                      <th scope="col">Viernes</th>
+                      <th scope="col">Sabado</th>
+                      <th scope="col">Domingo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="semanaInformes2">
+                      <th scope="row">Fecha</th>
+                    </tr>
+                    <tr id="manianaInformes2">
+                      <th scope="row">Mañana</th>
+                    </tr>
+                    <tr id="tardeInformes2">
+                      <th scope="row">Tarde</th>
+                    </tr>
+                  </tbody>
+                </table>
+                <div id="personalInformesJudiciales2"></div>
+              </div>
             </div>
-          </div>
-          <div class="col-12 my-3">
-            <div id=table3 class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">Turno</th>
-                    <th scope="col">Lunes</th>
-                    <th scope="col">Martes</th>
-                    <th scope="col">Miercoles</th>
-                    <th scope="col">Jueves</th>
-                    <th scope="col">Viernes</th>
-                    <th scope="col">Sabado</th>
-                    <th scope="col">Domingo</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr id="semanaInformes3">
-                    <th scope="row">Fecha</th>
-                  </tr>
-                  <tr id="manianaInformes3">
-                    <th scope="row">Mañana</th>
-                  </tr>
-                  <tr id="tardeInformes3">
-                    <th scope="row">Tarde</th>
-                  </tr>
-                </tbody>
-              </table>
-              <div id="personalInformesJudiciales3"></div>
+            <div class="col-12 my-3">
+              <div id=table3 class="table-responsive">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Turno</th>
+                      <th scope="col">Lunes</th>
+                      <th scope="col">Martes</th>
+                      <th scope="col">Miercoles</th>
+                      <th scope="col">Jueves</th>
+                      <th scope="col">Viernes</th>
+                      <th scope="col">Sabado</th>
+                      <th scope="col">Domingo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr id="semanaInformes3">
+                      <th scope="row">Fecha</th>
+                    </tr>
+                    <tr id="manianaInformes3">
+                      <th scope="row">Mañana</th>
+                    </tr>
+                    <tr id="tardeInformes3">
+                      <th scope="row">Tarde</th>
+                    </tr>
+                  </tbody>
+                </table>
+                <div id="personalInformesJudiciales3"></div>
+              </div>
             </div>
-          </div>
-          <!-- <div class="col-12 my-3">
+            <!-- <div class="col-12 my-3">
             <div id=table4 class="table-responsive">
               <table class="table table-bordered">
                 <thead>
