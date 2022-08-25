@@ -100,8 +100,8 @@ table {
     vertical-align: middle;
 }
 
-thead>tr {
-    background-color: white !important;
+thead>tr>th {
+    /* background-color: white !important; */
     vertical-align: middle;
 }
 
