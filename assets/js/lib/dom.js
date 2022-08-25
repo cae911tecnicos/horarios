@@ -278,8 +278,3 @@ export const determinaDiaSabado = (fecha, personal, area) => {
 
   return [mañana, tarde];
 };
-
-
-
-console.log(actualManiana)
-console.log(actualTarde)
