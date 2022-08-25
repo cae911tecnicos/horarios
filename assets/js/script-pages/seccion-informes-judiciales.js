@@ -51,10 +51,10 @@ secuenciaDias(
   ordenPersonalInformesFeriado,
   "personalInformesJudiciales"
 );
-secuenciaDias(
-  arrSemana4,
-  4,
-  personalInformesJudiciales,
-  ordenPersonalInformesFeriado,
-  "personalInformesJudiciales"
-);
+// secuenciaDias(
+//   arrSemana4,
+//   4,
+//   personalInformesJudiciales,
+//   ordenPersonalInformesFeriado,
+//   "personalInformesJudiciales"
+// );
