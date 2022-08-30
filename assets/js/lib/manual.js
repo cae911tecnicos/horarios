@@ -1,28 +1,38 @@
 export const manual_area_tecnica = [
     {
-        dia: "22-08-2022",
-        maniana: "Garigliano",
-        tarde: "Galvan"
+        dia: "29/08/2022",
+        maniana: "Galvan ",
+        tarde: "Knuttzen "
     },
     {
-        dia: "23-08-2022",
-        maniana: "Gerometta",
-        tarde: "Saucedo"
+        dia: "30/08/2022",
+        maniana: "Saucedo ",
+        tarde: "Gerometta "
     },
     {
-        dia: "24-08-2022",
-        maniana: "Knuttzen - Garigliano",
-        tarde: "Galvan"
+        dia: "31/08/2022",
+        maniana: "Galvan ",
+        tarde: "Knuttzen "
     },
     {
-        dia: "25-08-2022",
-        maniana: "Saucedo",
-        tarde: "Gerometta"
+        dia: "01/09/2022",
+        maniana: "Gerometta ",
+        tarde: "Saucedo "
     },
     {
-        dia: "26-08-2022",
-        maniana: "Gerometta - Galvan",
-        tarde: "Knutzzen"
+        dia: "02/09/2022",
+        maniana: "Knuttzen ",
+        tarde: "Galvan "
+    },
+    {
+        dia: "03/09/2022",
+        maniana: "Gerometta ",
+        tarde: "Gerometta "
+    },
+    {
+        dia: "04/09/2022",
+        maniana: "Gerometta ",
+        tarde: "Gerometta "
     },
 ]
 
@@ -77,6 +87,7 @@ export const manual_ayudantia = [
         maniana: "Freyre",
         tarde: "Freyre"
     },
+
 
 ]
 export const manual_judiciales = [
