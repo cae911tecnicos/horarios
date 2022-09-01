@@ -14,15 +14,21 @@ import { cicloDelDia } from "./ciclos.js";
 import { feriados } from "./feriados.js";
 import { personalEnServicio } from "./personal.js";
 import {
-  manual_area_tecnica,
-  manual_ayudantia,
-  manual_judiciales,
-} from "./manual.js";
-import {
   ordenPersonalTecnicoFeriado,
   ordenPersonalInformesFeriado,
   ordenPersonalAyudantiaFeriado,
 } from "../lib/feriados.js";
+
+// imports horario manual
+import {
+  manual_area_tecnica,
+} from "../horario-manual/hm__div-area-tecnica.js";
+import {
+  manual_ayudantia,
+} from "../horario-manual/hm__div-ayudantia.js";
+import {
+  manual_judiciales,
+} from "../horario-manual/hm__sec-informes-judiciales.js";
 
 const semana0 = new Date(),
   semana1 = new Date(),
