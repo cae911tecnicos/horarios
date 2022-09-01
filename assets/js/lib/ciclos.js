@@ -17,8 +17,8 @@ export const ciclo_tecnicos_4 = [
   [2, 4, 2, 3, 1, 4, 4],
 ];
 export const ciclo_tecnicos_5 = [
-  [12, 5, 23, 4, 13, 4, 4],
-  [3, 4, 1, 5, 2, 4, 4],
+  [14, 3, 24, 5, 12, 4, 4],
+  [2, 5, 1, 3, 5, 4, 4],
 ];
 export const ciclo_tecnicos_6 = [
   [12, 34, 56, 32, 56, 4, 4],
@@ -61,8 +61,8 @@ export const ciclo_informes_judiciales_4 = [
   [2, 4, 2, 3, 1, 4, 4],
 ];
 export const ciclo_informes_judiciales_5 = [
-  [12, 5, 23, 4, 13, 4, 4],
-  [3, 4, 1, 5, 2, 4, 4],
+  [14, 3, 24, 5, 12, 4, 4],
+  [2, 5, 1, 3, 5, 4, 4],
 ];
 export const ciclo_informes_judiciales_6 = [
   [12, 34, 56, 32, 56, 4, 4],
