@@ -104,4 +104,74 @@ export const manual_area_tecnica = [
       maniana: "Garigliano ",
       tarde: "Garigliano ",
     },
+    {
+      dia: "03-10-2022",
+      maniana: "Galvan Knuttzen",
+      tarde: "Gerometta "
+      },
+      {
+      dia: "04-10-2022",
+      maniana: "Saucedo ",
+      tarde: "Garigliano "
+      },
+      {
+      dia: "05-10-2022",
+      maniana: "Galvan Gerometta",
+      tarde: "Knuttzen "
+      },
+      {
+      dia: "06-10-2022",
+      maniana: "Garigliano ",
+      tarde: "Saucedo "
+      },
+      {
+      dia: "07-10-2022",
+      maniana: "Gerometta ",
+      tarde: "Gerometta "
+      },
+      {
+      dia: "08-10-2022",
+      maniana: "Gerometta ",
+      tarde: "Gerometta "
+      },
+      {
+      dia: "09-10-2022",
+      maniana: "Gerometta ",
+      tarde: "Gerometta "
+      },
+      {
+        dia: "10-10-2022",
+        maniana: "Galvan ",
+        tarde: "Galvan "
+        },
+        {
+        dia: "11-10-2022",
+        maniana: "Knuttzen ",
+        tarde: "Gerometta "
+        },
+        {
+        dia: "12-10-2022",
+        maniana: "Galvan Garigliano",
+        tarde: "Saucedo "
+        },
+        {
+        dia: "13-10-2022",
+        maniana: "Gerometta ",
+        tarde: "Galvan "
+        },
+        {
+        dia: "14-10-2022",
+        maniana: "Knuttzen Saucedo",
+        tarde: "Garigliano "
+        },
+        {
+        dia: "15-10-2022",
+        maniana: "Galvan ",
+        tarde: "Galvan "
+        },
+        {
+        dia: "16-10-2022",
+        maniana: "Galvan ",
+        tarde: "Galvan "
+        },
   ];

@@ -1,6 +1,7 @@
 // Lista de orden de los feriados de acuerdo a cada area
 export const ordenPersonalTecnicoFeriado = [
   "Gerometta",
+  "Galvan",
   "Saucedo",
   "Knuttzen",
   "Garigliano",
@@ -42,6 +43,11 @@ export const feriados = [
     dia: "15-08-2022",
     acontecimiento:
       "Feriado 15. Paso a la Inmortalidad del Gral. José de San Martín (17/8)",
+  },
+  {
+    dia: "07-10-2022",
+    acontecimiento:
+      "Feriado 10. Día del Respeto a la Diversidad Cultural (12/10)",
   },
   {
     dia: "10-10-2022",
