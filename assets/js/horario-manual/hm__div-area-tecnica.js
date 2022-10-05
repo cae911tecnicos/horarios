@@ -146,8 +146,8 @@ export const manual_area_tecnica = [
         },
         {
         dia: "11-10-2022",
-        maniana: "Knuttzen ",
-        tarde: "Gerometta "
+        maniana: "Gerometta ",
+        tarde: "Knuttzen "
         },
         {
         dia: "12-10-2022",
@@ -161,8 +161,8 @@ export const manual_area_tecnica = [
         },
         {
         dia: "14-10-2022",
-        maniana: "Knuttzen Saucedo",
-        tarde: "Garigliano "
+        maniana: "Knuttzen Garigliano",
+        tarde: "Saucedo "
         },
         {
         dia: "15-10-2022",
