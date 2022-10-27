@@ -55,8 +55,16 @@ export const feriados = [
       "Feriado 10. Día del Respeto a la Diversidad Cultural (12/10)",
   },
   {
+    dia: "21-11-2022",
+    acontecimiento: "...",
+  },
+  {
     dia: "08-12-2022",
     acontecimiento: "8. Inmaculada Concepción de María",
+  },
+  {
+    dia: "09-12-2022",
+    acontecimiento: "...",
   },
   {
     dia: "25-12-2022",
