@@ -184,4 +184,39 @@ export const manual_area_tecnica = [
           maniana: "Gerometta",
           tarde: "Garigliano"
           },
+          {
+            dia: "21-11-2022",
+            maniana: "Saucedo ",
+            tarde: "Saucedo "
+            },
+            {
+            dia: "22-11-2022",
+            maniana: "Gerometta ",
+            tarde: "Garigliano "
+            },
+            {
+            dia: "23-11-2022",
+            maniana: "Galvan Knuttzen",
+            tarde: "Saucedo "
+            },
+            {
+            dia: "24-11-2022",
+            maniana: "Garigliano ",
+            tarde: "Gerometta "
+            },
+            {
+            dia: "25-11-2022",
+            maniana: "Galvan Saucedo",
+            tarde: "Knuttzen "
+            },
+            {
+            dia: "26-11-2022",
+            maniana: "Garigliano ",
+            tarde: "Garigliano "
+            },
+            {
+            dia: "27-11-2022",
+            maniana: "Garigliano ",
+            tarde: "Garigliano "
+            },
 ];
