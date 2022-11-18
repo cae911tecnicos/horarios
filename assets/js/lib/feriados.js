@@ -1,6 +1,6 @@
 // Lista de orden de los feriados de acuerdo a cada area
 export const ordenPersonalTecnicoFeriado = [
-  "Saucedo",
+  "Franchi",
   "Knuttzen",
   "Garigliano",
   "Gerometta",

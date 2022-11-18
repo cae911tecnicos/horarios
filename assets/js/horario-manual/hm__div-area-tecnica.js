@@ -6,7 +6,7 @@ export const manual_area_tecnica = [
   },
   {
     dia: "30-08-2022",
-    maniana: "Saucedo ",
+    maniana: "Franchi ",
     tarde: "Gerometta ",
   },
   {
@@ -17,7 +17,7 @@ export const manual_area_tecnica = [
   {
     dia: "01-09-2022",
     maniana: "Gerometta ",
-    tarde: "Saucedo ",
+    tarde: "Franchi ",
   },
   {
     dia: "02-09-2022",
@@ -37,7 +37,7 @@ export const manual_area_tecnica = [
   {
     dia: "05-09-2022",
     maniana: "Knuttzen ",
-    tarde: "Saucedo ",
+    tarde: "Franchi ",
   },
   {
     dia: "06-09-2022",
@@ -47,7 +47,7 @@ export const manual_area_tecnica = [
   {
     dia: "07-09-2022",
     maniana: "Knuttzen ",
-    tarde: "Saucedo ",
+    tarde: "Franchi ",
   },
   {
     dia: "08-09-2022",
@@ -56,7 +56,7 @@ export const manual_area_tecnica = [
   },
   {
     dia: "09-09-2022",
-    maniana: "Saucedo ",
+    maniana: "Franchi ",
     tarde: "Knuttzen ",
   },
   {
@@ -71,7 +71,7 @@ export const manual_area_tecnica = [
   },
   {
     dia: "12-09-2022",
-    maniana: "Saucedo ",
+    maniana: "Franchi ",
     tarde: "Gerometta ",
   },
   {
@@ -82,7 +82,7 @@ export const manual_area_tecnica = [
   {
     dia: "14-09-2022",
     maniana: "Gerometta Garigliano",
-    tarde: "Saucedo ",
+    tarde: "Franchi ",
   },
   {
     dia: "15-09-2022",
@@ -111,7 +111,7 @@ export const manual_area_tecnica = [
     },
     {
     dia: "04-10-2022",
-    maniana: "Saucedo ",
+    maniana: "Franchi ",
     tarde: "Garigliano "
     },
     {
@@ -122,7 +122,7 @@ export const manual_area_tecnica = [
     {
     dia: "06-10-2022",
     maniana: "Garigliano ",
-    tarde: "Saucedo "
+    tarde: "Franchi "
     },
     {
     dia: "07-10-2022",
@@ -152,7 +152,7 @@ export const manual_area_tecnica = [
       {
       dia: "12-10-2022",
       maniana: "Galvan Garigliano",
-      tarde: "Saucedo "
+      tarde: "Franchi "
       },
       {
       dia: "13-10-2022",
@@ -162,7 +162,7 @@ export const manual_area_tecnica = [
       {
       dia: "14-10-2022",
       maniana: "Knuttzen Garigliano",
-      tarde: "Saucedo "
+      tarde: "Franchi "
       },
       {
       dia: "15-10-2022",
@@ -177,7 +177,7 @@ export const manual_area_tecnica = [
       {
         dia: "26-10-2022",
         maniana: "Galvan Knuttzen",
-        tarde: "Saucedo"
+        tarde: "Franchi "
         },
         {
           dia: "27-10-2022",
@@ -186,8 +186,8 @@ export const manual_area_tecnica = [
           },
           {
             dia: "21-11-2022",
-            maniana: "Saucedo ",
-            tarde: "Saucedo "
+            maniana: "Franchi ",
+            tarde: "Franchi "
             },
             {
             dia: "22-11-2022",
@@ -197,7 +197,7 @@ export const manual_area_tecnica = [
             {
             dia: "23-11-2022",
             maniana: "Galvan Knuttzen",
-            tarde: "Saucedo "
+            tarde: "Franchi "
             },
             {
             dia: "24-11-2022",
