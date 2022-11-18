@@ -91,7 +91,7 @@ export const manual_area_tecnica = [
   },
   {
     dia: "16-09-2022",
-    maniana: "Gerometta Saucedo",
+    maniana: "Gerometta Franchi",
     tarde: "Knuttzen ",
   },
   {
@@ -206,7 +206,7 @@ export const manual_area_tecnica = [
             },
             {
             dia: "25-11-2022",
-            maniana: "Galvan Saucedo",
+            maniana: "Galvan Franchi",
             tarde: "Knuttzen "
             },
             {
