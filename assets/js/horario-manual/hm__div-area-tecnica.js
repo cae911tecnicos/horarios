@@ -186,8 +186,8 @@ export const manual_area_tecnica = [
           },
           {
             dia: "21-11-2022",
-            maniana: "Franchi ",
-            tarde: "Franchi "
+            maniana: "Knuttzen ",
+            tarde: "Knuttzen "
             },
             {
             dia: "22-11-2022",
@@ -196,8 +196,8 @@ export const manual_area_tecnica = [
             },
             {
             dia: "23-11-2022",
-            maniana: "Galvan Knuttzen",
-            tarde: "Franchi "
+            maniana: "Galvan Franchi",
+            tarde: "Knuttzen "
             },
             {
             dia: "24-11-2022",
@@ -206,8 +206,8 @@ export const manual_area_tecnica = [
             },
             {
             dia: "25-11-2022",
-            maniana: "Galvan Franchi",
-            tarde: "Knuttzen "
+            maniana: "Knuttzen Franchi",
+            tarde: "Galvan "
             },
             {
             dia: "26-11-2022",
