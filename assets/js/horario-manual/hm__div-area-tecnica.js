@@ -220,5 +220,41 @@ export const manual_area_tecnica = [
     tarde: "Garigliano ",
   },
   
+  {
+    dia: "05-12-2022",
+    maniana: "Galvan Franchi",
+    tarde: "Garigliano "
+    },
+    {
+    dia: "06-12-2022",
+    maniana: "Knuttzen ",
+    tarde: "Gerometta "
+    },
+    {
+    dia: "07-12-2022",
+    maniana: "Franchi Galvan",
+    tarde: "Knuttzen "
+    },
+    {
+    dia: "08-12-2022",
+    maniana: "Garigliano ",
+    tarde: "Garigliano "
+    },
+    {
+    dia: "09-12-2022",
+    maniana: "Gerometta ",
+    tarde: "Gerometta "
+    },
+    {
+    dia: "10-12-2022",
+    maniana: "Franchi ",
+    tarde: "Franchi "
+    },
+    {
+    dia: "11-12-2022",
+    maniana: "Franchi ",
+    tarde: "Franchi "
+    },
+  
   
 ];
