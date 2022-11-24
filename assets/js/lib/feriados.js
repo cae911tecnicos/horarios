@@ -1,10 +1,10 @@
 // Lista de orden de los feriados de acuerdo a cada area
-export const ordenPersonalTecnicoFeriado = [
-  "Franchi",
+export const ordenPersonalTecnicoFeriado = [  
   "Knuttzen",
   "Garigliano",
   "Gerometta",
   "Galvan",
+  "Franchi",
 ];
 export const ordenPersonalInformesFeriado = [
   "Alcoba",

@@ -9,11 +9,11 @@ export let personalTecnico = [
 
   },
   {
-    nombre: "Javier",
-    apellido: "Franchi",
+    nombre: "Milton",
+    apellido: "Gerometta",
     situacion: "Licencia",
-    inicioSituacion: "20-01-2023",
-    finSituacion: "08-02-2023",
+    inicioSituacion: "21-06-2022",
+    finSituacion: "01-07-2022",
   },
   {
     nombre: "Gabriel",
@@ -31,8 +31,8 @@ export let personalTecnico = [
     finSituacion: "05-04-2022",
   },
   {
-    nombre: "Milton",
-    apellido: "Gerometta",
+    nombre: "Javier",
+    apellido: "Franchi",
     situacion: "Licencia",
     inicioSituacion: "25-07-2022",
     finSituacion: "08-08-2022",

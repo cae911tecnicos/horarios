@@ -107,116 +107,118 @@ export const manual_area_tecnica = [
   {
     dia: "03-10-2022",
     maniana: "Galvan Knuttzen",
-    tarde: "Gerometta "
-    },
-    {
+    tarde: "Gerometta ",
+  },
+  {
     dia: "04-10-2022",
     maniana: "Franchi ",
-    tarde: "Garigliano "
-    },
-    {
+    tarde: "Garigliano ",
+  },
+  {
     dia: "05-10-2022",
     maniana: "Galvan Gerometta",
-    tarde: "Knuttzen "
-    },
-    {
+    tarde: "Knuttzen ",
+  },
+  {
     dia: "06-10-2022",
     maniana: "Garigliano ",
-    tarde: "Franchi "
-    },
-    {
+    tarde: "Franchi ",
+  },
+  {
     dia: "07-10-2022",
     maniana: "Gerometta ",
-    tarde: "Gerometta "
-    },
-    {
+    tarde: "Gerometta ",
+  },
+  {
     dia: "08-10-2022",
     maniana: "Gerometta ",
-    tarde: "Gerometta "
-    },
-    {
+    tarde: "Gerometta ",
+  },
+  {
     dia: "09-10-2022",
     maniana: "Gerometta ",
-    tarde: "Gerometta "
-    },
-    {
-      dia: "10-10-2022",
-      maniana: "Galvan ",
-      tarde: "Galvan "
-      },
-      {
-      dia: "11-10-2022",
-      maniana: "Gerometta ",
-      tarde: "Knuttzen "
-      },
-      {
-      dia: "12-10-2022",
-      maniana: "Galvan Garigliano",
-      tarde: "Franchi "
-      },
-      {
-      dia: "13-10-2022",
-      maniana: "Gerometta ",
-      tarde: "Galvan "
-      },
-      {
-      dia: "14-10-2022",
-      maniana: "Knuttzen Garigliano",
-      tarde: "Franchi "
-      },
-      {
-      dia: "15-10-2022",
-      maniana: "Galvan ",
-      tarde: "Galvan "
-      },
-      {
-      dia: "16-10-2022",
-      maniana: "Galvan ",
-      tarde: "Galvan "
-      },
-      {
-        dia: "26-10-2022",
-        maniana: "Galvan Knuttzen",
-        tarde: "Franchi "
-        },
-        {
-          dia: "27-10-2022",
-          maniana: "Gerometta",
-          tarde: "Garigliano"
-          },
-          {
-            dia: "21-11-2022",
-            maniana: "Knuttzen ",
-            tarde: "Knuttzen "
-            },
-            {
-            dia: "22-11-2022",
-            maniana: "Gerometta ",
-            tarde: "Garigliano "
-            },
-            {
-            dia: "23-11-2022",
-            maniana: "Galvan Franchi",
-            tarde: "Knuttzen "
-            },
-            {
-            dia: "24-11-2022",
-            maniana: "Garigliano ",
-            tarde: "Gerometta "
-            },
-            {
-            dia: "25-11-2022",
-            maniana: "Knuttzen Franchi",
-            tarde: "Galvan "
-            },
-            {
-            dia: "26-11-2022",
-            maniana: "Garigliano ",
-            tarde: "Garigliano "
-            },
-            {
-            dia: "27-11-2022",
-            maniana: "Garigliano ",
-            tarde: "Garigliano "
-            },
+    tarde: "Gerometta ",
+  },
+  {
+    dia: "10-10-2022",
+    maniana: "Galvan ",
+    tarde: "Galvan ",
+  },
+  {
+    dia: "11-10-2022",
+    maniana: "Gerometta ",
+    tarde: "Knuttzen ",
+  },
+  {
+    dia: "12-10-2022",
+    maniana: "Galvan Garigliano",
+    tarde: "Franchi ",
+  },
+  {
+    dia: "13-10-2022",
+    maniana: "Gerometta ",
+    tarde: "Galvan ",
+  },
+  {
+    dia: "14-10-2022",
+    maniana: "Knuttzen Garigliano",
+    tarde: "Franchi ",
+  },
+  {
+    dia: "15-10-2022",
+    maniana: "Galvan ",
+    tarde: "Galvan ",
+  },
+  {
+    dia: "16-10-2022",
+    maniana: "Galvan ",
+    tarde: "Galvan ",
+  },
+  {
+    dia: "26-10-2022",
+    maniana: "Galvan Knuttzen",
+    tarde: "Franchi ",
+  },
+  {
+    dia: "27-10-2022",
+    maniana: "Gerometta",
+    tarde: "Garigliano",
+  },
+  {
+    dia: "21-11-2022",
+    maniana: "Knuttzen ",
+    tarde: "Knuttzen ",
+  },
+  {
+    dia: "22-11-2022",
+    maniana: "Gerometta ",
+    tarde: "Garigliano ",
+  },
+  {
+    dia: "23-11-2022",
+    maniana: "Galvan Franchi",
+    tarde: "Knuttzen ",
+  },
+  {
+    dia: "24-11-2022",
+    maniana: "Garigliano ",
+    tarde: "Gerometta ",
+  },
+  {
+    dia: "25-11-2022",
+    maniana: "Knuttzen Franchi",
+    tarde: "Galvan ",
+  },
+  {
+    dia: "26-11-2022",
+    maniana: "Garigliano ",
+    tarde: "Garigliano ",
+  },
+  {
+    dia: "27-11-2022",
+    maniana: "Garigliano ",
+    tarde: "Garigliano ",
+  },
+  
+  
 ];
