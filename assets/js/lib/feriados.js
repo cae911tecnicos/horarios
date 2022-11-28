@@ -1,10 +1,10 @@
 // Lista de orden de los feriados de acuerdo a cada area
 export const ordenPersonalTecnicoFeriado = [  
-  "Knuttzen",
-  "Garigliano",
   "Gerometta",
+  "Knuttzen",
   "Galvan",
   "Franchi",
+  "Garigliano",
 ];
 export const ordenPersonalInformesFeriado = [
   "Alcoba",
@@ -69,5 +69,9 @@ export const feriados = [
   {
     dia: "25-12-2022",
     acontecimiento: "Feriado 25. Navidad",
+  },
+  {
+    dia: "01-01-2023",
+    acontecimiento: "Feriado Año Nuevo",
   },
 ];

@@ -255,6 +255,75 @@ export const manual_area_tecnica = [
     maniana: "Franchi ",
     tarde: "Franchi "
     },
-  
-  
+    {
+      dia: "19-12-2022",
+      maniana: "Galvan Knuttzen",
+      tarde: "Franchi "
+      },
+      {
+      dia: "20-12-2022",
+      maniana: "Gerometta ",
+      tarde: "Garigliano "
+      },
+      {
+      dia: "21-12-2022",
+      maniana: "Franchi Galvan",
+      tarde: "Knuttzen "
+      },
+      {
+      dia: "22-12-2022",
+      maniana: "Garigliano ",
+      tarde: "Gerometta "
+      },
+      {
+      dia: "23-12-2022",
+      maniana: "Knuttzen Franchi",
+      tarde: "Garigliano "
+      },
+      {
+      dia: "24-12-2022",
+      maniana: "Gerometta ",
+      tarde: "Galvan "
+      },
+      {
+      dia: "25-12-2022",
+      maniana: "Galvan ",
+      tarde: "Galvan "
+      },
+      {
+        dia: "26-12-2022",
+        maniana: "Franchi Knuttzen",
+        tarde: "Gerometta "
+        },
+        {
+        dia: "27-12-2022",
+        maniana: "Galvan ",
+        tarde: "Garigliano "
+        },
+        {
+        dia: "28-12-2022",
+        maniana: "Gerometta Knuttzen",
+        tarde: "Franchi "
+        },
+        {
+        dia: "29-12-2022",
+        maniana: "Garigliano ",
+        tarde: "Galvan "
+        },
+        {
+        dia: "30-12-2022",
+        maniana: "Gerometta Franchi",
+        tarde: "Garigliano "
+        },
+        {
+        dia: "31-12-2022",
+        maniana: "Knuttzen ",
+        tarde: "Franchi "
+        },
+        {
+        dia: "01-01-2023",
+        maniana: "Franchi ",
+        tarde: "Franchi "
+        },
+
 ];
