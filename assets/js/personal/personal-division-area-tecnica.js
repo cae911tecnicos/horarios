@@ -32,7 +32,7 @@ export let personalTecnico = [
   },
   {
     nombre: "Juan Pablo",
-    apellido: "Galva",
+    apellido: "Galvan",
     situacion: "Licencia",
     inicioSituacion: "25-07-2022",
     finSituacion: "08-08-2022",
