@@ -325,5 +325,75 @@ export const manual_area_tecnica = [
         maniana: "Franchi ",
         tarde: "Franchi "
         },
-
+        {
+          dia: "09-01-2023",
+          maniana: "Franchi ",
+          tarde: "Knuttzen "
+          },
+          {
+          dia: "10-01-2023",
+          maniana: "Garigliano ",
+          tarde: "Franchi "
+          },
+          {
+          dia: "11-01-2023",
+          maniana: "Knuttzen ",
+          tarde: "Garigliano "
+          },
+          {
+          dia: "12-01-2023",
+          maniana: "Franchi ",
+          tarde: "Knuttzen "
+          },
+          {
+          dia: "13-01-2023",
+          maniana: "Garigliano ",
+          tarde: "Franchi "
+          },
+          {
+          dia: "14-01-2023",
+          maniana: "Knuttzen ",
+          tarde: "Knuttzen "
+          },
+          {
+          dia: "15-01-2023",
+          maniana: "Knuttzen ",
+          tarde: "Knuttzen "
+          },
+          {
+            dia: "16-01-2023",
+            maniana: "Garigliano ",
+            tarde: "Franchi "
+            },
+            {
+            dia: "17-01-2023",
+            maniana: "Knuttzen ",
+            tarde: "Garigliano "
+            },
+            {
+            dia: "18-01-2023",
+            maniana: "Knuttzen ",
+            tarde: "Franchi "
+            },
+            {
+            dia: "19-01-2023",
+            maniana: "Garigliano ",
+            tarde: "Knuttzen "
+            },
+            {
+            dia: "20-01-2023",
+            maniana: "Franchi ",
+            tarde: "Gerometta "
+            },
+            {
+            dia: "21-01-2023",
+            maniana: "Gerometta ",
+            tarde: "Gerometta "
+            },
+            {
+            dia: "22-01-2023",
+            maniana: "Gerometta ",
+            tarde: "Gerometta "
+            },
+            
 ];

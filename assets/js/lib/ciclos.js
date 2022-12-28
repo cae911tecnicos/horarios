@@ -13,8 +13,8 @@ export const ciclo_tecnicos_3 = [
   [2, 1, 3, 2, 1, 2, 2],
 ];
 export const ciclo_tecnicos_4 = [
-  [1, 3, 1, 4, 2, 4, 4],
-  [2, 4, 2, 3, 1, 4, 4],
+  [4, 2, 4, 3, 1, 3, 3],
+  [1, 3, 1, 2, 4, 3, 3],
 ];
 export const ciclo_tecnicos_5 = [
   [14, 3, 24, 5, 12, 4, 4],
